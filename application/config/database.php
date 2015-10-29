@@ -92,7 +92,7 @@ if($_SERVER['HTTP_HOST']=='junctionerp.com')
 	$username='junctionerp';
 	$password='initial';
 }
-if($_SERVER['HTTP_HOST']=='junctiondev.cloudapp.net/manage_application/')
+if($_SERVER['HTTP_HOST']=='junctiondev.cloudapp.net/appmanager/')
 {
 	$username='root';
 	$password='bitnami';
