@@ -51,6 +51,7 @@
 		//$unset_userdata=$CI->session->unset_userdata($database_name);
 		//$CI->session->sess_destroy();
 	//echo $database_name;die;
+	/*
 if($_SERVER['HTTP_HOST']=="localhost"){
 $username="root";
 $password="";
@@ -63,13 +64,13 @@ if($_SERVER['HTTP_HOST']=="www.junctionerp.com" || "junctionerp.com"){
 $username="junctionerp";
 $password="initial";
 }
-	
+	*/
 $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = $username;
-$db['default']['password'] = $password;
+$db['default']['username'] = 'root';
+$db['default']['password'] = 'bitnami';
 $db['default']['database'] = 'appmanager';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
