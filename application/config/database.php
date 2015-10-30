@@ -45,9 +45,9 @@
 | the active record class
 */
 
-   $CI =& get_instance();
-   $CI->load->library('session'); //if it's not autoloaded in your CI setup
-	$database_name=$CI->session->userdata('db_name');
+  // $CI =& get_instance();
+  // $CI->load->library('session'); //if it's not autoloaded in your CI setup
+	//$database_name=$CI->session->userdata('db_name');
 		//$unset_userdata=$CI->session->unset_userdata($database_name);
 		//$CI->session->sess_destroy();
 	//echo $database_name;die;
