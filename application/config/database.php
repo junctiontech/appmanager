@@ -55,7 +55,7 @@ if($_SERVER['HTTP_HOST']=="localhost"){
 $username="root";
 $password="";
 }
-if($_SERVER['HTTP_HOST']=="http://junctiondev.cloudapp.net"){
+if($_SERVER['HTTP_HOST']=="junctiondev.cloudapp.net"){
 $username="root";
 $password="bitnami";
 }
@@ -63,7 +63,6 @@ if($_SERVER['HTTP_HOST']=="www.junctionerp.com" || "junctionerp.com"){
 $username="junctionerp";
 $password="initial";
 }
-echo $_SERVER['HTTP_HOST'];die;
 	
 $active_group = 'default';
 $active_record = TRUE;
