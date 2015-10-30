@@ -46,7 +46,7 @@
 */
 
   // $CI =& get_instance();
-  // $CI->load->library('session'); //if it's not autoloaded in your CI setup
+   //$CI->load->library('session'); //if it's not autoloaded in your CI setup
 	//$database_name=$CI->session->userdata('db_name');
 		//$unset_userdata=$CI->session->unset_userdata($database_name);
 		//$CI->session->sess_destroy();
@@ -55,7 +55,7 @@ if($_SERVER['HTTP_HOST']=="localhost"){
 $password="";
 $username="root";
 }
-if($_SERVER['HTTP_HOST']=="junctiondev.cloudapp.net/appmanager"){
+if($_SERVER['HTTP_HOST']=="http://junctiondev.cloudapp.net/appmanager/"){
 $password="bitnami";
 $username="root";	
 }
