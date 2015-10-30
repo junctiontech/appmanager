@@ -129,15 +129,15 @@
 						</div>  -->
 						<div class="form-group">
 							<label class="control-label" for="db_name">Data Base Name</label>
-							<input type="text" class="form-control" name="db_name" id="db_name" autocomplete="off" required/>
+							<input type="text" class="form-control" name="db_name" id="db_name" autocomplete="off" />
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="username">User id</label>
-							<input type="text" class="form-control" name="username" id="username" autocomplete="off" required/>
+							<input type="text" class="form-control" name="username" id="username" autocomplete="off" />
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="passwd">Password</label>
-							<input type="password" class="form-control" name="password" id="passwd" autocomplete="off" required/>
+							<input type="password" class="form-control" name="password" id="passwd" autocomplete="off" />
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary btn-theme btn-block text-left">

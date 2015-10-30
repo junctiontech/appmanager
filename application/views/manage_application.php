@@ -22,7 +22,7 @@
 								<i class="fa-star"></i>
 							</div>
 							<div class="xe-label">
-								<h4><strong><a style="color: white"  href=" <?php //echo base_url();?>admin_panel/admin_reg_app?app=<? //=$list->application_id;  ?>"><?=$list->application_id;  ?></a></strong></h4>
+								<h4><strong><a style="color: white"  href=" javascript:;<?php //echo base_url();?>admin_panel/admin_reg_app?app=<? //=$list->application_id;  ?>"><?=$list->application_id;  ?></a></strong></h4>
 							</div>
 						</div>
 						<div class="xe-lower">
@@ -48,7 +48,7 @@
 								<i class="fa-star"></i>
 							</div>
 							<div class="xe-label">
-								<h4><strong><a style="color: white" <?php foreach ($org_list as $listing){ if($listing->application_id==$list->application_id){ ?> href="<?php echo base_url();?>login/application_login?id=login" <?php } }  ?> href="<?php echo base_url();?>admin_panel/admin_reg_app?app=<?=$list->application_id;  ?>"><?=$list->application_id;  ?></a></strong></h4>
+								<h4><strong><a style="color: white" <?php foreach ($org_list as $listing){ if($listing->application_id==$list->application_id){ ?> href="javascript:;" <?php } }  ?> href="<?php echo base_url();?>admin_panel/admin_reg_app?app=<?=$list->application_id;  ?>"><?=$list->application_id;  ?></a></strong></h4>
 							</div>
 						</div>
 						<div class="xe-lower">

@@ -41,7 +41,7 @@
 						</li>
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
-					<!--  <li>
+					<!-- <li>
 						<a href="<?php echo base_url(); ?>home"  >
 							<i class="linecons-graduation-cap"></i>
 							<span id="hr" class="title" title="Human Resource">Human Resource</span>

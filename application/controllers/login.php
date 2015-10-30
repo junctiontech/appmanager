@@ -34,7 +34,7 @@ Class Login extends CI_Controller {
 	/* Function For registration Application view for new organization.......................................................*/
 	function registration_application()
 	{  
-		$this->parser->parse('include/header',$this->data);
+                $this->parser->parse('include/header',$this->data);
 		$app_list=$this->data['app_list']=$this->login_model->app_list($_GET['id']);
 		$this->load->view('registration_application',$this->data);		
 	}
@@ -49,7 +49,7 @@ Class Login extends CI_Controller {
 		}
 	}
 	
-	/* Function For insert organization and application information diffrent table and server application user table.........................................................*/
+		/* Function For insert organization and application information diffrent table and server application user table.........................................................*/
 	function set_registration_application()
 	{
 		if(isset($_GET['json'])&&$_GET['json']!=='')
@@ -146,7 +146,7 @@ Class Login extends CI_Controller {
 		$url=$this->input->post('app_url').$this->input->post('app_reg_fun');
 		if($db_name)
 		{
-			if(!isset($org_id) && $org_id=='')
+			if(isset($org_id) && $org_id=='')
 			{  
 				$data=array(
 							'organization_name'=>$this->input->post('organization_name'),
@@ -177,7 +177,7 @@ Class Login extends CI_Controller {
 							'url'=>$url
 					);
 					$json=json_encode($data);
-					redirect('http://localhost/manage_application/login/reg_app?data='.$json);
+					redirect('http://junctionerp.com/manage/login/reg_app?data='.$json);
 				}
 				/*$data=array(
 								'organization_id'=>$org_id,
@@ -217,7 +217,8 @@ Class Login extends CI_Controller {
 						);
 			$json= json_encode($data_user);// create json for sending purpose
 			redirect($url.'?data='.$json);
-		*/}
+		*/
+		}
 			
 		}	
 	
@@ -255,6 +256,7 @@ Class Login extends CI_Controller {
 		redirect($data->url.'?data='.$json);
 		
 	}
+
 	
 	/* function for check organization information is already exist in database .......................................................*/
 	function verification_new_user()
@@ -264,18 +266,18 @@ Class Login extends CI_Controller {
 		$check_org=$this->data['check_org']=$this->login_model->verification_new_user($val,$field_name);
 		if($check_org)
 		{
-			if($check_org && $field_name=='Organization'){
+			if($check_org && $field_name!=='Database name'){
 			?>
 				<span id="txt" class="alert alert-danger"> Your <?=$field_name; ?> Already Exist If you want to used same organization for new Application Please Login then registered for Application <?=$field_name; ?></span>
 			<?php 
 			}
-			if($check_org && $field_name=='Database name' || $field_name=='Email')
+			if($check_org && $field_name=='Database name')
 			{
 				?>
-					<span id="txt" class="alert alert-danger"> Your <?=$field_name; ?> Already Exist Please Try With Another <?=$field_name; ?> </span>
+					<span id="txt" class="alert alert-danger"> Your <?=$field_name; ?> Already Exist Please Try With Another DataBase Name </span>
 				<?php 
 			}
-		}	
+		}
 	}
 	
 
@@ -289,9 +291,9 @@ Class Login extends CI_Controller {
 			$value=json_decode($data);
 		}
 		else
-		{
+		{	
 			$json=$_POST['json'];
-			$value=json_decode($json);
+			$value=json_decode($json); 
 			$url_name=$value->device;
 		}	
 		if(isset($_SERVER['HTTP_REFERER']) && isset($value->device)!=='')
@@ -324,7 +326,7 @@ Class Login extends CI_Controller {
 									'username'=>$value->username,
 									'password'=>md5($value->password),
 									'organization_id'=>$status_org_info[0]->organization_id,
-									'organization_name'=>$status_org_info[0]->organization_name,
+									'organization_name'=>str_replace(' ','_',$status_org_info[0]->organization_name),
 							);
 							$value=json_encode($data);
 							redirect($url.'?json='.$value);

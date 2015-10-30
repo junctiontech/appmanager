@@ -128,4 +128,12 @@ class Login_model extends CI_Model
 		//print_r($qry);die;
 		return $qry->result();
 	}
+	
+	/* function for update application status by gmail */
+	function activate_org($table=false,$filter=false)
+	{
+		$this->db->where($filter);
+		$qry=$this->db->update($table,array('status'=>'active'));
+		return true;
+	}
 }
