@@ -55,7 +55,7 @@ if($_SERVER['HTTP_HOST']=="localhost"){
 $password="";
 $username="root";
 }
-if($_SERVER['HTTP_HOST']=="junctiondev.cloudapp.net/appmanage"){
+if($_SERVER['HTTP_HOST']=="junctiondev.cloudapp.net/appmanager"){
 $password="bitnami";
 $username="root";	
 }
@@ -70,7 +70,7 @@ $active_record = TRUE;
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = $username;
 $db['default']['password'] = $password;
-$db['default']['database'] = 'junction_console';
+$db['default']['database'] = 'manageapp';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
