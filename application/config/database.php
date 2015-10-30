@@ -63,6 +63,7 @@ if($_SERVER['HTTP_HOST']=="www.junctionerp.com" || "junctionerp.com"){
 $username="junctionerp";
 $password="initial";
 }
+echo $_SERVER['HTTP_HOST'];die;
 	
 $active_group = 'default';
 $active_record = TRUE;
