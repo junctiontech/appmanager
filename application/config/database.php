@@ -51,26 +51,26 @@
 		//$unset_userdata=$CI->session->unset_userdata($database_name);
 		//$CI->session->sess_destroy();
 	//echo $database_name;die;
-/*if($_SERVER['HTTP_HOST']=="localhost"){
-$password="";
+if($_SERVER['HTTP_HOST']=="localhost"){
 $username="root";
+$password="";
 }
 if($_SERVER['HTTP_HOST']=="junctiondev.cloudapp.net/appmanager/"){
+$username="root";
 $password="bitnami";
-$username="root";	
 }
 if($_SERVER['HTTP_HOST']=="www.junctionerp.com" || "junctionerp.com"){
-$password="initial";
 $username="junctionerp";
+$password="initial";
 }
-	*/
+	
 $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'bitnami';
-$db['default']['database'] = 'manageapp';
+$db['default']['username'] = $username;
+$db['default']['password'] = $password;
+$db['default']['database'] = 'appmanager';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
