@@ -55,7 +55,7 @@ if($_SERVER['HTTP_HOST']=="localhost"){
 $password="";
 $username="root";
 }
-if($_SERVER['HTTP_HOST']=="http://junctiondev.cloudapp.net/appmanager/"){
+if($_SERVER['HTTP_HOST']=="junctiondev.cloudapp.net/appmanager/"){
 $password="bitnami";
 $username="root";	
 }
