@@ -54,6 +54,17 @@ Class Login extends CI_Controller {
 	{
 		if(isset($_GET['json'])&&$_GET['json']!=='')
 		{
+			?>
+			<div id="dialogoverlay"></div>
+			<div id="dialogbox">
+  				<div>
+				    <div id="dialogboxhead"></div>
+				    <div id="dialogboxbody"></div>
+				    <div id="dialogboxfoot"></div>
+  				</div>
+			</div>
+			<div onload="Alert.render('And you also smell very nice.')"></div>
+			<?php 
 			 $json=json_decode($_GET['json']);
 			 $code_org_id=md5($json->organization_id);
 			 $subject="junctionerp :-Please Activate Your Account ";
@@ -134,7 +145,7 @@ Class Login extends CI_Controller {
 				else{
 							// $json=json_decode($_GET['json']);
 								 $subjects="junctionerp :- Your Application Registered Successfully";
-				                 $messages= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b>$json->organization_name</b> User Name:- <b>$json->username</b> Password:- <b>$json->Password</b> Database Name:- <b>$json->database_name</b> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3></p></body></html>";
+				                 $messages= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b>$json->organization_name</b> User Name:- <b>$json->username</b> Password:- <b>$json->Password</b> Database Name:- <b>$json->database_name</b> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login</p></body></html>";
 								 $names='Junction Software Pvt Ltd';
 								  	
 								/*
@@ -208,7 +219,7 @@ Class Login extends CI_Controller {
 											
 									}
 									else{
-											redirect('https://google.com');
+											redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login');
 									}
 						}
 			}
