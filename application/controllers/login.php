@@ -133,13 +133,8 @@ Class Login extends CI_Controller {
 					}
 				else{
 							// $json=json_decode($_GET['json']);
-							echo $json->organization_name;
-							echo $json->username;
-							echo $json->Password;
-							echo $json->database_name;
-							echo $json->application_admin_email;die;
-							 $subject="junctionerp :- Your Application Registered Successfully";
-				                 $message= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b> $json->organization_name  </b> User Name:- <b> $json->username </b> Password:- <b>$json->Password </b> Database Name:- <b $json->database_name </b> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login</p></body></html>";
+								 $subject="junctionerp :- Your Application Registered Successfully";
+				                 $message= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b> $json->organization_name  </b> User Name:- <b> $json->username </b> Password:- <b> $json->Password </b> Database Name:- <b> $json->database_name </b> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login</p></body></html>";
 								 $name='Junction Software Pvt Ltd';
 								  	
 								/*
