@@ -31,55 +31,93 @@
 				<?php if(isset($app_list)){ foreach($app_list as $list){ ?>
 				<input type="hidden" name="app_url" value="<?php echo $list->application_url;?>"/>
 				<input type="hidden" name="app_reg_fun" value="<?php echo $list->registration_function;?>"/>
-				<input type="hidden" name="app_name" value="<?php echo $list->application_id;?>"/>
+				<input type="hidden" name="application_name" value="<?php echo $list->application_id;?>"/>
 				<?php } } ?>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Organization Name</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="organization_name" id="field-1" placeholder="Organization Name" onchange="check_organization(this.value)" >
+					<input type="text" class="form-control" name="organization_name" id="org" placeholder="Organization Name" onchange="check_organization(this.value,this.id)" required >
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Name</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="name" id="field-1" placeholder="Please Enter Name">
+					<input type="text" class="form-control" name="name" id="name" placeholder="Please Enter Name" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Email</label>
 				<div class="col-sm-10">
-					<input type="email" class="form-control" name="email" data-mask="email" id="field-1" placeholder="Please Enter Email">
+					<input type="email" class="form-control" name="email" data-mask="email" id="email" placeholder="Please Enter Email" onchange="check_email(this.value,this.id)" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Mobile</label>
 				<div class="col-sm-10">
-					<input type="number" pattern=""  class="form-control" data-mask="phone" name="mobile" id="field-1" placeholder="Please Enter Mobile Number">
+					<input type="number" pattern=""  class="form-control" data-mask="mobile" name="mobile" id="mobile" placeholder="Please Enter Mobile Number" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Address</label>
 				<div class="col-sm-10">
-					<textarea class="form-control" name="address" placeholder="Please Enter Address" /></textarea>
+					<textarea class="form-control" name="address" placeholder="Please Enter Address" required /></textarea>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">User name</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="username" id="field-1" placeholder="Please Enter User Name">
+					<input type="text" class="form-control" name="username" id="username" placeholder="Please Enter User Name" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Password</label>
 				<div class="col-sm-10">
-					<input type="password" class="form-control" name="password" id="field-1" placeholder="Please Enter Password">
+					<input type="password" class="form-control" name="password" id="password" placeholder="Please Enter Password" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Data Base</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="db_name" id="field-1" placeholder="Please Enter Data Base Name" onchange="check_dbname(this.value)" >
+					<input type="text" class="form-control" name="db_name" id="db_name" placeholder="Please Enter Data Base Name" onchange="check_dbname(this.value,this.id)" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-6 control-label" for="field-1"><b>If Application Registration Deatail Is Same So Please Click Checkbox</b> </label>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-4" align="center">
+					<input type="checkbox" class="" name="app_checkbox" id="chk" onclick="application_entry(this.id)" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="field-1">Name</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="name" id="app_admin_name" placeholder="Please Enter Application Admin Name" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="field-1">Email</label>
+				<div class="col-sm-10">
+					<input type="email" class="form-control" name="email" data-mask="app_email" id="app_email" placeholder="Please Enter Application Admin Email " required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="field-1">Mobile</label>
+				<div class="col-sm-10">
+					<input type="number" pattern=""  class="form-control" data-mask="phone" name="app_mobile" id="app_mobile" placeholder="Please Enter Application Admin Mobile Number" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="field-1">User name</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="username" id="app_username" placeholder="Please Enter Application Admin User Name" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="field-1">Password</label>
+				<div class="col-sm-10">
+					<input type="password" class="form-control" name="password" id="app_password" placeholder="Please Enter Application Admin Password" required>
 				</div>
 			</div>
 	<div class="form-group">

@@ -54,11 +54,7 @@ Class Login extends CI_Controller {
 	{
 		if(isset($_GET['json'])&&$_GET['json']!=='')
 		{
-			$json=json_decode($_GET['json']); //print_r($json);die;
-			//$data=array(
-					//'organization_id'=>$json->organization_id,
-				 //  );
-			 //$value=json_encode($data);	
+			 $json=json_decode($_GET['json']);
 			 $code_org_id=md5($json->organization_id);
 			 $subject="junctionerp :-Please Activate Your Account ";
                  $message= " <html><body><h3>Hello: Admin </h3><p> Organization Name:- <b>$json->organization_name  </b> Your Organization is successfully Registered</p><p><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctionerp.com/manage/login/activate_org/$json->organization_id/$code_org_id</p></body></html>";
@@ -108,13 +104,13 @@ Class Login extends CI_Controller {
 				$mail->Password = 'initial1$';
 
 				//Set who the message is to be sent from
-				$mail->setFrom($json->email,$name);
+				$mail->setFrom($json->organization_admin_email,$name);
 
 				//Set an alternative reply-to address
 				$mail->addReplyTo('dev4junction@gmail.com', $name);
 
 				//Set who the message is to be sent to
-				$mail->addAddress($json->email);
+				$mail->addAddress($json->organization_admin_email);
 
 				//Set the subject line
 				$mail->Subject = $subject;
@@ -130,14 +126,93 @@ Class Login extends CI_Controller {
 				//$mail->addAttachment($uploadfile,$filename);
 
 				//send the message, check for errors
-				if (!$mail->send()) {
+				if (!$mail->send())
+					 {
 						print "We encountered an error sending your mail"; 
 							
 					}
-					else{
-						redirect('https://mail.google.com');
-					}
-		}
+				else{
+							 $json=json_decode($_GET['json']);
+							 $code_org_id=md5($json->organization_id);
+							 $subject="junctionerp :- Your Application Registered ";
+				                 $message= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b> $json->organization_name  </b> User Name:- <b> $json->Username </b> Password:- <b>$json->Password </b> Database Name:- <b>$json->database_name </b> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login</p></body></html>";
+								$name='Junction Software Pvt Ltd';
+								  	
+								/*
+								 	 This example shows settings to use when sending via Google's Gmail servers.
+								*/
+				
+								//SMTP needs accurate times, and the PHP time zone MUST be set
+								//This should be done in your php.ini, but this is how to do it if you don't have access to that
+								date_default_timezone_set('Etc/UTC');
+				
+								require 'PHPMailer/PHPMailerAutoload.php';
+				
+								//Create a new PHPMailer instance
+								$mail = new PHPMailer;
+				
+								//Tell PHPMailer to use SMTP
+								$mail->isSMTP();
+				
+								//Enable SMTP debugging
+								// 0 = off (for production use)
+								// 1 = client messages
+								// 2 = client and server messages
+								$mail->SMTPDebug = 0;
+				
+								//Ask for HTML-friendly debug output
+								$mail->Debugoutput = 'html';
+				
+								//Set the hostname of the mail server
+								$mail->Host = 'smtp.gmail.com';
+				
+								//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+								$mail->Port = 587;
+				
+								//Set the encryption system to use - ssl (deprecated) or tls
+								$mail->SMTPSecure = 'tls';
+				
+								//Whether to use SMTP authentication
+								$mail->SMTPAuth = true;
+				
+								//Username to use for SMTP authentication - use full email address for gmail
+								$mail->Username = "dev4junction@gmail.com";
+				
+								//Password to use for SMTP authentication
+								$mail->Password = 'initial1$';
+				
+								//Set who the message is to be sent from
+								$mail->setFrom($json->application_admin_email,$name);
+				
+								//Set an alternative reply-to address
+								$mail->addReplyTo('dev4junction@gmail.com', $name);
+				
+								//Set who the message is to be sent to
+								$mail->addAddress($json->application_admin_email);
+				
+								//Set the subject line
+								$mail->Subject = $subject;
+				
+								//Read an HTML message body from an external file, convert referenced images to embedded,
+								//convert HTML into a basic plain-text alternative body
+								$mail->msgHTML($message);
+				
+								//Replace the plain text body with one created manually
+								$mail->AltBody = 'This is a plain-text message body';
+				
+								//Attach an image file
+								//$mail->addAttachment($uploadfile,$filename);
+				
+								//send the message, check for errors
+								if (!$mail->send()) {
+										print "We encountered an error sending your mail"; 
+											
+									}
+									else{
+										redirect('https://mail.google.com');
+									}
+						}
+			}
 		$org_id=$this->input->post('org_id');
 		$org_name=$this->input->post('organization_name');
 		$email=$this->input->post('email');
@@ -167,58 +242,21 @@ Class Login extends CI_Controller {
 					$data=array(
 							'organization_id'=>$org_id,
 							'organization_name'=>$this->input->post('organization_name'),
-							'application_id'=>$this->input->post('app_name'),
-							'name'=>$this->input->post('name'),
-							'Username'=>$this->input->post('username'),
-							'password'=>md5($this->input->post('password')),
-							'email'=>$this->input->post('email'),
-							'mobile'=>$this->input->post('mobile'),
+							'application_id'=>$this->input->post('application_name'),
+							'name'=>$this->input->post('app_admin_name'),
+							'Username'=>$this->input->post('app_username'),
+							'password'=>md5($this->input->post('app_password')),
+							'organization_admin_email'=>$this->input->post('email'),
+							'application_admin_email'=>$this->input->post('app_email'),
+							'mobile'=>$this->input->post('app_mobile'),
 							'db_name'=>$db_name,
 							'url'=>$url
 					);
 					$json=json_encode($data);
-					redirect('http://junctionerp.com/manage/login/reg_app?data='.$json);
+					redirect('http://localhost/manage/login/reg_app?data='.$json);
 				}
-				/*$data=array(
-								'organization_id'=>$org_id,
-								'application_id'=>$this->input->post('app_name'),
-								'name'=>$this->input->post('name'),
-								'Username'=>$this->input->post('username'),
-								'password'=>md5($this->input->post('password')),
-								'email'=>$this->input->post('email'),
-								'mobile'=>$this->input->post('mobile'),
-								'db_name'=>$db_name,
-							);
-			
-			}	
-				$data_registered_app=array(
-						'organization_id'=>$org_id,
-						'application_id'=>$this->input->post('app_name'),
-						'name'=>$this->input->post('name'),
-						'Username'=>$this->input->post('username'),
-						'password'=>md5($this->input->post('password')),
-						'email'=>$this->input->post('email'),
-						'mobile'=>$this->input->post('mobile'),
-						'db_name'=>$db_name,
-						'status'=>'active',
-						'created_by'=>$this->input->post('name'),
-						'created_on'=>date("Y-m-d")
-				);
-			$set_new_user=$this->data['set_new_user']=$this->login_model->set_registration_application('registered_application',$data_registered_app);
-			 /* Create Array For convert into json and send data for application servar 
-			$data_user=array(	
-							'organization_id'=>$org_id,
-							'email'=>$this->input->post('email'),
-							'organization_name'=>$this->input->post('organization_name'),
-							'db_name'=>$db_name,
-							'Username'=>$this->input->post('username'),
-							'Password'=>md5($this->input->post('password')),
-							'UserType'=>'masteruser'
-						);
-			$json= json_encode($data_user);// create json for sending purpose
-			redirect($url.'?data='.$json);
-		*/
-		}
+				
+			}
 			
 		}	
 	
@@ -234,7 +272,7 @@ Class Login extends CI_Controller {
 				'name'=>$data->name,
 				'Username'=>$data->Username,
 				'password'=>$data->password,
-				'email'=>$data->email,
+				'email'=>$data->application_admin_email,
 				'mobile'=>$data->mobile,
 				'db_name'=>$data->db_name,
 				'status'=>'active',
@@ -245,7 +283,8 @@ Class Login extends CI_Controller {
 		/* Create Array For convert into json and send data for application servar */
 		$data_user=array(
 				'organization_id'=>$data->organization_id,
-				'email'=>$data->email,
+				'application_admin_email'=>$data->application_admin_email,
+				'organization_admin_email'=>$data->organization_admin_email,
 				'organization_name'=>$data->organization_name,
 				'db_name'=>$data->db_name,
 				'Username'=>$data->Username,

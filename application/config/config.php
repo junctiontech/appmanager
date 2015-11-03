@@ -14,8 +14,9 @@
 | path to your installation.
 |
 */
-
-$config['base_url']	= "http://junctiondev.cloudapp.net/appmanager/";
+//http://localhost/appmanager/
+// http://junctiondev.cloudapp.net/appmanager/
+$config['base_url']	= 'http://junctiondev.cloudapp.net/appmanager/';
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ $config['base_url']	= "http://junctiondev.cloudapp.net/appmanager/";
 | variable so that it is blank.
 |
 */
+
 $config['index_page'] = '';
 
 /*
