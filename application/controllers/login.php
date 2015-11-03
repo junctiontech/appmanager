@@ -39,7 +39,7 @@ Class Login extends CI_Controller {
 		$this->load->view('registration_application',$this->data);		
 	}
 	
-	/* function for activar account with help of mail  */
+	/* function for activate account with help of mail  */
 	function activate_org($id=false)
 	{
 		$activate_org=$this->data['activate_org']=$this->login_model->activate_org('organizations',array('organization_id'=>$id));
@@ -135,7 +135,7 @@ Class Login extends CI_Controller {
 							 $json=json_decode($_GET['json']);
 							 $code_org_id=md5($json->organization_id);
 							 $subject="junctionerp :- Your Application Registered ";
-				                 $message= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b> $json->organization_name  </b> User Name:- <b> $json->Username </b> Password:- <b>$json->Password </b> Database Name:- <b>$json->database_name </b> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login</p></body></html>";
+				                 $message= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b> $json->organization_name  </b> User Name:- <b> $json->username </b> Password:- <b>$json->Password </b> Database Name:- <b>$json->database_name </b> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login</p></body></html>";
 								$name='Junction Software Pvt Ltd';
 								  	
 								/*
