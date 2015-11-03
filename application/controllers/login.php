@@ -267,6 +267,7 @@ Class Login extends CI_Controller {
 	function reg_app()
 	{
 		$data=json_decode($_GET['data']);
+		print_r($data);die;
 		$data_registered_app=array(
 				'organization_id'=>$data->organization_id,
 				'application_id'=>$data->application_id,
