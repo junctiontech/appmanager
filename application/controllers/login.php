@@ -253,7 +253,7 @@ Class Login extends CI_Controller {
 							'url'=>$url
 					);
 					$json=json_encode($data);
-					redirect('http://localhost/manage/login/reg_app?data='.$json);
+					redirect('http://junctiondev.cloudapp.net/appmanager/login/reg_app?data='.$json);
 				}
 				
 			}
