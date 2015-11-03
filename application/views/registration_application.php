@@ -49,7 +49,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Email</label>
 				<div class="col-sm-10">
-					<input type="email" class="form-control" name="email" data-mask="email" id="email" placeholder="Please Enter Email" onchange="check_email(this.value,this.id)" required>
+					<input type="email" class="form-control" name="email" data-mask="email" id="email" placeholder="Please Enter Email" onchange="" required>
 				</div>
 			</div>
 			<div class="form-group">
