@@ -93,31 +93,31 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Name</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="app_admin_name" id="app_admin_name" placeholder="Please Enter Application Admin Name" required>
+					<input type="text" class="form-control" name="application_admin_name" id="app_admin_name" placeholder="Please Enter Application Admin Name" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Email</label>
 				<div class="col-sm-10">
-					<input type="email" class="form-control" name="app_email" data-mask="app_email" id="app_email" placeholder="Please Enter Application Admin Email " required>
+					<input type="email" class="form-control" name="application_email" data-mask="app_email" id="app_email" placeholder="Please Enter Application Admin Email " required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Mobile</label>
 				<div class="col-sm-10">
-					<input type="number" pattern=""  class="form-control" data-mask="phone" name="app_mobile" id="app_mobile" placeholder="Please Enter Application Admin Mobile Number" required>
+					<input type="number" pattern=""  class="form-control" data-mask="phone" name="application_mobile" id="app_mobile" placeholder="Please Enter Application Admin Mobile Number" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">User name</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="app_username" id="app_username" placeholder="Please Enter Application Admin User Name" required>
+					<input type="text" class="form-control" name="application_username" id="app_username" placeholder="Please Enter Application Admin User Name" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Password</label>
 				<div class="col-sm-10">
-					<input type="password" class="form-control" name="app_password" id="app_password" placeholder="Please Enter Application Admin Password" required>
+					<input type="password" class="form-control" name="application_password" id="app_password" placeholder="Please Enter Application Admin Password" required>
 				</div>
 			</div>
 	<div class="form-group">

@@ -243,12 +243,12 @@ Class Login extends CI_Controller {
 							'organization_id'=>$org_id,
 							'organization_name'=>$this->input->post('organization_name'),
 							'application_id'=>$this->input->post('application_name'),
-							'name'=>$this->input->post('app_admin_name'),
-							'Username'=>$this->input->post('app_username'),
-							'password'=>md5($this->input->post('app_password')),
+							'name'=>$this->input->post('application_admin_name'),
+							'Username'=>$this->input->post('application_username'),
+							'password'=>md5($this->input->post('application_password')),
 							'organization_admin_email'=>$this->input->post('email'),
-							'application_admin_email'=>$this->input->post('app_email'),
-							'mobile'=>$this->input->post('app_mobile'),
+							'application_admin_email'=>$this->input->post('application_email'),
+							'mobile'=>$this->input->post('application_mobile'),
 							'db_name'=>$db_name,
 							'url'=>$url
 					);
