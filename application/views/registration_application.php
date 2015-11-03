@@ -35,7 +35,7 @@
 				    <div id="dialogboxfoot"></div>
   				</div>
 			</div>
-			<div onload="CustomAlert('And you also smell very nice.')"></div>
+			<!--  <div onload="CustomAlert('And you also smell very nice.')"></div>-->
 			<div class="form-group">
 				<?php if(isset($app_list)){ foreach($app_list as $list){ ?>
 				<input type="hidden" name="app_url" value="<?php echo $list->application_url;?>"/>

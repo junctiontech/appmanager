@@ -92,7 +92,7 @@ function application_entry(value)
 	//alert(email);
 }
 
-function CustomAlert(){
+/*function CustomAlert(){
    // this.render = function(dialog){
         var winW = window.innerWidth;
         var winH = window.innerHeight;
@@ -112,4 +112,4 @@ function CustomAlert(){
 		document.getElementById('dialogoverlay').style.display = "none";
 	}
 }
-//var Alert = new CustomAlert();
+//var Alert = new CustomAlert();*/

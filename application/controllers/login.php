@@ -54,17 +54,6 @@ Class Login extends CI_Controller {
 	{
 		if(isset($_GET['json'])&&$_GET['json']!=='')
 		{
-			?>
-			<div id="dialogoverlay"></div>
-			<div id="dialogbox">
-  				<div>
-				    <div id="dialogboxhead"></div>
-				    <div id="dialogboxbody"></div>
-				    <div id="dialogboxfoot"></div>
-  				</div>
-			</div>
-			<div onload="Alert.render('And you also smell very nice.')"></div>
-			<?php 
 			 $json=json_decode($_GET['json']);
 			 $code_org_id=md5($json->organization_id);
 			 $subject="junctionerp :-Please Activate Your Account ";
