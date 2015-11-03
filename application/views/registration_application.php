@@ -1,6 +1,6 @@
 <!-- add organization page added by palak on 20 th june -->
 <!-- add organization body starts -->
-<body style="background-color: black">
+<body style="background-color: black" >
 <div class="page-title">
 	<div class="title-env">
 		<h2 class="title" style="color: white" >Registration For Your Application</h2>
@@ -35,7 +35,7 @@
 				    <div id="dialogboxfoot"></div>
   				</div>
 			</div>
-			<div onload="Alert.render('And you also smell very nice.')"></div>
+			<div onload="CustomAlert('And you also smell very nice.')"></div>
 			<div class="form-group">
 				<?php if(isset($app_list)){ foreach($app_list as $list){ ?>
 				<input type="hidden" name="app_url" value="<?php echo $list->application_url;?>"/>
