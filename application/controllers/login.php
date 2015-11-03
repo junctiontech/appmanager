@@ -133,9 +133,9 @@ Class Login extends CI_Controller {
 					}
 				else{
 							// $json=json_decode($_GET['json']);
-								 $subject="junctionerp :- Your Application Registered Successfully";
-				                 $message= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b>$json->organization_name</b> User Name:- <b>$json->username</b> Password:- <b>$json->Password</b> Database Name:- <b>$json->database_name</b> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3></p></body></html>";
-								 $name='Junction Software Pvt Ltd';
+								 $subjects="junctionerp :- Your Application Registered Successfully";
+				                 $messages= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b>$json->organization_name</b> User Name:- <b>$json->username</b> Password:- <b>$json->Password</b> Database Name:- <b>$json->database_name</b> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3></p></body></html>";
+								 $names='Junction Software Pvt Ltd';
 								  	
 								/*
 								 	 This example shows settings to use when sending via Google's Gmail servers.
@@ -143,58 +143,58 @@ Class Login extends CI_Controller {
 				
 								//SMTP needs accurate times, and the PHP time zone MUST be set
 								//This should be done in your php.ini, but this is how to do it if you don't have access to that
-								date_default_timezone_set('Etc/UTC');
+							//	date_default_timezone_set('Etc/UTC');
 				
-								require 'PHPMailer/PHPMailerAutoload.php';
+								//require 'PHPMailer/PHPMailerAutoload.php';
 				
 								//Create a new PHPMailer instance
-								$mail = new PHPMailer;
+								//$mail = new PHPMailer;
 				
 								//Tell PHPMailer to use SMTP
-								$mail->isSMTP();
+								//$mail->isSMTP();
 				
 								//Enable SMTP debugging
 								// 0 = off (for production use)
 								// 1 = client messages
 								// 2 = client and server messages
-								$mail->SMTPDebug = 0;
+								//$mail->SMTPDebug = 0;
 				
 								//Ask for HTML-friendly debug output
-								$mail->Debugoutput = 'html';
+							//	$mail->Debugoutput = 'html';
 				
 								//Set the hostname of the mail server
-								$mail->Host = 'smtp.gmail.com';
+								//$mail->Host = 'smtp.gmail.com';
 				
 								//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
-								$mail->Port = 587;
+							//	$mail->Port = 587;
 				
 								//Set the encryption system to use - ssl (deprecated) or tls
-								$mail->SMTPSecure = 'tls';
+								//$mail->SMTPSecure = 'tls';
 				
 								//Whether to use SMTP authentication
-								$mail->SMTPAuth = true;
+								//$mail->SMTPAuth = true;
 				
 								//Username to use for SMTP authentication - use full email address for gmail
-								$mail->Username = "dev4junction@gmail.com";
+								//$mail->Username = "dev4junction@gmail.com";
 				
 								//Password to use for SMTP authentication
-								$mail->Password = 'initial1$';
+							//	$mail->Password = 'initial1$';
 				
 								//Set who the message is to be sent from
-								$mail->setFrom($json->application_admin_email,$name);
-				
+								$mail->setFrom($json->application_admin_email,$names);
+									
 								//Set an alternative reply-to address
-								$mail->addReplyTo('dev4junction@gmail.com', $name);
+								$mail->addReplyTo('dev4junction@gmail.com', $names);
 				
 								//Set who the message is to be sent to
 								$mail->addAddress($json->application_admin_email);
 				
 								//Set the subject line
-								$mail->Subject = $subject;
+								$mail->Subject = $subjects;
 				
 								//Read an HTML message body from an external file, convert referenced images to embedded,
 								//convert HTML into a basic plain-text alternative body
-								$mail->msgHTML($message);
+								$mail->msgHTML($messages);
 				
 								//Replace the plain text body with one created manually
 								$mail->AltBody = 'This is a plain-text message body';
