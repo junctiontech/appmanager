@@ -18,7 +18,7 @@
 </div>
 <!-- page title closed -->
 <!-- body container  starts -->
-<div class="row">
+<div class="row" >
 	<div class="col-sm-12" />
 <div class="panel panel-default">
 	<!--  <div class="panel-heading">
@@ -28,14 +28,14 @@
 		<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>login/set_registration_application">
 		<div align="center" id="show_error"></div>
 		<div id="dialogoverlay"></div>
-			<div id="dialogbox">
-  				<div>
-				    <div id="dialogboxhead"></div>
-				    <div id="dialogboxbody"></div>
-				    <div id="dialogboxfoot"></div>
-  				</div>
-			</div>
-			<!--  <div onload="CustomAlert('And you also smell very nice.')"></div>-->
+		<div id="dialogbox">
+  			<div>
+			    <div id="dialogboxhead"></div>
+			    <div id="dialogboxbody"></div>
+			    <div id="dialogboxfoot"></div>
+  			</div>
+		</div>
+			 <div ></div>
 			<div class="form-group">
 				<?php if(isset($app_list)){ foreach($app_list as $list){ ?>
 				<input type="hidden" name="app_url" value="<?php echo $list->application_url;?>"/>

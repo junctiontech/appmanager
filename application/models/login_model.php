@@ -6,7 +6,7 @@ class Login_model extends CI_Model
 		parent::__construct();
 		$this->load->database();
 	}
-		// select data for behalf on database name
+		/* select data for behalf on database name */
 	function login($filter,$data)
 	{
 		$this->db->select('*');
@@ -14,8 +14,23 @@ class Login_model extends CI_Model
 		return $qry->result();
 	}
 	
-	/*function for count application in application list*/
+	/* function for result for application */
+	function result_application($organization_id=false)
+	{
+		$this->db->trans_start();
+		$filter=array(
+						'organization_id'=>$organization_id
+					);
+		$qry=$this->db->delete('registered_application',$filter);
+		if($qry)
+		{
+			$qry=$this->db->delete('organizations',$filter);
+		}
+		$this->db->trans_rollback();
+		$this->db->trans_complete();
+	}
 	
+	/*function for count application in application list*/
 	function app_list($filter=false)
 	{ 
 		if($filter)
@@ -51,40 +66,14 @@ class Login_model extends CI_Model
 	/* function for new user create */
 	function set_registration_application($table=false,$data=false)
 	{
-		//print_r($data['db_name']);die;
-		//$central_db=$this->load->database('central_db', TRUE);
-		//$qry=$central_db->insert('sw_registration',$data);
 		$this->db->insert($table,$data);
 		$id= $this->db->insert_id();
-		return $id;
-		die;
-		/*if($qry)
-		{
-			$this->db->query("CREATE DATABASE $db_name");
-			$exdb=mysqli_connect('localhost','root','',$db_name);
-			$sqlSource = file_get_contents('school_mgt.sql');
-			mysqli_multi_query($exdb,$sqlSource);
-			do
-			{
-				mysqli_store_result($exdb);
-			}
-			while(mysqli_more_results($exdb) && mysqli_next_result($exdb));
-			$qry="INSERT INTO `user`(`Username`, `Password`, `UserType`) VALUES ('".$data['username']."','".$data['password']."','masteruser')";
-			$query=mysqli_query($exdb,$qry) or die(mysql_error());
-				
-		}
-		return true;*/
+		return $id;	
 	}
 	
 	// connect for server database particular organization 
 	function daynamic_db($data,$db_name)
 	{	
-	//print_r($data);die;
-		//$this->load->database();
-		//$this->load->database('default',TRUE);
-		//$this->db->select('*');
-		//$qry=$this->db->get_where('user',$data);
-		//return $qry->result();
 		$con=mysqli_connect('localhost','root','',$db_name);
 		if($con)
 		{
@@ -120,7 +109,6 @@ class Login_model extends CI_Model
 	}
 	
 	/*	function for check organization	*/
-	
 	function get_organization_id($org_name)
 	{
 		$this->db->select('*');

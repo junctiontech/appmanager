@@ -34,7 +34,7 @@ Class Login extends CI_Controller {
 	/* Function For registration Application view for new organization.......................................................*/
 	function registration_application()
 	{  
-                $this->parser->parse('include/header',$this->data);
+		$this->parser->parse('include/header',$this->data);
 		$app_list=$this->data['app_list']=$this->login_model->app_list($_GET['id']);
 		$this->load->view('registration_application',$this->data);		
 	}
@@ -54,164 +54,8 @@ Class Login extends CI_Controller {
 	{
 		if(isset($_GET['json'])&&$_GET['json']!=='')
 		{
-			 $json=json_decode($_GET['json']);
-			 $code_org_id=md5($json->organization_id);
-			 $subject="junctionerp :-Please Activate Your Account ";
-                 $message= " <html><body><h3>Hello: Admin </h3><p> Organization Name:- <b>$json->organization_name  </b> Your Organization is successfully Registered</p><p><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctionerp.com/manage/login/activate_org/$json->organization_id/$code_org_id</p></body></html>";
-				$name='Junction Software Pvt Ltd';
-				  	
-				/*
-				 	 This example shows settings to use when sending via Google's Gmail servers.
-				*/
-
-				//SMTP needs accurate times, and the PHP time zone MUST be set
-				//This should be done in your php.ini, but this is how to do it if you don't have access to that
-				date_default_timezone_set('Etc/UTC');
-
-				require 'PHPMailer/PHPMailerAutoload.php';
-
-				//Create a new PHPMailer instance
-				$mail = new PHPMailer;
-
-				//Tell PHPMailer to use SMTP
-				$mail->isSMTP();
-
-				//Enable SMTP debugging
-				// 0 = off (for production use)
-				// 1 = client messages
-				// 2 = client and server messages
-				$mail->SMTPDebug = 0;
-
-				//Ask for HTML-friendly debug output
-				$mail->Debugoutput = 'html';
-
-				//Set the hostname of the mail server
-				$mail->Host = 'smtp.gmail.com';
-
-				//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
-				$mail->Port = 587;
-
-				//Set the encryption system to use - ssl (deprecated) or tls
-				$mail->SMTPSecure = 'tls';
-
-				//Whether to use SMTP authentication
-				$mail->SMTPAuth = true;
-
-				//Username to use for SMTP authentication - use full email address for gmail
-				$mail->Username = "dev4junction@gmail.com";
-
-				//Password to use for SMTP authentication
-				$mail->Password = 'initial1$';
-
-				//Set who the message is to be sent from
-				$mail->setFrom($json->organization_admin_email,$name);
-
-				//Set an alternative reply-to address
-				$mail->addReplyTo('dev4junction@gmail.com', $name);
-
-				//Set who the message is to be sent to
-				$mail->addAddress($json->organization_admin_email);
-
-				//Set the subject line
-				$mail->Subject = $subject;
-
-				//Read an HTML message body from an external file, convert referenced images to embedded,
-				//convert HTML into a basic plain-text alternative body
-				$mail->msgHTML($message);
-
-				//Replace the plain text body with one created manually
-				$mail->AltBody = 'This is a plain-text message body';
-
-				//Attach an image file
-				//$mail->addAttachment($uploadfile,$filename);
-
-				//send the message, check for errors
-				if (!$mail->send())
-					 {
-						print "We encountered an error sending your mail"; 
-							
-					}
-				else{
-							// $json=json_decode($_GET['json']);
-								 $subjects="junctionerp :- Your Application Registered Successfully";
-				                 $messages= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b>$json->organization_name</b> User Name:- <b>$json->username</b> Password:- <b>$json->Password</b> Database Name:- <b>$json->database_name</b> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login</p></body></html>";
-								 $names='Junction Software Pvt Ltd';
-								  	
-								/*
-								 	 This example shows settings to use when sending via Google's Gmail servers.
-								*/
-				
-								//SMTP needs accurate times, and the PHP time zone MUST be set
-								//This should be done in your php.ini, but this is how to do it if you don't have access to that
-							//	date_default_timezone_set('Etc/UTC');
-				
-								//require 'PHPMailer/PHPMailerAutoload.php';
-				
-								//Create a new PHPMailer instance
-								//$mail = new PHPMailer;
-				
-								//Tell PHPMailer to use SMTP
-								//$mail->isSMTP();
-				
-								//Enable SMTP debugging
-								// 0 = off (for production use)
-								// 1 = client messages
-								// 2 = client and server messages
-								//$mail->SMTPDebug = 0;
-				
-								//Ask for HTML-friendly debug output
-							//	$mail->Debugoutput = 'html';
-				
-								//Set the hostname of the mail server
-								//$mail->Host = 'smtp.gmail.com';
-				
-								//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
-							//	$mail->Port = 587;
-				
-								//Set the encryption system to use - ssl (deprecated) or tls
-								//$mail->SMTPSecure = 'tls';
-				
-								//Whether to use SMTP authentication
-								//$mail->SMTPAuth = true;
-				
-								//Username to use for SMTP authentication - use full email address for gmail
-								//$mail->Username = "dev4junction@gmail.com";
-				
-								//Password to use for SMTP authentication
-							//	$mail->Password = 'initial1$';
-				
-								//Set who the message is to be sent from
-								$mail->setFrom($json->application_admin_email,$names);
-									
-								//Set an alternative reply-to address
-								$mail->addReplyTo('dev4junction@gmail.com', $names);
-				
-								//Set who the message is to be sent to
-								$mail->addAddress($json->application_admin_email);
-				
-								//Set the subject line
-								$mail->Subject = $subjects;
-				
-								//Read an HTML message body from an external file, convert referenced images to embedded,
-								//convert HTML into a basic plain-text alternative body
-								$mail->msgHTML($messages);
-				
-								//Replace the plain text body with one created manually
-								$mail->AltBody = 'This is a plain-text message body';
-				
-								//Attach an image file
-								//$mail->addAttachment($uploadfile,$filename);
-				
-								//send the message, check for errors
-								if (!$mail->send()) {
-										print "We encountered an error sending your mail"; 
-											
-									}
-									else{
-											redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login');
-									}
-						}
-			}
+			 
+		}
 		$org_id=$this->input->post('org_id');
 		$org_name=$this->input->post('organization_name');
 		$email=$this->input->post('email');
@@ -399,6 +243,184 @@ Class Login extends CI_Controller {
 		
 	}
 
+	/* Function For Application Result Show Message If Success Or Not */
+	function result_application()
+	{
+		$json=json_decode($_GET['json']);
+		if(isset($json->code) && $json->code=='500')
+		{
+			$result=$this->login_model->result_application($json->organization_id);
+			if($result)
+			{	
+				/* Error Message Show When Database Alredy Exist */
+				?><body onload="Alert.render('Server Error Please Try Again !!!!');"></body><?php
+				redirect('http://junctiondev.cloudapp.net/appmanager/login/set_registration_application?id=reg');
+			}	
+		}
+		if(isset($json->code)&& $json->code=='200')
+		{
+			$json=json_decode($_GET['json']);
+			$code_org_id=md5($json->organization_id);
+			$subject="junctionerp :-Please Activate Your Account ";
+			$message= " <html><body><h3>Hello: Admin </h3><p> Organization Name:- <b>$json->organization_name  </b> Your Organization is successfully Registered</p><p><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctionerp.com/manage/login/activate_org/$json->organization_id/$code_org_id</p></body></html>";
+			$name='Junction Software Pvt Ltd';
+			/*
+			 This example shows settings to use when sending via Google's Gmail servers.
+			 */
+			
+			//SMTP needs accurate times, and the PHP time zone MUST be set
+			//This should be done in your php.ini, but this is how to do it if you don't have access to that
+			date_default_timezone_set('Etc/UTC');
+			
+			require 'PHPMailer/PHPMailerAutoload.php';
+			
+			//Create a new PHPMailer instance
+			$mail = new PHPMailer;
+			
+			//Tell PHPMailer to use SMTP
+			$mail->isSMTP();
+			
+			//Enable SMTP debugging
+			// 0 = off (for production use)
+			// 1 = client messages
+			// 2 = client and server messages
+			$mail->SMTPDebug = 0;
+			
+			//Ask for HTML-friendly debug output
+			$mail->Debugoutput = 'html';
+			
+			//Set the hostname of the mail server
+			$mail->Host = 'smtp.gmail.com';
+			
+			//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+			$mail->Port = 587;
+			
+			//Set the encryption system to use - ssl (deprecated) or tls
+			$mail->SMTPSecure = 'tls';
+			
+			//Whether to use SMTP authentication
+			$mail->SMTPAuth = true;
+			
+			//Username to use for SMTP authentication - use full email address for gmail
+			$mail->Username = "dev4junction@gmail.com";
+			
+			//Password to use for SMTP authentication
+			$mail->Password = 'initial1$';
+			
+			//Set who the message is to be sent from
+			$mail->setFrom($json->organization_admin_email,$name);
+			
+			//Set an alternative reply-to address
+			$mail->addReplyTo('dev4junction@gmail.com', $name);
+			
+			//Set who the message is to be sent to
+			$mail->addAddress($json->organization_admin_email);
+			
+			//Set the subject line
+			$mail->Subject = $subject;
+			
+			//Read an HTML message body from an external file, convert referenced images to embedded,
+			//convert HTML into a basic plain-text alternative body
+			$mail->msgHTML($message);
+			
+			//Replace the plain text body with one created manually
+			$mail->AltBody = 'This is a plain-text message body';
+			
+			//Attach an image file
+			//$mail->addAttachment($uploadfile,$filename);
+			
+			//send the message, check for errors
+			if (!$mail->send())
+			{
+				print "We encountered an error sending your mail";
+					
+			}
+			else
+			{
+				$subjects="junctionerp :- Your Application Registered Successfully";
+				$messages= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b>$json->organization_name</b> User Name:- <b>$json->username</b> Password:- <b>$json->Password</b> Database Name:- <b>$json->database_name</b> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login</p></body></html>";
+				$names='Junction Software Pvt Ltd';
+					
+				/*
+				 This example shows settings to use when sending via Google's Gmail servers.
+				 */
+			
+				//SMTP needs accurate times, and the PHP time zone MUST be set
+				//This should be done in your php.ini, but this is how to do it if you don't have access to that
+				//	date_default_timezone_set('Etc/UTC');
+			
+				//require 'PHPMailer/PHPMailerAutoload.php';
+			
+				//Create a new PHPMailer instance
+				//$mail = new PHPMailer;
+			
+				//Tell PHPMailer to use SMTP
+				//$mail->isSMTP();
+			
+				//Enable SMTP debugging
+				// 0 = off (for production use)
+				// 1 = client messages
+				// 2 = client and server messages
+				//$mail->SMTPDebug = 0;
+			
+				//Ask for HTML-friendly debug output
+				//	$mail->Debugoutput = 'html';
+			
+				//Set the hostname of the mail server
+				//$mail->Host = 'smtp.gmail.com';
+			
+				//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+				//	$mail->Port = 587;
+			
+				//Set the encryption system to use - ssl (deprecated) or tls
+				//$mail->SMTPSecure = 'tls';
+			
+				//Whether to use SMTP authentication
+				//$mail->SMTPAuth = true;
+			
+				//Username to use for SMTP authentication - use full email address for gmail
+				//$mail->Username = "dev4junction@gmail.com";
+			
+				//Password to use for SMTP authentication
+				//	$mail->Password = 'initial1$';
+			
+				//Set who the message is to be sent from
+				$mail->setFrom($json->application_admin_email,$names);
+					
+				//Set an alternative reply-to address
+				$mail->addReplyTo('dev4junction@gmail.com', $names);
+			
+				//Set who the message is to be sent to
+				$mail->addAddress($json->application_admin_email);
+			
+				//Set the subject line
+				$mail->Subject = $subjects;
+			
+				//Read an HTML message body from an external file, convert referenced images to embedded,
+				//convert HTML into a basic plain-text alternative body
+				$mail->msgHTML($messages);
+			
+				//Replace the plain text body with one created manually
+				$mail->AltBody = 'This is a plain-text message body';
+			
+				//Attach an image file
+				//$mail->addAttachment($uploadfile,$filename);
+			
+				//send the message, check for errors
+				if (!$mail->send()) 
+				{
+					print "We encountered an error sending your mail";
+						
+				}
+				else
+				{
+					?><body onload="Alert.render('Your Application Registered Successfully Please Activate Your Application With Help Of Registered Email !!!!');"></body><?php
+					redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login');
+				}
+			}
+		}
+	}
+	
 	/* function for logout for admin dashboard...........................................................................*/
 	function logout()
 	{
