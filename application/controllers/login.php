@@ -253,7 +253,7 @@ Class Login extends CI_Controller {
 			if($result)
 			{	
 				/* Error Message Show When Database Alredy Exist */
-				?><body onload="Alert.render('Server Error Please Try Again !!!!');"></body><?php
+				?><body onload="CustomAlert('Server Error Please Try Again !!!!');"></body><?php
 				//redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=reg');
 			}	
 		}

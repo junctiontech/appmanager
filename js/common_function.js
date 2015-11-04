@@ -93,7 +93,7 @@ function application_entry(value)
 }
 
 function CustomAlert(){
-    this.render = function(dialog){
+   // this.render = function(dialog){
         var winW = window.innerWidth;
         var winH = window.innerHeight;
         var dialogoverlay = document.getElementById('dialogoverlay');
@@ -106,10 +106,10 @@ function CustomAlert(){
         document.getElementById('dialogboxhead').innerHTML = "Oops Something Problem.....";
         document.getElementById('dialogboxbody').innerHTML = dialog;
         document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Alert.ok()">OK</button>';
-    }
-	this.ok = function(){
+   // }
+	//this.ok = function(){
 		document.getElementById('dialogbox').style.display = "none";
 		document.getElementById('dialogoverlay').style.display = "none";
-	}
+	//}
 }
-var Alert = new CustomAlert();
+//var Alert = new CustomAlert();
