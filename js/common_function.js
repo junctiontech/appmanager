@@ -66,7 +66,7 @@ function check_dbname(dbname,id)
 		 return false;
 }
 
-function application_entry(value)
+/*function application_entry(value)
 {	
 	if(document.getElementById('chk').checked==true)
 		{     
@@ -90,5 +90,5 @@ function application_entry(value)
 		}
 	
 	//alert(email);
-}
+}*/
 
