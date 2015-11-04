@@ -109,7 +109,7 @@ Class Login extends CI_Controller {
 		{
 			$json=$_POST;
 			$value=json_encode($json);
-			$data=json_decode($data);print_r($data);die;
+			$data=json_decode($value);print_r($data);die;
 		}
 		else
 		{
