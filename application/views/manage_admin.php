@@ -43,7 +43,7 @@
 					});
 				</script>
 				<div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
-					<table id="" cellspacing="0" class="table table-bordered table-striped">
+					<table id="example-1" cellspacing="0" class="table table-bordered table-striped">
 						<thead>
 							<tr>
 								<th>S. no</th>
