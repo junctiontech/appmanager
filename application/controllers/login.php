@@ -107,7 +107,7 @@ Class Login extends CI_Controller {
 	}
 	
 	/* function for registration application............................................................................*/
-	function org_admin_registration_application()
+	function org_admin_registration_application() 
 	{
 		if(isset($_POST) && isset($_POST['data'])=='')
 		{

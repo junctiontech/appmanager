@@ -27,7 +27,7 @@
 	</div>-->
 	<div class="panel-body">
 		<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>login/org_admin_registration_application">
-		<div align="center" id="show_error"></div>
+		<div align="center" id="show_error"></div> 
 			<div class="form-group">
 				<?php if(isset($app_list)){ foreach($app_list as $list){ ?>
 				<input type="hidden" name="org_id" value="<?php echo $userdata['organization_id'];?>"/>
