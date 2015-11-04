@@ -109,7 +109,9 @@ Class Login extends CI_Controller {
 		{
 			$json=$_POST;
 			$value=json_encode($json);
-			$data=json_decode($value);print_r($data);die;
+			$data=json_decode($value);
+			$db_name=str_replace(' ','_',$this->input->post('db_name'));
+			$url=$this->input->post('app_url').$this->input->post('app_reg_fun');
 		}
 		else
 		{
@@ -123,7 +125,7 @@ Class Login extends CI_Controller {
 				'password'=>$data->password,
 				'email'=>$data->application_admin_email,
 				'mobile'=>$data->mobile,
-				'db_name'=>$data->db_name,
+				'db_name'=>trim($data->db_name),
 				'status'=>'suspend',
 				'created_by'=>$data->name,
 				'created_on'=>date("Y-m-d")
@@ -141,6 +143,8 @@ Class Login extends CI_Controller {
 				'UserType'=>'masteruser'
 		);
 		$json= json_encode($data_user);// create json for sending purpose
+		$value=json_encode($url);
+		$data=json_decode($value);
 		redirect($data->url.'?data='.$json);
 		
 	}

@@ -30,7 +30,7 @@
 		<div align="center" id="show_error"></div> 
 			<div class="form-group">
 				<?php if(isset($app_list)){ foreach($app_list as $list){ ?>
-				<input type="hidden" name="org_id" value="<?php echo $userdata['organization_id'];?>"/>
+				<input type="hidden" name="organization_id" value="<?php echo $userdata['organization_id'];?>"/>
 				<input type="hidden" name="app_url" value="<?php echo $list->application_url;?>"/>
 				<input type="hidden" name="app_reg_fun" value="<?php echo $list->registration_function;?>"/>
 				<?php } } ?>
@@ -44,7 +44,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1"></label>
 				<div class="col-sm-10">
-					<input type="hidden" name="app_name" value="<?php echo $_GET['app']; ?>" />
+					<input type="hidden" name="application_id" value="<?php echo $_GET['app']; ?>" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -54,39 +54,45 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label class="col-sm-2 control-label" for="field-1"></label>
+				<div class="col-sm-10">
+					<input type="hidden" name="organization_admin_email" value="<?php echo $userdata['email']; ?>" />
+				</div>
+			</div>
+			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Name</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="application_admin_name" value="<?php if(isset($org_list)){ echo $org_list[0]->name; }?>" id="field-1" placeholder="Please Enter Name">
+					<input type="text" class="form-control" name="name" value="<?php if(isset($org_list)){ echo $org_list[0]->name; }?>" id="field-1" placeholder="Please Enter Name">
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Email</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="application_email" value="<?php if(isset($org_list)){ echo $org_list[0]->email; }?>" id="field-1" placeholder="Please Enter Email">
+					<input type="text" class="form-control" name="application_admin_email" value="<?php if(isset($org_list)){ echo $org_list[0]->email; }?>" id="field-1" placeholder="Please Enter Email">
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Mobile</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="application_mobile" value="<?php if(isset($org_list)){ echo $org_list[0]->mobile; }?>" id="field-1" placeholder="Please Enter Mobile Number">
+					<input type="text" class="form-control" name="mobile" value="<?php if(isset($org_list)){ echo $org_list[0]->mobile; }?>" id="field-1" placeholder="Please Enter Mobile Number">
 				</div>
 			</div>
-			<div class="form-group">
+			<!--  <div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Address</label>
 				<div class="col-sm-10">
 					<textarea class="form-control" name="address"  placeholder="Please Enter Address" /><?php if(isset($org_list)){ echo $org_list[0]->address; }?></textarea>
 				</div>
-			</div>
+			</div>-->
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">User name</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="application_username" value="<?php if(isset($org_list)){ echo $org_list[0]->Username; }?>" id="field-1" placeholder="Please Enter User Name">
+					<input type="text" class="form-control" name="Username" value="<?php if(isset($org_list)){ echo $org_list[0]->Username; }?>" id="field-1" placeholder="Please Enter User Name">
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Password</label>
 				<div class="col-sm-10">
-					<input type="password" class="form-control" name="application_password"  id="field-1" placeholder="Please Enter Password">
+					<input type="password" class="form-control" name="password"  id="field-1" placeholder="Please Enter Password">
 				</div>
 			</div>
 			<div class="form-group">
