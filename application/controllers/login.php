@@ -252,15 +252,6 @@ Class Login extends CI_Controller {
 			$result=$this->login_model->result_application($json->organization_id);
 			if($result)
 			{	
-				/* Error Message Show When Database Alredy Exist */
-				?><!--  <body onload="Alert.render('Server Error Please Try Again !!!!');"><div id="dialogoverlay"></div>
-		<div id="dialogbox">
-  			<div>
-			    <div id="dialogboxhead"></div>
-			    <div id="dialogboxbody"></div>
-			    <div id="dialogboxfoot"></div>
-  			</div>
-		</div></body>--><?php
 				alert('Servar Error Please Try Again !!!!');
 				redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=reg',refresh);
 			}	
