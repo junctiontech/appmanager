@@ -1,3 +1,26 @@
+<script>
+function CustomAlert(){
+    this.render = function(dialog){
+        var winW = window.innerWidth;
+        var winH = window.innerHeight;
+        var dialogoverlay = document.getElementById('dialogoverlay');
+        var dialogbox = document.getElementById('dialogbox');
+        dialogoverlay.style.display = "block";
+        dialogoverlay.style.height = winH+"px";
+        dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+        dialogbox.style.top = "100px";
+        dialogbox.style.display = "block";
+        document.getElementById('dialogboxhead').innerHTML = "Oops Something Problem.....";
+        document.getElementById('dialogboxbody').innerHTML = dialog;
+        document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Alert.ok()">OK</button>';
+    }
+	this.ok = function(){
+		document.getElementById('dialogbox').style.display = "none";
+		document.getElementById('dialogoverlay').style.display = "none";
+	}
+}
+var Alert = new CustomAlert();
+</script>
 <?php
 Class Login extends CI_Controller {
 	
@@ -253,7 +276,7 @@ Class Login extends CI_Controller {
 			if($result)
 			{	
 				/* Error Message Show When Database Alredy Exist */
-				?><body onload="CustomAlert('Server Error Please Try Again !!!!');"></body><?php
+				?><body onload="Alert.render('Server Error Please Try Again !!!!');"></body><?php
 				//redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=reg');
 			}	
 		}
