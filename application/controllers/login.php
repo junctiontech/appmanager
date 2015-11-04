@@ -143,7 +143,9 @@ Class Login extends CI_Controller {
 				'UserType'=>'masteruser'
 		);
 		$json= json_encode($data_user);// create json for sending purpose
-		$data=array('url'=>$url);
+		$var=array('url'=>$url);
+		$temp_variable=json_encode($var);
+		$data=json_decode($temp_variable);
 		print_r($data->url);die;
 		redirect($data->url.'?data='.$json);
 		
