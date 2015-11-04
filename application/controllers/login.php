@@ -97,7 +97,7 @@ Class Login extends CI_Controller {
 							'url'=>$url
 					);
 					$json=json_encode($data);
-					redirect('http://junctiondev.cloudapp.net/appmanager/login/reg_app?data='.$json);
+					redirect('http://junctiondev.cloudapp.net/appmanager/login/org_admin_registration_application?data='.$json);
 				}
 				
 			}
@@ -107,9 +107,18 @@ Class Login extends CI_Controller {
 	}
 	
 	/* function for registration application............................................................................*/
-	function reg_app()
+	function org_admin_registration_application()
 	{
-		$data=json_decode($_GET['data']);
+		if(isset($_POST) && isset($_POST['data'])=='')
+		{
+			$json=$_POST;
+			$value=json_encode($json);
+			$data=json_decode($data);print_r($data);die;
+		}
+		else
+		{
+			$data=json_decode($_GET['data']);
+		}
 		$data_registered_app=array(
 				'organization_id'=>$data->organization_id,
 				'application_id'=>$data->application_id,
