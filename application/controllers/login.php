@@ -42,10 +42,11 @@ Class Login extends CI_Controller {
 	/* function for activate account with help of mail  */
 	function activate_org($id=false)
 	{
-		$activate_org=$this->data['activate_org']=$this->login_model->activate_org('organizations',array('organization_id'=>$id));
+		$activate_org=$this->data['activate_org']=$this->login_model->activate_org('registered_application',array('organization_id'=>$id));
 		if($activate_org)
 		{
-			redirect('http://junctionerp.com/manage/login/application_login?id=login');
+			?><script>alert('Your Application Activate Please Login With Your Credentials');</script><?php
+			redirect('http://junctionerp.com/manage/login/application_login?id=login','refresh');
 		}
 	}
 	
@@ -253,7 +254,7 @@ Class Login extends CI_Controller {
 			if($result)
 			{	
 				?><script>alert('Servar Error Please Try Again !!!!');</script><?php 
-				redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=reg',refresh);
+				redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=reg','refresh');
 			}	
 		}
 		if(isset($json->code)&& $json->code=='200')
@@ -414,7 +415,7 @@ Class Login extends CI_Controller {
 				else
 				{
 					?><script> alert('Your Application Registered Successfully Please Activate Your Application With Help Of Registered Email !!!!');</script><?php
-					redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login',refresh);
+					redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login','refresh');
 				}
 			}
 		}
