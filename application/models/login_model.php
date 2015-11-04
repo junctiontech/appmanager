@@ -17,7 +17,7 @@ class Login_model extends CI_Model
 	/* function for result for application */
 	function result_application($organization_id=false)
 	{
-		$this->db->trans_start();
+		//$this->db->trans_start();
 		$filter=array(
 						'organization_id'=>$organization_id
 					);
@@ -25,9 +25,10 @@ class Login_model extends CI_Model
 		if($qry)
 		{
 			$qry=$this->db->delete('organizations',$filter);
+			return true;
 		}
-		$this->db->trans_rollback();
-		$this->db->trans_complete();
+		//$this->db->trans_rollback();
+		//$this->db->trans_complete();
 	}
 	
 	/*function for count application in application list*/
