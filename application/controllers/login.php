@@ -53,10 +53,6 @@ Class Login extends CI_Controller {
 		/* Function For insert organization and application information diffrent table and server application user table.........................................................*/
 	function set_registration_application()
 	{
-		if(isset($_GET['json'])&&$_GET['json']!=='')
-		{
-			 
-		}
 		$org_id=$this->input->post('org_id');
 		$org_name=$this->input->post('organization_name');
 		$email=$this->input->post('email');
@@ -109,7 +105,7 @@ Class Login extends CI_Controller {
 	/* function for registration application............................................................................*/
 	function org_admin_registration_application() 
 	{
-		if(isset($_POST) && isset($_POST['data'])=='')
+		if(isset($_POST))
 		{
 			$json=$_POST;
 			$value=json_encode($json);

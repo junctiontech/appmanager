@@ -32,11 +32,6 @@ class Admin_model extends CI_Model{
 	/* function for sorting..............................................................................*/
 	function sorting($id=false)
 	{
-	//	$this->db->select('*');
-	//	$this->db->from("tbl_contactus");
-   		//$this->db->order_by("contactus_id", "desc");
-   		//$query = $this->db->get();
-   	//	return $query->result();
 		$qry=$this->db->query("select sw_registration.*,registered_application.* from sw_registration,registered_application where sw_registration.organization_id=registered_application.organization_id ORDER BY $id ASC ");
 		return $qry->result();
 	}
