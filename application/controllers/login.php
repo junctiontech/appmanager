@@ -46,7 +46,7 @@ Class Login extends CI_Controller {
 		if($activate_org)
 		{
 			?><script>alert('Your Application Activate Please Login With Your Credentials');</script><?php
-			redirect('http://junctionerp.com/manage/login/application_login?id=login','refresh');
+			redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login','refresh');
 		}
 	}
 	
@@ -262,7 +262,7 @@ Class Login extends CI_Controller {
 			$json=json_decode($_GET['json']);
 			$code_org_id=md5($json->organization_id);
 			$subject="junctionerp :-Please Activate Your Account ";
-			$message= " <html><body><h3>Hello: Admin </h3><p> Organization Name:- <b>$json->organization_name  </b> Your Organization is successfully Registered</p><p><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctionerp.com/manage/login/activate_org/$json->organization_id/$code_org_id</p></body></html>";
+			$message= " <html><body><h3>Hello: Admin </h3><p> Organization Name:- <b>$json->organization_name  </b> Your Organization is successfully Registered</p><p><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/activate_org/$json->organization_id/$code_org_id</p></body></html>";
 			$name='Junction Software Pvt Ltd';
 			/*
 			 This example shows settings to use when sending via Google's Gmail servers.
