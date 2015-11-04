@@ -251,7 +251,7 @@ Class Login extends CI_Controller {
 		{
 			$result=$this->login_model->result_application($json->organization_id);
 			if($result)
-			{	
+			{	echo 'hiii';die;
 				alert('Servar Error Please Try Again !!!!');
 				redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=reg',refresh);
 			}	
