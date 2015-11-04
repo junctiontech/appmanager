@@ -75,7 +75,7 @@ Class Login extends CI_Controller {
 							'address'=>$this->input->post('address'),
 							'Username'=>$this->input->post('username'),
 							'password'=>md5($this->input->post('password')),
-							'status'=>'suspend',
+							'status'=>'active',
 							'created_by'=>$this->input->post('name'),
 							'created_on'=>date("Y-m-d")
 						   );
@@ -119,7 +119,7 @@ Class Login extends CI_Controller {
 				'email'=>$data->application_admin_email,
 				'mobile'=>$data->mobile,
 				'db_name'=>$data->db_name,
-				'status'=>'active',
+				'status'=>'suspend',
 				'created_by'=>$data->name,
 				'created_on'=>date("Y-m-d")
 		);
