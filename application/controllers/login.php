@@ -111,7 +111,7 @@ Class Login extends CI_Controller {
 			$value=json_encode($json);
 			$data=json_decode($value);
 			$db_name=str_replace(' ','_',$this->input->post('db_name'));
-			$url=$this->input->post('app_url').$this->input->post('app_reg_fun');
+			$url=$this->input->post('app_url').$this->input->post('app_reg_fun');echo $url;
 		}
 		else
 		{
@@ -145,6 +145,7 @@ Class Login extends CI_Controller {
 		$json= json_encode($data_user);// create json for sending purpose
 		$value=json_encode($url);
 		$data=json_decode($value);
+		print_r($data->url);die;
 		redirect($data->url.'?data='.$json);
 		
 	}
