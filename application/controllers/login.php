@@ -413,8 +413,8 @@ Class Login extends CI_Controller {
 				}
 				else
 				{
-					?><body onload="Alert.render('Your Application Registered Successfully Please Activate Your Application With Help Of Registered Email !!!!');"></body><?php
-					redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login');
+					?><script> alert('Your Application Registered Successfully Please Activate Your Application With Help Of Registered Email !!!!');</script><?php
+					redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login',refresh);
 				}
 			}
 		}
