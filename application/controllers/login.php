@@ -111,6 +111,7 @@ Class Login extends CI_Controller {
 			$value=json_encode($json);
 			$data=json_decode($value);
 			$db_name=str_replace(' ','_',$this->input->post('db_name'));
+			$password=md5($data->password);
 			$url=$this->input->post('app_url').$this->input->post('app_reg_fun');
 		}
 		else
@@ -122,10 +123,10 @@ Class Login extends CI_Controller {
 				'application_id'=>$data->application_id,
 				'name'=>$data->name,
 				'Username'=>$data->Username,
-				'password'=>$data->password,
+				'password'=>$password,
 				'email'=>$data->application_admin_email,
 				'mobile'=>$data->mobile,
-				'db_name'=>trim($data->db_name),
+				'db_name'=>trim($db_name),
 				'status'=>'suspend',
 				'created_by'=>$data->name,
 				'created_on'=>date("Y-m-d")
@@ -146,7 +147,6 @@ Class Login extends CI_Controller {
 		$var=array('url'=>$url);
 		$temp_variable=json_encode($var);
 		$data=json_decode($temp_variable);
-		print_r($data->url);die;
 		redirect($data->url.'?data='.$json);
 		
 	}
