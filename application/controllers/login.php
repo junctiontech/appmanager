@@ -89,7 +89,7 @@ Class Login extends CI_Controller {
 							'organization_admin_email'=>$this->input->post('email'),
 							'application_admin_email'=>$this->input->post('application_email'),
 							'mobile'=>$this->input->post('application_mobile'),
-							'db_name'=>$db_name,
+							'db_name'=>trim($db_name),
 							'url'=>$url
 					);
 					$json=json_encode($data);
@@ -105,28 +105,38 @@ Class Login extends CI_Controller {
 	/* function for registration application............................................................................*/
 	function org_admin_registration_application() 
 	{
-		if(isset($_POST))
+		if(isset($_GET['data']) && $_GET['data']!=='')
 		{
-			$json=$_POST;
-			$value=json_encode($json);
-			$data=json_decode($value);
-			$db_name=str_replace(' ','_',$this->input->post('db_name'));
-			$password=md5($data->password);
-			$url=$this->input->post('app_url').$this->input->post('app_reg_fun');
+			$data=json_decode($_GET['data']);
 		}
 		else
 		{
-			$data=json_decode($_GET['data']);
+			$url=$this->input->post('app_url').$this->input->post('app_reg_fun');
+			$array=array(
+							'organization_id'=>$this->input->post('organization_id'),
+							'organization_name'=>$this->input->post('organization_name'),
+							'organization_admin_email'=>$this->input->post('organization_admin_email'),
+							'url'=>$url,
+							'application_id'=>$this->input->post('application_id'),
+							'name'=>$this->input->post('application_admin_name'),
+							'application_admin_email'=>$this->input->post('application_admin_email'),
+							'mobile'=>$this->input->post('application_mobile'),
+							'Username'=>$this->input->post('application_username'),
+							'password'=>md5($this->input->post('application_password')),
+							'db_name'=>trim(str_replace(' ','_',$this->input->post('db_name'))),
+						);
+			$json=json_encode($array);
+			$data=json_decode($json);
 		}
 		$data_registered_app=array(
 				'organization_id'=>$data->organization_id,
 				'application_id'=>$data->application_id,
 				'name'=>$data->name,
 				'Username'=>$data->Username,
-				'password'=>$password,
+				'password'=>$data->password,
 				'email'=>$data->application_admin_email,
 				'mobile'=>$data->mobile,
-				'db_name'=>trim($db_name),
+				'db_name'=>$data->db_name,
 				'status'=>'suspend',
 				'created_by'=>$data->name,
 				'created_on'=>date("Y-m-d")
@@ -144,9 +154,6 @@ Class Login extends CI_Controller {
 				'UserType'=>'masteruser'
 		);
 		$json= json_encode($data_user);// create json for sending purpose
-		$var=array('url'=>$url);
-		$temp_variable=json_encode($var);
-		$data=json_decode($temp_variable);
 		redirect($data->url.'?data='.$json);
 		
 	}

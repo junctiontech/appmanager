@@ -62,7 +62,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Name</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="name" value="<?php if(isset($org_list)){ echo $org_list[0]->name; }?>" id="field-1" placeholder="Please Enter Name">
+					<input type="text" class="form-control" name="application_admin_name" value="<?php if(isset($org_list)){ echo $org_list[0]->name; }?>" id="field-1" placeholder="Please Enter Name">
 				</div>
 			</div>
 			<div class="form-group">
@@ -74,7 +74,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Mobile</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="mobile" value="<?php if(isset($org_list)){ echo $org_list[0]->mobile; }?>" id="field-1" placeholder="Please Enter Mobile Number">
+					<input type="text" class="form-control" name="application_mobile" value="<?php if(isset($org_list)){ echo $org_list[0]->mobile; }?>" id="field-1" placeholder="Please Enter Mobile Number">
 				</div>
 			</div>
 			<!--  <div class="form-group">
@@ -86,13 +86,13 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">User name</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="Username" value="<?php if(isset($org_list)){ echo $org_list[0]->Username; }?>" id="field-1" placeholder="Please Enter User Name">
+					<input type="text" class="form-control" name="application_username" value="<?php if(isset($org_list)){ echo $org_list[0]->Username; }?>" id="field-1" placeholder="Please Enter User Name">
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Password</label>
 				<div class="col-sm-10">
-					<input type="password" class="form-control" name="password"  id="field-1" placeholder="Please Enter Password">
+					<input type="password" class="form-control" name="application_password"  id="field-1" placeholder="Please Enter Password">
 				</div>
 			</div>
 			<div class="form-group">
