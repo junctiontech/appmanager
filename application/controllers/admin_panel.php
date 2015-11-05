@@ -1,6 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-// junction Software pvt ltd
  class Admin_panel extends CI_Controller{
  	function __construct()
  	{
@@ -42,8 +41,8 @@
  				if($qry){
 			 			$session_data=array(
 			 										'username'=>$userid,
-			 										'organization_id'=>$qry[0]->organization_id,
-			 										'organization_name'=>$qry[0]->organization_name,
+			 										'organization_id'=>$query[0]->organization_id,
+			 										'organization_name'=>$query[0]->organization_name,
 			 										'app_name'=>$qry[0]->application_id,
 			 										'email'=>$qry[0]->email
 			 									   );
@@ -90,6 +89,7 @@
  	
  	function manage_admin()
  	{
+ 	
  		/* code for when server update response his password */
  		if(isset($_GET['session']) && $_GET['session']!=='')
  		{
