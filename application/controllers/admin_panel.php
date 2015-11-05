@@ -11,7 +11,7 @@
 		$this->load->library('session');
 		$this->load->model('admin_model');
 		$this->load->model('login_model');
-		if (!$this->session->userdata('user_data')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
+		//if (!$this->session->userdata('user_data')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
  	}
 
  	/* Function for login Admin area view.......................................................................*/
