@@ -33,6 +33,7 @@
 			</div>
 			
 			<div class="navbar-mobile-clear"></div>
+			
 			<ul class="navbar-nav">
 				<li>
 					<a href="javascript:;" data-toggle="sidebar">
@@ -136,9 +137,7 @@
 		<div class="sidebar-menu toggle-others fixed">
 			
 			<div class="sidebar-menu-inner">	
-			
-				
-				<?php if(isset($_GET['menu'])!=1){  ?>		
+			<?php if(isset($_GET['menu'])!=1){  ?>		
 				<ul id="main-menu" class="main-menu hr">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
