@@ -10,6 +10,7 @@ Class Login extends CI_Controller {
 		$this->load->library('session');
 		$this->load->model('login_model');
 		$this->load->library('email');
+		if (!$this->session->userdata('user_data')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
 	 }
 
 	 /* Function for Dashboard view.....................................................................*/
@@ -42,7 +43,7 @@ Class Login extends CI_Controller {
 	/* function for activate account with help of mail  */
 	function activate_org($id=false)
 	{
-		$activate_org=$this->data['activate_org']=$this->login_model->activate_org('registered_application',array('organization_id'=>$id));
+		$activate_org=$this->data['activate_org']=$this->login_model->activate_org('registered_application',array('registration_id'=>$id));
 		if($activate_org)
 		{
 			?><script>alert('Your Application Activate Please Login With Your Credentials');</script><?php
@@ -144,7 +145,9 @@ Class Login extends CI_Controller {
 		$set_new_user=$this->data['set_new_user']=$this->login_model->set_registration_application('registered_application',$data_registered_app);
 		/* Create Array For convert into json and send data for application servar */
 		$data_user=array(
+				'registration_id'=>$set_new_user,
 				'organization_id'=>$data->organization_id,
+				'application_id'=>$data->application_id,
 				'application_admin_email'=>$data->application_admin_email,
 				'organization_admin_email'=>$data->organization_admin_email,
 				'organization_name'=>$data->organization_name,
@@ -278,9 +281,9 @@ Class Login extends CI_Controller {
 		if(isset($json->code)&& $json->code=='200')
 		{
 			$json=json_decode($_GET['json']);
-			$code_org_id=md5($json->organization_id);
+			$code_application_id=md5($json->registration_id);
 			$subject="junctionerp :-Please Activate Your Account ";
-			$message= " <html><body><h3>Hello: Admin </h3><p> Organization Name:- <b>$json->organization_name  </b> Your Organization is successfully Registered</p><p><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/activate_org/$json->organization_id/$code_org_id</p></body></html>";
+			$message= " <html><body><h3>Hello: Admin </h3><p> Organization Name:- <b>$json->organization_name  </b> Your Organization is successfully Registered</p><p><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/activate_org/$json->registration_id/$code_application_id</p></body></html>";
 			$name='Junction Software Pvt Ltd';
 			/*
 			 This example shows settings to use when sending via Google's Gmail servers.

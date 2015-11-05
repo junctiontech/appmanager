@@ -21,6 +21,13 @@ $(function(){
 </head>
 <body class="page-body" style="background-color:black; ">
 	<div class="row">
+		<?php  if($this->session->flashdata('category_error')) { ?>
+						<div class="row-fluid"> 
+							<div class="alert alert-danger">
+								<strong><?=$this->session->flashdata('message')?></strong> 
+							</div>
+						</div>
+					<?php } ?>
 		<div class="fadein" style="margin-top:2cm;">
 			<div class=" ">
 				<img src="images/image1.jpg" height="100%" width="100%">

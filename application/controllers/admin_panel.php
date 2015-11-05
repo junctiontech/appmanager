@@ -11,6 +11,7 @@
 		$this->load->library('session');
 		$this->load->model('admin_model');
 		$this->load->model('login_model');
+		if (!$this->session->userdata('user_data')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
  	}
 
  	/* Function for login Admin area view.......................................................................*/
@@ -91,7 +92,6 @@
  	
  	function manage_admin()
  	{
- 	
  		/* code for when server update response his password */
  		if(isset($_GET['session']) && $_GET['session']!=='')
  		{
@@ -102,7 +102,7 @@
  					'username'=>$_GET['session'],
  					'organization_id'=>$qry[0]->organization_id,
  					'app_name'=>$qry[0]->application_id,
- 					'email'=>$qry[0]->email 
+ 					'email'=>$qry[0]->email, 
  			);
  			$this->session->set_userdata('username',$session_data);
  			$this->session->set_flashdata('category_success', 'success message');
@@ -115,8 +115,7 @@
  			$org_list=$this->data['org_list']=$this->admin_model->org_list();
  		}
  		else  
-	 	{	//$username=$this->session->userdata('username');
-	 		//echo $username['organization_id'];die;
+	 	{	
 	 		if($username['organization_id']!=='')
 	 		{
  				$org_list=$this->data['org_list']=$this->admin_model->org_list($username['organization_id']);

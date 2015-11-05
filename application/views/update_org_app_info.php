@@ -22,7 +22,7 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label" for="field-1">Password</label>
 					<div class="col-sm-10">
-						<input type=password class="form-control" name="password" value="<?php echo $org_list[0]->password;?>" id="field-1" placeholder="Please Enter Name">
+						<input type=password class="form-control" name="password" value="<?php //echo $org_list[0]->password; ?>" id="field-1" placeholder="Please Enter Name">
 					</div>
 				</div>
 				<div class="form-group">
