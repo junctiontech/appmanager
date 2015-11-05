@@ -22,7 +22,7 @@ class Admin_model extends CI_Model{
 			$qry=$this->db->query("select organizations.*,registered_application.* from organizations,registered_application where organizations.organization_id=$data && registered_application.organization_id=$data");
 			return $qry->result();
 		}
-		else
+		if($username['username']=='admin')
 		{
 			$qry=$this->db->query("select organizations.*,registered_application.* from organizations,registered_application where organizations.organization_id=registered_application.organization_id");
 			return $qry->result();
