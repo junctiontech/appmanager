@@ -97,7 +97,7 @@
  					'username'=>$_GET['session'],
  					'organization_id'=>$qry[0]->organization_id,
  					'app_name'=>$qry[0]->application_id,
- 					'email'=>$qry[0]->email
+ 					'email'=>$qry[0]->email 
  			);
  			$this->session->set_userdata('username',$session_data);
  			$this->session->set_flashdata('category_success', 'success message');
