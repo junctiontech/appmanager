@@ -87,6 +87,7 @@
  	}
  	
  	/* Function for Super Admin panel area view.......................................................................*/
+ 	
  	function manage_admin()
  	{
  		/* code for when server update response his password */
