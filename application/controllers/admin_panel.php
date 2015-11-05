@@ -39,7 +39,7 @@
  			$query=$this->admin_model->verify_admin('organizations',$data);
  			print_r($query);die;
  			$qry=$this->admin_model->org_list($query[0]->organization_id);
- 				if($qry){
+ 				if($qry){ 
 			 			$session_data=array(
 			 										'username'=>$userid,
 			 										'organization_id'=>$query[0]->organization_id,
