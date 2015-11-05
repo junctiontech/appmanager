@@ -1,4 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+// junction Software pvt ltd
  class Admin_panel extends CI_Controller{
  	function __construct()
  	{
