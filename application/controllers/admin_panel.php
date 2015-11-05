@@ -37,13 +37,12 @@
  					'Password'=>md5($this->input->post('password'))
  			);
  			$query=$this->admin_model->verify_admin('organizations',$data);
- 			print_r($query);die;
  			$qry=$this->admin_model->org_list($query[0]->organization_id);
  				if($qry){ 
 			 			$session_data=array(
 			 										'username'=>$userid,
-			 										'organization_id'=>$query[0]->organization_id,
-			 										'organization_name'=>$query[0]->organization_name,
+			 										'organization_id'=>$qry[0]->organization_id,
+			 										'organization_name'=>$qry[0]->organization_name,
 			 										'app_name'=>$qry[0]->application_id,
 			 										'email'=>$qry[0]->email
 			 									   );
@@ -52,7 +51,9 @@
  						}
  					else{
  						$session_data=array(
- 								'username'=>$userid
+ 								'username'=>$userid,
+ 								'organization_id'=>$query[0]->organization_id,
+			 					'organization_name'=>$query[0]->organization_name,
  						);
  						$this->session->set_userdata('username',$session_data);
  						$this->session->userdata('username');
