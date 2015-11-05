@@ -111,8 +111,11 @@
  		}
  		else 
 	 	{	
- 			$org_list=$this->data['org_list']=$this->admin_model->org_list($username['organization_id']);
- 		}
+	 		if($username['organization_id']!=='')
+	 		{
+ 				$org_list=$this->data['org_list']=$this->admin_model->org_list($username['organization_id']);
+	 		}
+	 	}
  		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('manage_admin',$this->data);
