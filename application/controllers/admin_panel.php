@@ -110,7 +110,7 @@
  			$org_list=$this->data['org_list']=$this->admin_model->org_list();
  		}
  		else 
-	 	{	
+	 	{	echo $username['organization_id'];die;
 	 		if($username['organization_id']!=='')
 	 		{
  				$org_list=$this->data['org_list']=$this->admin_model->org_list($username['organization_id']);
