@@ -103,7 +103,7 @@
  			$this->session->set_flashdata('category_success', 'success message');
  			$this->session->set_flashdata('message', $this->config->item("user").' Application Password Update successfully');
  			redirect('admin_panel/manage_admin');
- 		}
+ 		} 
  		$username=$this->session->userdata('username');
  		if($username['username']=='admin')
  		{ 
