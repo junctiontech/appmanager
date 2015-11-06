@@ -4,6 +4,9 @@
 
 
 <body class="page-body  skin-concrete">
+<div class="page-loading-overlay">
+	<div class="loader-2"></div>
+</div>
 <nav class="navbar horizontal-menu navbar-fixed-top"><!-- set fixed position by adding class "navbar-fixed-top" -->
 		
 		<div class="navbar-inner">

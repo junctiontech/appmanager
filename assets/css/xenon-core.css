@@ -1933,6 +1933,17 @@ a.text-warning:hover{color:#cc9500;}
 a.text-danger:hover{color:#ab2d32;}
 .text-white{color:#ffffff;}
 a.text-white:hover{color:#e6e6e6;}
+.loader-2 {
+   width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -80px;
+    margin-left: -40px;
+    background: url(../img/loader.gif) no-repeat;
+    z-index: 667999;
+}
 .bg-muted,
 .bg-gray,
 .bg-primary,
