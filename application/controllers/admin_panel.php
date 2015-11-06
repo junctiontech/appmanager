@@ -357,4 +357,33 @@
  	
  	}
  	
+ 	/* Function for change password */
+ 	function change_pass($info=false)
+ 	{
+ 		$username=$user_session_data = $this->session->userdata('username');
+ 		$data=array(
+ 				'password'=>$this->input->post('old_password')
+ 		);
+ 		$check=$this->data['check']=$this->admin_model->verify_admin('organizations',$data);
+ 		if($check)
+ 		{
+ 			$data = array(
+ 					'password' => $this->input->post('password')
+ 			);
+ 			$filter=array(
+ 					'organization_id' => $username['organization_id']
+ 			);
+ 			$this->admin_model->set_update_org_app_info('organizations',$data,$filter);
+ 			$this->session->set_flashdata('category_success', 'success');
+ 			$this->session->set_flashdata('message', $this->config->item("user").'Password updated successfully');
+ 			redirect('admin_panel/manage_admin');
+ 		}
+ 		else {
+ 			$this->session->set_flashdata('category_error', 'success');
+ 			$this->session->set_flashdata('message', $this->config->item("user").'Old Password Does Not Match');
+ 			redirect('admin_panel/acc_setting');
+ 		}
+ 	
+ 	}
+ 	
  }

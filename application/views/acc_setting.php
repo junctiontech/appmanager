@@ -37,7 +37,7 @@
 				<h3 class="panel-title">Change password</h3>
 			</div>
 			<div class="panel-body">
-				<form role="form" class="form-horizontal" method="post" action="<?php echo base_url();?>role/change_pass">
+				<form role="form" class="form-horizontal" method="post" action="<?php echo base_url();?>admin_panel/change_pass">
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="field-1">Old Password</label>
 						<div class="col-sm-10">
