@@ -2,6 +2,9 @@
 <!-- login page starts  -->
 <!-- added by palak on 20thjune -->
 <body class="page-body login-page" style="background-color: black; padding-top:1cm;">
+<div class="page-loading-overlay">
+	<div class="loader-2"></div>
+</div>
 	<div class="login-container" >
 		<div class="row">
 			<div class="col-sm-9">

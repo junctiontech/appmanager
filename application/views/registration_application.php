@@ -1,6 +1,9 @@
 <!-- add organization page added by palak on 20 th june -->
 <!-- add organization body starts -->
 <body style="background-color: black" >
+<div class="page-loading-overlay">
+	<div class="loader-2"></div>
+</div>
 <div class="page-title">
 	<div class="title-env">
 		<h2 class="title" style="color: white" >Registration For Your Application</h2>
