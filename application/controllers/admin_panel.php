@@ -113,7 +113,7 @@
  		$username=$this->session->userdata('username');
  		if($username['username']=='admin')
  		{ 
- 			$org_list=$this->data['org_list']=$this->admin_model->org_list();print_r($org_list);die;
+ 			$org_list=$this->data['org_list']=$this->admin_model->org_list();
  		}
  		else  
 	 	{	
