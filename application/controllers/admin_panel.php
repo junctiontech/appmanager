@@ -346,6 +346,15 @@
  		$this->parser->parse('include/footer',$this->data);
  	}
  	
+ 	/* Function for account settings view */
+ 	function acc_setting($info=false)
+ 	{
+ 		if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
+ 		$this->parser->parse('include/header',$this->data);
+ 		$this->parser->parse('include/left_menu',$this->data);
+ 		$this->load->view('acc_setting',$this->data);
+ 		$this->parser->parse('include/footer',$this->data);
  	
+ 	}
  	
  }

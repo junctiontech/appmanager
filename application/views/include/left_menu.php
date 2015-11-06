@@ -107,7 +107,7 @@
 					
 					<ul class="dropdown-menu user-profile-menu list-unstyled">
 						<li>
-								<a href="<?=base_url();?>role/acc_setting">
+								<a href="<?=base_url();?>admin_panel/acc_setting">
 									<i class="fa-wrench"></i>
 									Settings
 								</a>
