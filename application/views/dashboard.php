@@ -20,6 +20,9 @@ $(function(){
 </script>
 </head>
 <body class="page-body" style="background-color:black; ">
+<div class="page-loading-overlay">
+	<div class="loader-2"></div>
+</div>
 	<div class="row">
 	
 		<?php  if($this->session->flashdata('category_error_login')) { ?>
