@@ -155,7 +155,7 @@ Class Login extends CI_Controller {
 				'Username'=>$data->Username,
 				'Password'=>$data->password,
 				'UserType'=>'masteruser'
-		);
+		);	print_r($data_user);die;
 		$json= json_encode($data_user);// create json for sending purpose
 		redirect($data->url.'?data='.$json);
 		
