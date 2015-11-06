@@ -11,8 +11,7 @@
 		$this->load->library('session');
 		$this->load->model('admin_model');
 		$this->load->model('login_model');
-		if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
- 	}
+	}
 
  	/* Function for login Admin area view.......................................................................*/
  	function index()
@@ -82,6 +81,7 @@
  	/* Function for Admin panel dashboard area view.......................................................................*/
  	function admin_dashboard()
  	{
+ 		if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
  		$this->parser->parse('include/header',$this->data);
  		$this->parser->parse('include/left_menu',$this->data);
  		$this->load->view('admin_dashboard',$this->data);
@@ -92,6 +92,7 @@
  	
  	function manage_admin()
  	{
+ 		
  		/* code for when server update response his password */
  		if(isset($_GET['session']) && $_GET['session']!=='')
  		{
@@ -121,6 +122,7 @@
  				$org_list=$this->data['org_list']=$this->admin_model->org_list($username['organization_id']);
 	 		}
 	 	}
+	 	if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
  		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('manage_admin',$this->data);
@@ -130,6 +132,7 @@
  	/* Function For update organization information with organization admin panel.....................................*/
  	function set_update_org_app_info($id=false,$status=false)
  	{
+ 		if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
  		$userdata=$this->session->userdata('username');
  		if(isset($status) && !$status=='')
  		{
@@ -173,6 +176,7 @@
  /* Function For delete Application by organization admin */
  	function delete_app_org($id=false)
  	{
+ 		
  		if(isset($_GET['json'])&&$_GET['json'])
  		{
  			$data=$_GET['json'];
@@ -192,6 +196,7 @@
  			$this->session->set_flashdata('message', $this->config->item("user").' Application delete successfully');
  			redirect('admin_panel/manage_admin');
  		}
+ 		if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
  		$reg_app_info=$this->data['reg_app_info']=$this->admin_model->get_single_org_app_info('registered_application',$id);
  		$app_info=$this->data['app_info']=$this->login_model->app_list($reg_app_info[0]->application_id);
  		$url=$app_info[0]->application_url.$app_info[0]->delete_function;
@@ -246,6 +251,7 @@
  	/* Function For manage application in admin case view.....................................................*/
  	function manage_application()
  	{
+ 		
  		$userdata=$this->session->userdata('username');
  		if(isset($userdata['username']) && $userdata['username']!=='admin')
  		{
@@ -254,6 +260,7 @@
  		else {
  				//$app_list=$this->data['app_list']=$this->login_model->app_list();
  		}
+ 		if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
  		$app_list=$this->data['app_list']=$this->login_model->app_list();
  		$this->parser->parse('include/header',$this->data);
  		$this->parser->parse('include/left_menu',$this->data);
@@ -264,6 +271,7 @@
  	/* Function For Add new application controle by super admin */
  	function add_application()
  	{
+ 		if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
  		$this->parser->parse('include/header',$this->data);
  		$this->parser->parse('include/left_menu',$this->data);
  		$this->load->view('add_application',$this->data);
@@ -273,6 +281,7 @@
  	/* Function For application registration view in admin case..................................................*/
  	function admin_reg_app()
  	{	
+ 		if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
  		$userdata=$this->session->userdata('username');
  		$org_list=$this->data['org_list']=$this->admin_model->org_list($userdata['organization_id']);
  		$app_list=$this->data['app_list']=$this->login_model->app_list($_GET['app']);  // application information get for registration url
@@ -285,6 +294,7 @@
  	/* Function For Set Application Detail */
  	function set_application()
  	{
+ 		
  		$userdata=$this->session->userdata('username');
  		$data=array(
  				'application_id'=>$this->input->post('app_id'),
@@ -306,6 +316,7 @@
  	/* Function For View Application Information Behalf On id.......................................................*/
  	function update_org_app_info($id=false)
  	{ 
+ 		if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
  		$org_list=$this->data['org_list']=$this->admin_model->get_single_org_app_info('registered_application',$id);
  		$app_info=$this->data['app_info']=$this->login_model->app_list($org_list[0]->application_id);
  		$this->parser->parse('include/header',$this->data);
