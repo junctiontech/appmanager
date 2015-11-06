@@ -141,7 +141,7 @@
  			$data=array(
  					'status'=>$status,
  			);
- 			$qry=$this->admin_model->set_update_org_app_info('organizations',$data,array('registration_id'=>$qry[0]->organization_id));
+ 			$qry=$this->admin_model->set_update_org_app_info('organizations',$data,array('organization_id'=>$qry[0]->organization_id));
  			$this->session->set_flashdata('category_success', 'success message');
  			$this->session->set_flashdata('message', $this->config->item("user").' Application '.$status.' successfully');
  			redirect('admin_panel/manage_admin');
