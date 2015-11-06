@@ -362,13 +362,13 @@
  	{
  		$username=$user_session_data = $this->session->userdata('username');
  		$data=array(
- 				'password'=>$this->input->post('old_password')
+ 				'password'=>md5($this->input->post('old_password'))
  		);
  		$check=$this->data['check']=$this->admin_model->verify_admin('organizations',$data);
  		if($check)
  		{
  			$data = array(
- 					'password' => $this->input->post('password')
+ 					'password' => md5($this->input->post('password'))
  			);
  			$filter=array(
  					'organization_id' => $username['organization_id']
