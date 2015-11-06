@@ -21,7 +21,14 @@ $(function(){
 </head>
 <body class="page-body" style="background-color:black; ">
 	<div class="row">
-		<?php  if($this->session->flashdata('category_error')) { ?>
+		<?php  if($this->session->flashdata('category_error_login')) { ?>
+<div class="row" >
+<div class="alert alert-danger" >
+<strong><?=$this->session->flashdata('category_error_login')?></strong> <?php echo"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>";?>
+</div>
+</div>
+<?php }?>
+		<?php  if($this->session->flashdata('')) { ?>
 						<div class="row-fluid"> 
 							<div class="alert alert-danger">
 								<strong><?=$this->session->flashdata('message')?></strong> 
