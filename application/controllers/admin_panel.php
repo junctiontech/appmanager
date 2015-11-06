@@ -47,8 +47,8 @@
 			 										'app_name'=>$qry[0]->application_id,
 			 										'email'=>$qry[0]->email
 			 									   );
-			 					$this->session->set_userdata('username',$session_data);
-			 					$this->session->userdata('username');
+			 					//$this->session->set_userdata('username',$session_data);
+			 					//$this->session->userdata('username');
  						}
  					else{
  						$session_data=array(
