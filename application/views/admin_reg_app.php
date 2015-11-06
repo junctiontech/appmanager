@@ -44,67 +44,67 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1"></label>
 				<div class="col-sm-10">
-					<input type="hidden" name="application_id" value="<?php echo $_GET['app']; ?>" />
+					<input type="hidden" name="application_id" value="<?php echo $_GET['app']; ?>" required/>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1"></label>
 				<div class="col-sm-10">
-					<input type="hidden" name="application_id" value="<?php echo $_GET['app']; ?>" />
+					<input type="hidden" name="application_id" value="<?php echo $_GET['app']; ?>" required/>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1"></label>
 				<div class="col-sm-10">
-					<input type="hidden" name="organization_name" value="<?php echo $userdata['organization_name']; ?>" />
+					<input type="hidden" name="organization_name" value="<?php echo $userdata['organization_name']; ?>" required/>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1"></label>
 				<div class="col-sm-10">
-					<input type="hidden" name="organization_admin_email" value="<?php echo $userdata['email']; ?>" />
+					<input type="hidden" name="organization_admin_email" value="<?php echo $userdata['email']; ?>" required/>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Name</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="application_admin_name" value="<?php if(isset($org_list)){ echo $org_list[0]->name; }?>" id="field-1" placeholder="Please Enter Name">
+					<input type="text" class="form-control" name="application_admin_name" value="<?php if(isset($org_list)){ echo $org_list[0]->name; }?>" id="field-1" placeholder="Please Enter Name" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Email</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="application_admin_email" value="<?php if(isset($org_list)){ echo $org_list[0]->email; }?>" id="field-1" placeholder="Please Enter Email">
+					<input type="text" class="form-control" name="application_admin_email" value="<?php if(isset($org_list)){ echo $org_list[0]->email; }?>" id="field-1" placeholder="Please Enter Email" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Mobile</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="application_mobile" value="<?php if(isset($org_list)){ echo $org_list[0]->mobile; }?>" id="field-1" placeholder="Please Enter Mobile Number">
+					<input type="text" class="form-control" name="application_mobile" value="<?php if(isset($org_list)){ echo $org_list[0]->mobile; }?>" id="field-1" placeholder="Please Enter Mobile Number" required>
 				</div>
 			</div>
 			<!--  <div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Address</label>
 				<div class="col-sm-10">
-					<textarea class="form-control" name="address"  placeholder="Please Enter Address" /><?php if(isset($org_list)){ echo $org_list[0]->address; }?></textarea>
+					<textarea class="form-control" name="address"  placeholder="Please Enter Address" ><?php if(isset($org_list)){ echo $org_list[0]->address; }?></textarea>
 				</div>
 			</div>-->
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">User name</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="application_username" value="<?php if(isset($org_list)){ echo $org_list[0]->Username; }?>" id="field-1" placeholder="Please Enter User Name">
+					<input type="text" class="form-control" name="application_username" value="<?php if(isset($org_list)){ echo $org_list[0]->Username; }?>" id="field-1" placeholder="Please Enter User Name" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Password</label>
 				<div class="col-sm-10">
-					<input type="password" class="form-control" name="application_password"  id="field-1" placeholder="Please Enter Password">
+					<input type="password" class="form-control" name="application_password"  id="field-1" placeholder="Please Enter Password" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Data Base</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="db_name" value="" id="field-1" placeholder="Please Enter Data Base Name">
+					<input type="text" class="form-control" name="db_name" value="" id="field-1" placeholder="Please Enter Data Base Name" required>
 				</div>
 			</div>
 	<div class="form-group-separator"></div>

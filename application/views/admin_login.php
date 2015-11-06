@@ -52,11 +52,11 @@
 						</div> --> 
 						<div class="form-group">
 							<label class="control-label" for="username">User id</label>
-							<input type="text" class="form-control" name="username" id="username" autocomplete="off" />
+							<input type="text" class="form-control" name="username" id="username" autocomplete="off" required/>
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="passwd">Password</label>
-							<input type="password" class="form-control" name="password" id="passwd" autocomplete="off" />
+							<input type="password" class="form-control" name="password" id="passwd" autocomplete="off" required/>
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary btn-theme btn-block text-left">
