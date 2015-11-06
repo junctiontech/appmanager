@@ -138,11 +138,10 @@
  		{
  			$data=array('registration_id'=>$id);
  			$qry=$this->admin_model->update_status_org('registered_application',$data);
- 			print_r($qry);die;
  			$data=array(
  					'status'=>$status,
  			);
- 			$qry=$this->admin_model->set_update_org_app_info('organizations',$data,$id);
+ 			$qry=$this->admin_model->set_update_org_app_info('organizations',$data,array('registration_id'=>$qry[0]->organization_id));
  			$this->session->set_flashdata('category_success', 'success message');
  			$this->session->set_flashdata('message', $this->config->item("user").' Application '.$status.' successfully');
  			redirect('admin_panel/manage_admin');
@@ -152,7 +151,7 @@
  			$data=array(
  					'status'=>$status,
  			);
- 			$qry=$this->admin_model->set_update_org_app_info('registered_application',$data,$id);
+ 			$qry=$this->admin_model->set_update_org_app_info('registered_application',$data,array('registration_id'=>$id));
  			$this->session->set_flashdata('category_success', 'success message');
  			$this->session->set_flashdata('message', $this->config->item("user").' Application '.$status.' successfully');
  			redirect('admin_panel/manage_admin');

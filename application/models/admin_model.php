@@ -44,9 +44,9 @@ class Admin_model extends CI_Model{
 	}
 	
 	/* Function for update information for organization registered application.......................................................................*/
-	function set_update_org_app_info($table,$data,$id)
+	function set_update_org_app_info($table,$data,$filter)
 	{
-		$this->db->where('registration_id',$id);
+		$this->db->where($filter);
 		$this->db->update($table,$data);
 		return true;
 	}
