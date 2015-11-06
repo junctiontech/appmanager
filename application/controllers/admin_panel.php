@@ -134,7 +134,20 @@
  	{
  		if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
  		$userdata=$this->session->userdata('username');
- 		if(isset($status) && !$status=='')
+ 		if($userdata['username']=='admin')
+ 		{
+ 			$data=array('registration_id'=>$id);
+ 			$qry=$this->admin_model->set_update_org_app_info('registered_application',$data);
+ 			print_r($qry);die;
+ 			$data=array(
+ 					'status'=>$status,
+ 			);
+ 			$qry=$this->admin_model->set_update_org_app_info('organizations',$data,$id);
+ 			$this->session->set_flashdata('category_success', 'success message');
+ 			$this->session->set_flashdata('message', $this->config->item("user").' Application '.$status.' successfully');
+ 			redirect('admin_panel/manage_admin');
+ 		}
+ 		if(isset($status) && !$status=='' && $userdata['username']!=='admin')
  		{
  			$data=array(
  					'status'=>$status,

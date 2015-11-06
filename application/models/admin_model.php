@@ -64,4 +64,11 @@ class Admin_model extends CI_Model{
 		$this->db->delete($table,$data);
 		return true;
 	}
+	
+	/* Function For retrive data from registration application behalf on registration id in update case status by super admin */
+	function update_status_org($table,$data)
+	{
+		$qry=$this->db->get_where($table,$data);
+		return $qry->result();
+	}
 }
