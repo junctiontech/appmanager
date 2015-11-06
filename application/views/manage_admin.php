@@ -74,7 +74,7 @@
 									onClick="return confirm('Are you sure to delete this organization ? This will delete all the related records on this organization as well.')"
 									class="btn btn-danger btn-sm btn-icon icon-left"> Delete 
 									</a>
-									<?php if($list->status=='active'){ ?>
+									<?php if($list->status=='active' && $userdata['username']!==admin){ ?>
 									<a href="<?php echo base_url(); ?>admin_panel/set_update_org_app_info/<?=$list->registration_id;?>/suspend" class="btn btn-secondary btn-sm btn-icon icon-left"> Suspend </a>
 									<?php } else{ ?>
 									<a href="<?php echo base_url(); ?>admin_panel/set_update_org_app_info/<?=$list->registration_id;?>/active" class="btn btn-secondary btn-sm btn-icon icon-left"> Active </a>
