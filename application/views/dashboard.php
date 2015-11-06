@@ -38,7 +38,7 @@ $(function(){
 	</div>
 	<div class="row col-md-12" style="margin-left:2.4cm; margin-top:3cm;" >
 		<div class="col-md-4">
-			<a class="btn btn-icon btn-red" href="<?php echo base_url();?>admin_panel"><i class="fa-fire">   Account Login</i></a>
+			<a class="btn btn-icon btn-red" onclick="callAjax();" href="<?php echo base_url();?>admin_panel"><i class="fa-fire">   Account Login</i></a>
 		</div>
 		<div class="col-md-4">
 			<a class="btn btn-icon btn-red" href="<?php echo base_url();?>login/application_login?id=login"><i class="fa-fire">    Application Login</i></a>
