@@ -137,7 +137,7 @@
  		if($userdata['username']=='admin')
  		{
  			$data=array('registration_id'=>$id);
- 			$qry=$this->admin_model->set_update_org_app_info('registered_application',$data);
+ 			$qry=$this->admin_model->update_status_org('registered_application',$data);
  			print_r($qry);die;
  			$data=array(
  					'status'=>$status,
