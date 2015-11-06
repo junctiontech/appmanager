@@ -36,7 +36,7 @@
  					'Username'=>$this->input->post('username'),
  					'Password'=>md5($this->input->post('password'))
  			);
- 			$query=$this->admin_model->verify_admin('organizations',$data);print_r($query);die;
+ 			$query=$this->admin_model->verify_admin('organizations',$data);
  			if($query[0]->status!=='suspend ')
  			{
 	 			$qry=$this->admin_model->org_list($query[0]->organization_id);
