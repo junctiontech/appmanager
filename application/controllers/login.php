@@ -10,7 +10,6 @@ Class Login extends CI_Controller {
 		$this->load->library('session');
 		$this->load->model('login_model');
 		$this->load->library('email');
-		//if (!$this->session->userdata('user_data')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
 	 }
 
 	 /* Function for Dashboard view.....................................................................*/
