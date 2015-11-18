@@ -43,8 +43,7 @@ class Remoteapi {
 	/* Function For Moblie Application Registration */
 	function employeeRegister()
 	{
-		 echo 'true'; die;
-		//echo $_POST['employeeName'];echo $_POST['employeeMobileNumber'];echo $_POST['employeePassword'];echo $_POST['employeeOrganizationName'];echo $_POST['employeeIMEI']; echo 'true';die;
+		echo $_POST['employeeName'];echo $_POST['employeeMobileNumber'];echo $_POST['employeePassword'];echo $_POST['employeeOrganizationName'];echo $_POST['employeeIMEI']; die;
 	}
 	
 	function task_update()
