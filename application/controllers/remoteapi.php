@@ -80,11 +80,11 @@ class Remoteapi {
 			$sql=mysqli_query($CONNECTION,$query);//print_r($sql);die;
 			//$result=mysqli_fetch_assoc($sql);
 			while($row=mysqli_fetch_array($sql)) {
-				$result[] = $row;
+				echo json_encode($row);
 			}
 			//return $result;
 			//$array=array();
-			echo json_encode($result);die;//print_r($result);die;
+			die;//print_r($result);die;
 			if($result)
 			{
 				$querys= "select * from task";
