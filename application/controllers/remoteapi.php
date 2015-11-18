@@ -72,7 +72,7 @@ class Remoteapi {
 	
 	function project()
 	{
-		
+		echo 'hiiii';
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
 		if($CONNECTION!=='')
 		{
