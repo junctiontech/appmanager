@@ -72,7 +72,7 @@ class Remoteapi {
 	
 	function project()
 	{
-		echo 'hiiii';
+		echo 'true';die;
 		/*$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
 		if($CONNECTION!=='')
 		{
@@ -98,78 +98,4 @@ class Remoteapi {
 }
 
 
-
-{
-
-	"project_list":
-	[
-			 
-		{
-			"project_id": "001",
-			"project_description": "Junction Tech Pvt Ltd",
-			//"address": "532 Aashima Mall BHOPAL",
-			//"mobile": "8109069226",
-			"list_of_task":
-			[
-				{
-					"task_id": "001",
-					"status": "new",
-					"task_description": "Create static web page"
-				},
-				{
-					"task_id": "002",
-					"status": "new",
-					"task_description": "Create dynamic web page"
-				},
-				{
-					"task_id": "003",
-					"status": "new",
-					"task_description": "Create database"
-				},
-				{
-					"task_id": "004",
-					"status": "new",
-					"task_description": "Create web service"
-				}
-			]
-		},
-		{
-			"project_id": "002",
-			"project_name": "Khaira & Associates",
-			"address": "533 Aashima Mall BHOPAL",
-			"mobile": "8109069226",
-			"list_of_task":
-			[
-				{
-					"task_id": "001",
-					"status": "new",
-					"title": "SOIL MECHANICS AND FOUNDATIONS"
-				},
-				{
-					"task_id": "002",
-					"status": "new",
-					"title": "STRUCTURAL STEEL CONSTRUCTION"
-				},
-				{
-					"task_id": "003",
-					"status": "changed",
-					"title": "COLD-FORMED STEEL CONSTRUCTION"
-				},
-				{
-					"task_id": "004",
-					"status": "new",
-					"title": "CONCRETE CONSTRUCTION"
-				},
-				{
-					"task_id": "005",
-					"status": "changed",
-					"title": "WOOD CONSTRUCTION"
-				}
-			]
-	
-		}
-
-	]
-
-}
 /* End of login controller */
