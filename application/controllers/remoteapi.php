@@ -50,13 +50,42 @@ class Remoteapi {
 			$sql=mysqli_query($CONNECTION,$query);
 			if($sql)
 			{
-				echo 'true';
+				$CONNECTION=mysqli_connect("localhost",'root','bitnami',$_POST['employeeOrganizationName']);
+				$date=date('d-m-Y');
+				$query= "INSERT INTO newregistration VALUES('".$_POST['employeeName']."','".$_POST['employeeMobileNumber']."','".$_POST['employeePassword']."','".$_POST['employeeIMEI']."','".$_POST['employeeName']."','".$date."')";
+				$sql=mysqli_query($CONNECTION, $query);
+				if($sql)
+				{
+					echo 'true';
+				}
 			}
 			else {
-					echo 'error';
+					echo 'Data Base does Not Exist';
 				}
 		}
+		else 
+		{
+			echo 'Server Error';
+		}
 		//echo $_POST['employeeName'];echo $_POST['employeeMobileNumber'];echo $_POST['employeePassword'];echo $_POST['employeeOrganizationName'];echo $_POST['employeeIMEI']; die;
+	}
+	
+	function project()
+	{
+		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
+		if($CONNECTION!=='')
+		{
+			$query= "select * from project";
+			$sql=mysqli_query($CONNECTION,$query);print_r($sql);die;
+			if($sql)
+			{
+				$query= "select * from task";
+				$sql=mysqli_query($CONNECTION,$query);
+			}
+		}
+		else {
+			echo 'database does not exist';
+		}
 	}
 	
 	function task_update()
@@ -65,5 +94,81 @@ class Remoteapi {
 	}
 	
 	
+}
+
+
+
+{
+
+	"project_list":
+	[
+			 
+		{
+			"project_id": "001",
+			"project_description": "Junction Tech Pvt Ltd",
+			//"address": "532 Aashima Mall BHOPAL",
+			//"mobile": "8109069226",
+			"list_of_task":
+			[
+				{
+					"task_id": "001",
+					"status": "new",
+					"task_description": "Create static web page"
+				},
+				{
+					"task_id": "002",
+					"status": "new",
+					"task_description": "Create dynamic web page"
+				},
+				{
+					"task_id": "003",
+					"status": "new",
+					"task_description": "Create database"
+				},
+				{
+					"task_id": "004",
+					"status": "new",
+					"task_description": "Create web service"
+				}
+			]
+		},
+		{
+			"project_id": "002",
+			"project_name": "Khaira & Associates",
+			"address": "533 Aashima Mall BHOPAL",
+			"mobile": "8109069226",
+			"list_of_task":
+			[
+				{
+					"task_id": "001",
+					"status": "new",
+					"title": "SOIL MECHANICS AND FOUNDATIONS"
+				},
+				{
+					"task_id": "002",
+					"status": "new",
+					"title": "STRUCTURAL STEEL CONSTRUCTION"
+				},
+				{
+					"task_id": "003",
+					"status": "changed",
+					"title": "COLD-FORMED STEEL CONSTRUCTION"
+				},
+				{
+					"task_id": "004",
+					"status": "new",
+					"title": "CONCRETE CONSTRUCTION"
+				},
+				{
+					"task_id": "005",
+					"status": "changed",
+					"title": "WOOD CONSTRUCTION"
+				}
+			]
+	
+		}
+
+	]
+
 }
 /* End of login controller */
