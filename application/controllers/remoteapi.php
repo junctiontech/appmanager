@@ -91,8 +91,8 @@ class Remoteapi {
 			//$result[]=$data;	
 			} 
 			$array=array(
-									'project_detail'=>$result[0]=$data,
-									'task_detail'=>$results[0]=$sqls,
+									'project_detail'=>$result[]=$data,
+									'task_detail'=>$results[]=$sqls,
 								);
 			
 			echo json_encode($array);die;
