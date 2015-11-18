@@ -78,6 +78,8 @@ class Remoteapi {
 		{
 			$query= "select * from project";
 			$sql=mysqli_query($CONNECTION,$query);
+			$count=mysqli_affected_rows($sql);
+			echo $count;die;
 			foreach ($sql as $data)
 			{
 				$result[]=$data;
