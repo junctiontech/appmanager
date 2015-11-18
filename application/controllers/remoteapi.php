@@ -79,11 +79,13 @@ class Remoteapi {
 			$query= "select * from project";
 			$sql=mysqli_query($CONNECTION,$query);//print_r($sql);die;
 			$result=mysqli_fetch_assoc($sql);//print_r($result);die;
-			echo json_encode($result);die;
-			if($sql)
+			if($result)
 			{
-				$query= "select * from task";
-				$sql=mysqli_query($CONNECTION,$query);
+				$querys= "select * from task";
+				$sqls=mysqli_query($CONNECTION,$querys);
+				$results=mysqli_fetch_assoc($sqls);
+				$value=$result.$results;
+				echo json_encode($value);die;
 			}
 		}
 		else {
