@@ -76,9 +76,9 @@ class Remoteapi {
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
 		if($CONNECTION!=='')
 		{
-			$query= "select * from project";
+			$query= "select * from project,task";
 			$sql=mysqli_query($CONNECTION,$query);//print_r($sql);die;
-			$result=mysqli_fetch_all($sql);//print_r($result);die;
+			$result=mysqli_fetch_all($sql);echo json_encode($result);die;//print_r($result);die;
 			if($result)
 			{
 				$querys= "select * from task";
