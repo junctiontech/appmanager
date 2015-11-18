@@ -80,7 +80,7 @@ class Remoteapi {
 			$sql=mysqli_query($CONNECTION,$query);
 			foreach ($sql as $sqls)
 			{
-				$query= "select * from task where project_id='".$sqls->project_id."'";
+				$query= "select * from task where project_id=$sqls->project_id";
 				$sql=mysqli_query($CONNECTION,$query);
 				foreach ($sql as $sqls)
 				{
