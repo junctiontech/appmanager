@@ -43,7 +43,20 @@ class Remoteapi {
 	/* Function For Moblie Application Registration */
 	function employeeRegister()
 	{
-		echo $_POST['employeeName'];echo $_POST['employeeMobileNumber'];echo $_POST['employeePassword'];echo $_POST['employeeOrganizationName'];echo $_POST['employeeIMEI']; die;
+		$CONNECTION=mysqli_connect("localhost",'root','bitnami','appmanager');
+		if($_POST['employeeOrganizationName']!=='')
+		{
+			$query= "select * from registered_application where db_name='".$_POST['employeeOrganizationName']."'";
+			$sql=mysqli_query($CONNECTION,$query);
+			if($sql)
+			{
+				echo 'true';
+			}
+			else {
+					echo 'error';
+				}
+		}
+		//echo $_POST['employeeName'];echo $_POST['employeeMobileNumber'];echo $_POST['employeePassword'];echo $_POST['employeeOrganizationName'];echo $_POST['employeeIMEI']; die;
 	}
 	
 	function task_update()
