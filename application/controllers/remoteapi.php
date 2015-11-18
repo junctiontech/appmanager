@@ -84,7 +84,7 @@ class Remoteapi {
 				$querys= "select * from task";
 				$sqls=mysqli_query($CONNECTION,$querys);
 				$results=mysqli_fetch_assoc($sqls);
-				$value=$result.$results;
+				$value=array_merge($result,$results);
 				echo json_encode($value);die;
 			}
 		}
