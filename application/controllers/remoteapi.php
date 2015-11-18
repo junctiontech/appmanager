@@ -73,7 +73,7 @@ class Remoteapi {
 	function project()
 	{
 		echo 'hiiii';
-		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
+		/*$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
 		if($CONNECTION!=='')
 		{
 			$query= "select * from project";
@@ -86,7 +86,7 @@ class Remoteapi {
 		}
 		else {
 			echo 'database does not exist';
-		}
+		}*/
 	}
 	
 	function task_update()
