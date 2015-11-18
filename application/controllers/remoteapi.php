@@ -85,7 +85,7 @@ class Remoteapi {
 				$sqls=mysqli_query($CONNECTION,$querys);
 				$results=mysqli_fetch_all($sqls);
 				$value=array_merge($result,$results);
-				echo json_encode($value);die;
+				echo json_decode($value);die;
 			}
 		}
 		else {
