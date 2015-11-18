@@ -81,7 +81,7 @@ class Remoteapi {
 			foreach ($sql as $sqls)
 			{
 			echo  $sqls[0]->project_id;
-			}die;
+			} die;
 			print_r($sqls->project_id);die;
 			
 			
