@@ -77,11 +77,18 @@ class Remoteapi {
 		if($CONNECTION!=='')
 		{
 			$query= "select * from task";
-			$sql=mysqli_query($CONNECTION,$query);//print_r($sql);die;
+			$sql=mysqli_query($CONNECTION,$query);
+			foreach ($sql as $sqls)
+			{
+				$result[]=$sqls;
+			}
+			print_r($result);die;
 			//$result=mysqli_fetch_assoc($sql);
 			while($row=mysqli_fetch_array($sql)) {
-				echo json_encode($row);
+				$result[]=$row;
 			}
+			$querys= "select * from task";
+			$sqls=mysqli_query($CONNECTION,$querys);
 			//return $result;
 			//$array=array();
 			die;//print_r($result);die;
@@ -94,7 +101,8 @@ class Remoteapi {
 				echo json_encode($value);die;
 			}
 		}
-		else {
+		else 
+		{
 			echo 'database does not exist';
 		}
 	}
