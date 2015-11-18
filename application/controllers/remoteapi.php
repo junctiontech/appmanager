@@ -40,6 +40,12 @@ class Remoteapi {
 		}
 	}
 	
+	/* Function For Moblie Application Registration */
+	function employeeRegister()
+	{
+		echo $_GET['employeeName'];echo $_GET['employeeMobileNumber'];echo $_GET['employeePassword'];echo $_GET['employeeOrganizationName'];echo $_GET['employeeIMEI']; die;
+	}
+	
 	function task_update()
 	{
 		// task update body hear
