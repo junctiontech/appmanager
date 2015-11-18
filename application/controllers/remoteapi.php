@@ -80,7 +80,7 @@ class Remoteapi {
 			$sql=mysqli_query($CONNECTION,$query);
 			foreach ($sql as $sqls)
 			{
-			print_r($sqls);
+			print_r($sqls['project_id']);
 			} die;
 			print_r($sqls->project_id);die;
 			
