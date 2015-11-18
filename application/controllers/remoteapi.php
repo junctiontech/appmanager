@@ -89,7 +89,7 @@ class Remoteapi {
 				if(isset($count) && $count > 0)
 				{
 					$datas	=	array();
-					while( $result	=	mysql_fetch_assoc( $sql ) ){
+					while( $result	=	mysqli_fetch_assoc( $sql ) ){
 						$datas[]		=	$result;
 					}
 					$result	=	array(
