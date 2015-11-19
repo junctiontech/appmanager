@@ -92,7 +92,7 @@ class Remoteapi {
 						$count=mysqli_num_rows($sql);
 						
 						$task_data	=	array();
-						if(isset($count) && $count > 0) 
+						if(isset($count) && $count > 0)  
 						{
 							
 							while($result_task=mysqli_fetch_assoc( $sql ))
