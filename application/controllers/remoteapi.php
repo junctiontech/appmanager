@@ -72,6 +72,11 @@ class Remoteapi {
 		
 	}
 	
+	function demo_project()
+	{
+		
+	}
+	
 	function project()
 	{
 		//echo 'true';die;
@@ -102,7 +107,7 @@ class Remoteapi {
 							}
 						}
 						
-						$data_array=array_push($project_data, $task_data);
+						$data_array=array_merge($project_data, $task_data);
 //  						$data_array=$project_data+array('task_of_list'=>$task_data);
 						$result	=	array(
 								'project_list'		=>$data_array,
