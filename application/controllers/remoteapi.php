@@ -46,9 +46,9 @@ class Remoteapi {
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','appmanager');
 		if($CONNECTION!=='')
 		{
-			$data=json_decode($_POST['registration_info']); echo $data->employeeOrganizationName;die;
+			$data=json_decode($_POST['registration_info']);
 			$query= "select * from registered_application where db_name='".$data->employeeOrganizationName."'";
-			$sql=mysqli_query($CONNECTION,$query);
+			$sql=mysqli_query($CONNECTION,$query);echo $sql;die;
 			if($sql)
 			{
 				$CONNECTION=mysqli_connect("localhost",'root','bitnami',$data->employeeOrganizationName);
