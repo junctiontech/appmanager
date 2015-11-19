@@ -52,10 +52,10 @@ class Remoteapi {
 			$count=mysqli_num_rows($sql);
 			if(isset($count) && $count > 0 )
 			{
-				$CONNECTION=mysqli_connect("localhost",'root','bitnami',$data->employeeOrganizationName);
+				$new_connection=mysqli_connect("localhost",'root','bitnami',$data->employeeOrganizationName);
 				$date=date('d-m-Y');
 				$query= "INSERT INTO newregistration VALUES('".$data->employeeName."','".$data->employeeMobileNumber."','".$data->employeePassword."','".$data->employeeIMEI."','androide','new','".$data->employeeName."','".$date."')";
-				$sql=mysqli_query($CONNECTION, $query);
+				$sql=mysqli_query($new_connection, $query);print_r($sql);die;
 				if($sql)
 				{
 					echo 'true';
