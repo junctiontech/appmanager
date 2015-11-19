@@ -54,7 +54,7 @@ class Remoteapi {
 			{
 				$new_connection=mysqli_connect("localhost",'root','bitnami',$data->employeeOrganizationName);
 				$androide='Application'; $status='recently';
-				$query= "INSERT INTO newregistration VALUES('".$data->employeeName."','".$data->employeeMobileNumber."','".$data->employeePassword."','".$data->employeeIMEI."','".$androide."','".$status."','".$data->employeeName."','','','')";
+				$query= "INSERT INTO newregistration VALUES('".$data->employeeName."','".$data->employeeMobileNumber."','".$data->employeePassword."','".$data->employeeIMEI."','','','".$data->employeeName."','','','')";
 				$sql=mysqli_query($new_connection, $query);
 				if($sql)
 				{
