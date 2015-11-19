@@ -103,7 +103,7 @@ class Remoteapi {
 								'task_of_list'		=>	$task_data,
 						);
 						echo json_encode($result);
-						$project_data=='';
+						$project_data='';
 					}
 					die;
 					//$query= "select * from task where project_id='".$data['project_id']."'";
