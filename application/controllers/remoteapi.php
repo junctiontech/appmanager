@@ -81,62 +81,50 @@ class Remoteapi {
 			$query= "select * from project";
 			$sql=mysqli_query($CONNECTION,$query);
 			$count=mysqli_num_rows($sql);
-			//echo $count;die; 
-			foreach ($sql as $data)
+			if(isset($count) && $count > 0)
 			{
-				$results[]=$data;
-				$query= "select * from task where project_id='".$data['project_id']."'";
-				$sql=mysqli_query($CONNECTION,$query);
-				$count=mysqli_num_rows($sql);
-				if(isset($count) && $count > 0)
-				{
-					$datas	=	array();
-					while( $result	=	mysqli_fetch_assoc( $sql ) ){
-						$datas[]		=	$result;
+					$project_data[]=array();
+					while($result_project=mysqli_fetch_assoc($sql))
+					{
+						$project_data[]=$result_project;
+						$query= "select * from task where project_id='".$result_project['project_id']."'";
+						$sql=mysqli_query($CONNECTION,$query);
+						$count=mysqli_num_rows($sql);
+						if(isset($count) && $count > 0)
+						{
+							$task_data	=	array();
+							while($result_task=mysqli_fetch_assoc( $sql ))
+							{
+								$task_data[]		=	$result_task;
+							}
+						}
 					}
 					$result	=	array(
-							'project_list'	=>$results,
-							'data'		=>	array(
-									'task_list'	=>	$datas
-							)
-					);
-				}
+							'project_list'	=>$project_data,
+							'task_of_list'		=>	$task_data,
+							);
+					//$query= "select * from task where project_id='".$data['project_id']."'";
+					//$sql=mysqli_query($CONNECTION,$query);
+					//$count=mysqli_num_rows($sql);
+					//if(isset($count) && $count > 0)
+					//{
+					//	$datas	=	array();
+					//	while( $result	=	mysqli_fetch_assoc( $sql ) ){
+					//		$datas[]		=	$result;
+					//	}
+					//	$result	=	array(
+					//			'project_list'	=>$results,
+					//			'data'		=>	array(
+					//					'task_list'	=>	$datas
+					//			)
+					//	);
+					//}
+				
 			}
 			echo json_encode($result);die;
 			//print_r($sqls->project_id);die;
 			
-			
-			
-			
-			
-			
-			
-			
-			$query= "select * from project";
-			$sql=mysqli_query($CONNECTION,$query);
-			foreach ($sql as $sqls)
-			{
-				$results[]=$sqls;
-			}
-			
-			print_r($results);die;
-			//$result=mysqli_fetch_assoc($sql);
-			while($row=mysqli_fetch_array($sql)) {
-				$result[]=$row;
-			}
-			$querys= "select * from task";
-			$sqls=mysqli_query($CONNECTION,$querys);
-			//return $result;
-			//$array=array();
-			die;//print_r($result);die;
-			if($result)
-			{
-				$querys= "select * from task";
-				$sqls=mysqli_query($CONNECTION,$querys);
-				$results=mysqli_fetch_all($sqls);
-				$value=array_merge($result,$results);
-				echo json_encode($value);die;
-			}
+				
 		}
 		else 
 		{
