@@ -83,7 +83,7 @@ class Remoteapi {
 			$count=mysqli_num_rows($sql);//echo $count;die;
 			if(isset($count) && $count > 0)
 			{
-					$project_data[]=array();
+					$project_data=array();
 					while($result_project=mysqli_fetch_assoc($sql))
 					{ 
 						$project_data[]=$result_project;
