@@ -96,9 +96,10 @@ class Remoteapi {
 							while($result_task=mysqli_fetch_assoc( $sql ))
 							{
 								$task_data[]		=	$result_task;
+								$demo_array=array('task_of_list'=>$task_data);
 							}
 						}
-						$data_array=array_merge($project_data,$task_data);
+						$data_array=array_merge($project_data,$demo_array);
 						$result	=	array(
 								'project_list'		=>$data_array,
 								//'task_of_list'		=>	$task_data,
