@@ -102,8 +102,7 @@ class Remoteapi {
 							$task_data[]=$result_task;
 						}
 					}
-				
-					$result	=	array(
+				 	$result	=	array(
 							'project_list'		=>$project_data,
 							'task_of_list'		=>	$task_data,
 							//'project_list'=>$project_data
