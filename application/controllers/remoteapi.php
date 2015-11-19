@@ -97,12 +97,12 @@ class Remoteapi {
 							{
 								$task_data[]		=	$result_task;
 							}
-							$result	=	array(
-									'project_list'	=>$project_data,
-									'task_of_list'		=>	$task_data,
-							);
-							echo json_encode($result);
 						}
+						$result	=	array(
+								'project_list'	=>$project_data,
+								'task_of_list'		=>	$task_data,
+						);
+						echo json_encode($result);
 					}
 					
 					die;
