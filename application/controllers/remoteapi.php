@@ -76,7 +76,6 @@ class Remoteapi {
 	
 	function project()
 	{
-		//echo 'true';die;
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
 		if($CONNECTION!=='')
 		{
@@ -105,8 +104,7 @@ class Remoteapi {
 				 	$result	=	array(
 							'project_list'		=>$project_data,
 							'task_of_list'		=>	$task_data,
-							//'project_list'=>$project_data
-					);//print_r($result);die;
+					);
 					echo json_encode($result);
 					die;
 				
@@ -150,7 +148,7 @@ class Remoteapi {
 				if ($i==count($project_data))
 					array_push($project_data, $var);
 				else
-					$datass[] = $project_data[$i];
+					$project_data[] = $project_data[$i];
 				
 			}
 			
@@ -160,7 +158,7 @@ class Remoteapi {
 					//'task_of_list'		=>	$task_data,
 					//'project_list'=>$project_data
 			//);//print_r($result);die;
-			print_r(json_encode($datass));
+			print_r(json_encode($project_data));
 			die;
 		
 		}
@@ -173,7 +171,7 @@ class Remoteapi {
 	
 	function project_update()
 	{
-		// task update body hear
+		// Todo Project Update Body Hear;
 	}
 	
 	
