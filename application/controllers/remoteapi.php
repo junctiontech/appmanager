@@ -87,6 +87,7 @@ class Remoteapi {
 					while($result_project=mysqli_fetch_assoc($sqls))
 					{	
 						$project_data[]=$result_project;
+						echo $result_project['project_id'];
 						$query= "select * from task where project_id='".$result_project['project_id']."'";
 						$sql=mysqli_query($CONNECTION,$query);
 						$count=mysqli_num_rows($sql);
@@ -102,7 +103,7 @@ class Remoteapi {
 								'project_list'		=>$project_data,
 								'task_of_list'		=>	$task_data,
 						);
-						echo json_encode($result);
+						//echo json_encode($result);
 						$project_data='';
 					}
 					die;
