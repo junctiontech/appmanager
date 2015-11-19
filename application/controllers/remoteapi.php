@@ -46,15 +46,16 @@ class Remoteapi {
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','appmanager');
 		if($CONNECTION!=='')
 		{
-			$data=json_decode($_POST['registration_info']);print_r($data);die;
+			$data=json_decode($_POST['registration_info']);
 			$query= "select * from registered_application where db_name='".$data->employeeOrganizationName."'";
 			$sql=mysqli_query($CONNECTION,$query);
 			$count=mysqli_num_rows($sql);
 			if(isset($count) && $count > 0 )
 			{
 				$new_connection=mysqli_connect("localhost",'root','bitnami',$data->employeeOrganizationName);
+				print_r($new_connection);die;
 				$date=date('d-m-Y');
-				$query= "INSERT INTO newregistration VALUES('".$data->employeeName."','".$data->employeeMobileNumber."','".$data->employeePassword."','".$data->employeeIMEI."','androide','new','".$data->employeeName."','".$date."')";
+				$query= "INSERT INTO newregistration VALUES('".$data->employeeName."','".$data->employeeMobileNumber."','".$data->employeePassword."','".$data->employeeIMEI."','','','".$data->employeeName."','".$date."')";
 				$sql=mysqli_query($new_connection, $query);print_r($sql);die;
 				if($sql)
 				{
