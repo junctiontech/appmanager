@@ -109,27 +109,6 @@ class Remoteapi {
 					);//print_r($result);die;
 					echo json_encode($result);
 					die;
-					//$query= "select * from task where project_id='".$data['project_id']."'";
-					//$sql=mysqli_query($CONNECTION,$query);
-					//$count=mysqli_num_rows($sql);
-					//if(isset($count) && $count > 0)
-					//{
-					//	$datas	=	array();
-					//	while( $result	=	mysqli_fetch_assoc( $sql ) ){
-					//		$datas[]		=	$result;
-					//	}
-					//	$result	=	array(
-					//			'project_list'	=>$results,
-					//			'data'		=>	array(
-					//					'task_list'	=>	$datas
-					//			)
-					//	);
-					//}
-				
-			
-			//echo json_encode($result);die;
-			//print_r($sqls->project_id);die;
-			
 				
 		}
 		else 
@@ -137,6 +116,51 @@ class Remoteapi {
 			echo 'database does not exist';
 		}
 	}
+	
+	function demo()
+	{
+		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
+		if($CONNECTION!=='')
+		{
+			$query= "select * from project";
+			$sqls=mysqli_query($CONNECTION,$query);
+			$count=mysqli_num_rows($sqls);//echo $count;die;
+			if(isset($count) && $count > 0)
+			{
+				//$project_data=array();
+				while($result_project=mysqli_fetch_assoc($sqls))
+				{
+					$project_data[]=$result_project;
+				}
+			}
+			$query= "select * from task";
+			$sql=mysqli_query($CONNECTION,$query);
+			$count=mysqli_num_rows($sql);
+			$task_data	=	array();
+			if(isset($count) && $count > 0)
+			{
+				while($result_task=mysqli_fetch_assoc( $sql ))
+				{
+					$task_data[]=$result_task;
+				}
+			}
+			$var=array('list_of_task'=>$task_data);
+			$temp_data=array_push($project_data, $var);
+			$result	=	array(
+					'project_list'		=>$temp_data,
+					//'task_of_list'		=>	$task_data,
+					//'project_list'=>$project_data
+			);//print_r($result);die;
+			echo json_encode($result);
+			die;
+		
+		}
+		else
+		{
+			echo 'database does not exist';
+		}
+	}
+	
 	
 	function project_update()
 	{
