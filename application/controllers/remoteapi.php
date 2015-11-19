@@ -46,7 +46,7 @@ class Remoteapi {
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','appmanager');
 		if($CONNECTION!=='')
 		{
-			$data=json_decode($_POST['registration_info']);
+			$data=json_decode($_POST['registration_info']);print_r($data);die;
 			$query= "select * from registered_application where db_name='".$data->employeeOrganizationName."'";
 			$sql=mysqli_query($CONNECTION,$query);
 			if($sql)
@@ -60,15 +60,16 @@ class Remoteapi {
 					echo 'true';
 				}
 			}
-			else {
-					echo 'Data Base does Not Exist';
-				}
+			else
+			{
+				echo 'Data Base Does Not Exist';
+			}
 		}
 		else 
 		{
-			echo 'Server Error';
+			echo 'Connection Not Found Server Error';
 		}
-		//echo $_POST['employeeName'];echo $_POST['employeeMobileNumber'];echo $_POST['employeePassword'];echo $_POST['employeeOrganizationName'];echo $_POST['employeeIMEI']; die;
+		
 	}
 	
 	function project()
