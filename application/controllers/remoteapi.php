@@ -89,9 +89,11 @@ class Remoteapi {
 			if(isset($count) && $count > 0)
 			{
 					//$project_data=array();
-					while($result_project=mysqli_fetch_assoc($sqls))
+					$i =0;
+				while($result_project=mysqli_fetch_assoc($sqls))
 					{	
-						$project_data[]=$result_project;
+						$project_data[]=$result_project; echo $project_data[$i]['project_description'];die;
+						$dataArray = array('project_id'=>$project_data[$i]['project_id'], 'sectionid'=>$data2[$i]['sectionid'],'subjectid'=>$data2[$i]['subjectid'],'homework'=>$data2[$i]['homework'],'createdon'=>$data2[$i]['createdon']);	
 						$query= "select * from task where project_id='".$result_project['project_id']."'";
 						$sql=mysqli_query($CONNECTION,$query);
 						$count=mysqli_num_rows($sql);
