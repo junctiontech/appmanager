@@ -80,7 +80,7 @@ class Remoteapi {
 		{
 			$query= "select * from project";
 			$sqls=mysqli_query($CONNECTION,$query);
-			$count=mysqli_num_rows($sql);//echo $count;die;
+			$count=mysqli_num_rows($sqls);//echo $count;die;
 			if(isset($count) && $count > 0)
 			{
 					//$project_data=array();
