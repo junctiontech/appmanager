@@ -151,7 +151,7 @@ class Remoteapi {
 					//'task_of_list'		=>	$task_data,
 					//'project_list'=>$project_data
 			);//print_r($result);die;
-			echo json_encode($result);
+			print_r(json_encode($result));
 			die;
 		
 		}
