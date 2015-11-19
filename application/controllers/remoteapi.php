@@ -85,25 +85,26 @@ class Remoteapi {
 			{
 					$project_data=array();
 					while($result_project=mysqli_fetch_assoc($sql))
-					{ 
+					{ print_r($result_project);
 						$project_data[]=$result_project;
 						$query= "select * from task where project_id='".$result_project['project_id']."'";
 						$sql=mysqli_query($CONNECTION,$query);
 						$count=mysqli_num_rows($sql);
-						//if(isset($count) && $count > 0)
-					//	{
+						if(isset($count) && $count > 0)
+						{
 							$task_data	=	array();
 							while($result_task=mysqli_fetch_assoc( $sql ))
 							{
 								$task_data[]		=	$result_task;
 							}
-						//}
+						}
 					}
 					$result	=	array(
 							'project_list'	=>$project_data,
 							'task_of_list'		=>	$task_data,
 							);
-					echo json_encode($result);die;
+					//echo json_encode($result);
+					die;
 					//$query= "select * from task where project_id='".$data['project_id']."'";
 					//$sql=mysqli_query($CONNECTION,$query);
 					//$count=mysqli_num_rows($sql);
