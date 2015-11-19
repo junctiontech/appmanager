@@ -72,10 +72,7 @@ class Remoteapi {
 		
 	}
 	
-	function demo_project()
-	{
-		
-	}
+	
 	
 	function project()
 	{
@@ -89,11 +86,9 @@ class Remoteapi {
 			if(isset($count) && $count > 0)
 			{
 					//$project_data=array();
-					$i =0;
-				while($result_project=mysqli_fetch_assoc($sqls))
+					while($result_project=mysqli_fetch_assoc($sqls))
 					{	
-						$project_data[]=$result_project; echo $project_data[$i]['project_description'];die;
-						$dataArray = array('project_id'=>$project_data[$i]['project_id'], 'sectionid'=>$data2[$i]['sectionid'],'subjectid'=>$data2[$i]['subjectid'],'homework'=>$data2[$i]['homework'],'createdon'=>$data2[$i]['createdon']);	
+						$project_data[]=$result_project;
 						$query= "select * from task where project_id='".$result_project['project_id']."'";
 						$sql=mysqli_query($CONNECTION,$query);
 						$count=mysqli_num_rows($sql);
@@ -109,11 +104,11 @@ class Remoteapi {
 							}
 						}
 						
-						$data_array=array_merge($project_data, $task_data);
+						//$data_array=array_merge($project_data, $task_data);
 //  						$data_array=$project_data+array('task_of_list'=>$task_data);
 						$result	=	array(
-								'project_list'		=>$data_array,
-								//'task_of_list'		=>	$task_data,
+								'project_list'		=>$project_data,
+								'task_of_list'		=>	$task_data,
 								//'project_list'=>$project_data
 						);//print_r($result);die;
 						echo json_encode($result);
