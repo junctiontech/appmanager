@@ -145,13 +145,22 @@ class Remoteapi {
 				}
 			}
 			$var=array('list_of_task'=>$task_data);
-			$temp_data=array_push($project_data, $var);
-			$result	=	array(
-					'project_list'		=>$temp_data,
+			for($i=0;$i<count($project_data);$i++)
+			{
+				if ($i==count($project_data))
+					array_push($project_data, $var);
+				else
+					$datass[] = $project_data[$i];
+				
+			}
+			
+		//	array_push($project_data, $var);
+			//$result	=	array(
+					//'project_list'		=>$temp_data,
 					//'task_of_list'		=>	$task_data,
 					//'project_list'=>$project_data
-			);//print_r($result);die;
-			print_r(json_encode($result));
+			//);//print_r($result);die;
+			print_r(json_encode($datass));
 			die;
 		
 		}
