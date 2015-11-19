@@ -143,9 +143,9 @@ class Remoteapi {
 				}
 			}
 			$var=array('list_of_task'=>$task_data);
-			for($i=0;$i<count($project_data);$i++)
+			for($i=0;$i<count($task_data);$i++)
 			{
-				if ($i==count($project_data))
+				if ($i==count($task_data))
 					array_push($project_data, $var);
 				else
 					$datass[] = $project_data[$i];
