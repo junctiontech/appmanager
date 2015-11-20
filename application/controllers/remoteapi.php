@@ -129,7 +129,7 @@ class Remoteapi {
 					{
 						$j='';
 						$project_data[]=$result_project;
-						echo $result_project[$i]['project_id'];die;
+						echo $result_project[$j]['project_id'];die;
 						$query= "select * from task where project_id='".$result_project[$j]['project_id']."'";
 						$sql=mysqli_query($CONNECTION,$query);
 						$count=mysqli_num_rows($sql);
