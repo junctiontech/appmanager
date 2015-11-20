@@ -160,9 +160,10 @@ class Remoteapi {
 			$count=mysqli_num_rows($sqls);//echo $count;die;
 			if(isset($count) && $count > 0)
 			{
+				$j=0;
 				while($result_project=mysqli_fetch_assoc($sqls))
 				{
-					$j=0;
+					//$j;
 					$project_id=$result_project['project_id'];
 					$project_description= $result_project['project_description'];
 					$status= $result_project['status'];
