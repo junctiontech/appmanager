@@ -197,7 +197,7 @@ class Remoteapi {
 					//}
 					//echo 'hiii'; 
 					//$j=1;
-					//echo $j;
+					//echo $j; 
 				}
 				$project_list[]=array('id'=>$project_id,
 						'desc'=>$project_description,
