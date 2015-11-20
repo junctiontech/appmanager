@@ -141,7 +141,7 @@ class Remoteapi {
 							}
 						}
 						$local_var=array('task_of_list'=>$task_data);
-						echo json_encode(array_push($project_data,$local_var));
+						print_r(array_push($project_data,$local_var));
 						die;
 						/*for($i=0;$i<count($task_data);$i++)
 						{
