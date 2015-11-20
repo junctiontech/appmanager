@@ -195,7 +195,7 @@ class Remoteapi {
 							'project_list'=>array('id'=>$project_id[$j],
 									'desc'=>$project_description[$j],
 									'status'=>$status[$j],
-									'task_of_list'=>$task_data,
+									//'task_of_list'=>$task_data,
 							),
 					);
 				}
