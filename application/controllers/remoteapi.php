@@ -164,7 +164,7 @@ class Remoteapi {
 				{
 					//$j=0;
 					$project_id=$result_project['project_id'];
-					$project_descriptio= $result_project['project_description'];
+					$project_description= $result_project['project_description'];
 					$status= $result_project['status'];
 					
 					
