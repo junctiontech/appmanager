@@ -163,8 +163,8 @@ class Remoteapi {
 				while($result_project=mysqli_fetch_assoc($sqls))
 				{
 					$project_id=$result_project['project_id'];
-					$project_description= $result_project['project_description'];
-					$status= $result_project['status'];
+					$project_description[]= $result_project['project_description'];
+					$status[]= $result_project['status'];
 					
 					
 					
@@ -196,8 +196,7 @@ class Remoteapi {
 								'status'=>$status,
 								'task_of_list'=>$demo,	
 								),
-								
-							 );
+							);
 				echo json_encode($result);die;
 			}
 					
