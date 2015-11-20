@@ -200,7 +200,7 @@ class Remoteapi {
 							),
 					);
 				}
-				echo json_encode($result);//die;
+				//echo json_encode($result);//die;
 				die;
 				$demo=array(
 								'test'=>'demo',
