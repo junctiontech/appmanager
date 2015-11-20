@@ -145,6 +145,7 @@ class Remoteapi {
 						$local_var=array('task_of_list'=>$task_data);
 						//print_r($project_data[0]);die;
 						array_push($project_data,$local_var); 
+						++$j;
 						echo json_encode($project_data[$j]); 
 						
 						/*for($i=0;$i<count($task_data);$i++)
@@ -155,7 +156,7 @@ class Remoteapi {
 								$datass[] = $project_data[$i];
 									
 						}*/
-						$j++;
+						
 					}
 				
 					die;
