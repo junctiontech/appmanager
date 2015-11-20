@@ -190,7 +190,7 @@ class Remoteapi {
 					//		'testing'=>'demoing' , 
 					//);
 					//echo $project_id;echo $project_description;echo $status;echo $task_data;die;
-					if($j!==0){
+					if($j==1){
 					$project_list[]=array('id'=>$project_id, 
 							'desc'=>$project_description,
 							'status'=>$status,
@@ -203,7 +203,7 @@ class Remoteapi {
 						echo json_encode($result);
 					}
 					//}
-					++$j;
+					$j+1;
 					
 				}
 				//echo $count;die;
