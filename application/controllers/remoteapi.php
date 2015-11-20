@@ -164,7 +164,7 @@ class Remoteapi {
 				{
 					//$j=0;
 					$project_id=$result_project['project_id'];
-					$project_description= $result_project['project_description'];
+					$project_descriptio= $result_project['project_description'];
 					$status= $result_project['status'];
 					
 					
@@ -189,7 +189,7 @@ class Remoteapi {
 					//		'test'=>'demo',
 					//		'testing'=>'demoing' , 
 					//);
-					echo $project_id;echo $project_description;echo $status;echo $task_data;die;
+					//echo $project_id;echo $project_description;echo $status;echo $task_data;die;
 					$project_list[]=array('id'=>$project_id, 
 							'desc'=>$project_description,
 							'status'=>$status,
