@@ -168,7 +168,7 @@ class Remoteapi {
 					$status= $result_project['status'];
 					
 					
-					
+					 
 					//$project_data[]=$result_project;
 				//	print_r($result_project[$j]['project_id']);die;
 					$query= "select * from task where project_id='".$result_project['project_id']."'";
