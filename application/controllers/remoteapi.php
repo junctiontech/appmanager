@@ -8,11 +8,10 @@ class Remoteapi {
 		if($CONNECTION)
 		{
 			$data=json_decode($_POST['employeeData']);
-			//echo file_put_contents("test.txt",$_POST['employeeData']);//die;
-			$imei=$data->employeeIMEI;//echo $imei;
-			foreach ($data->employeeLocationList as $list)
+			$imei=$data->employeeIMEI;
+			foreach($data->employeeLocationList as $list)
 				{
-					$result = "INSERT INTO tracking VALUES('".$imei."','".$list->employeeLocationDate."','".$list->employeeLocationTime."','".$list->employeeLocationLatitude."','".$list->employeeLocationLongitude."','".$list->employeeLocationProviderName."','".$list->employeeLocationBatteryLevel."')";
+					$result = "INSERT INTO tracking VALUES('".$imei."','".$list->employeeLocationDate."','".$list->employeeLoce."','".$list->employeeLocationTime."','".$list->employeeLocationLatitude."','".$list->employeeLocationLongitude."','".$list->employeeLocationProviderName."','".$list->employeeLocationBatteryLevel."')";
 					$sql=mysqli_query($CONNECTION,$result);
 				}
 				if($sql)
