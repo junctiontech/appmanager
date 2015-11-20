@@ -205,7 +205,7 @@ class Remoteapi {
 					} 
 					//}
 					echo 'hiii'; 
-					$j+1;
+					$j=1;
 					echo $j;
 				}
 				//echo $count;die;
