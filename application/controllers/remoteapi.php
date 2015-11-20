@@ -200,10 +200,11 @@ class Remoteapi {
 						$result=array(
 								'project_listd'=>$project_list,
 						);
+						echo json_encode($result);
 					}
 					//}
 					++$j;
-					echo json_encode($result);
+					
 				}
 				//echo $count;die;
 				//die;
