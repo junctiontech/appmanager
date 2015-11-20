@@ -202,7 +202,7 @@ class Remoteapi {
 								'project_listd'=>$project_list,
 						);
 						echo json_encode($result);
-					}
+					} 
 					//}
 					echo 'hiii'; 
 					$j+1;
