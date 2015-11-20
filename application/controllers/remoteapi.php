@@ -127,7 +127,7 @@ class Remoteapi {
 			{
 					while($result_project=mysqli_fetch_assoc($sqls))
 					{
-						$j='';
+						$j=0;
 						$project_data[]=$result_project;
 						echo $result_project[$j]['project_id'];die;
 						$query= "select * from task where project_id='".$result_project[$j]['project_id']."'";
