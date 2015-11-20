@@ -11,8 +11,14 @@ class Remoteapi {
 			$imei=$data->employeeIMEI;
 			foreach($data->employeeLocationList as $list)
 				{
+					try{
 					$result = "INSERT INTO tracking VALUES('".$imei."','".$list->employeeLocationDate."','".$list->employeeLocationTime."','".$list->employeeLocationLatitude."','".$list->employeeLocationLongitude."','".$list->employeeLocationProvidbberName."','".$list->employeeLocationBatteryLevel."')";
 					$sql=mysqli_query($CONNECTION,$result);
+					}catch (Exception $e)
+					{
+						echo 'error from server';
+						die;
+					}
 				}
 				if($sql)
 				{
@@ -22,6 +28,7 @@ class Remoteapi {
 							'result'=>'true',
 								);
 					print_r($data);die;*/
+					
 					 echo 'true'; die;
 				}
 				else 
