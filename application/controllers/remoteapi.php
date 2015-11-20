@@ -191,10 +191,12 @@ class Remoteapi {
 							);
 				
 				$result=array(
-								'id'=>$project_id,
+								'project_list'=>array('id'=>$project_id,
 								'desc'=>$project_description,
 								'status'=>$status,
-								'task_of_list'=>$demo,
+								'task_of_list'=>$demo,	
+								),
+								
 							 );
 				echo json_encode($result);die;
 			}
