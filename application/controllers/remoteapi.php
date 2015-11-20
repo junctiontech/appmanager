@@ -162,9 +162,9 @@ class Remoteapi {
 			{
 				while($result_project=mysqli_fetch_assoc($sqls))
 				{
-					$project_id=$result['project_id'];
-					$project_description= $result['project_description'];
-					$status= $result['status'];
+					$project_id=$result_project['project_id'];
+					$project_description= $result_project['project_description'];
+					$status= $result_project['status'];
 					
 					
 					
