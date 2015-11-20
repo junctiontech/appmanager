@@ -18,7 +18,10 @@ class Remoteapi {
 					{
 						echo 'error from server';
 						die;
+					}finally {
+						echo 'error from finally ';die;
 					}
+						
 				}
 				if($sql)
 				{
