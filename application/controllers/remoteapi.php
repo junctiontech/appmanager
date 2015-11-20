@@ -192,22 +192,23 @@ class Remoteapi {
 					//);
 					//echo $project_id;echo $project_description;echo $status;echo $task_data;die;
 					//if($j==1){
-					$project_list[]=array('id'=>$project_id, 
-							'desc'=>$project_description,
-							'status'=>$status,
-							'task_of_list'=>$task_data,
-					);
-					//for($j=0;$j<count($count);$j++){ 
-						$result=array(
-								'project_listd'=>$project_list,
-						);
-						echo json_encode($result);
+					
 					//} 
 					//}
 					//echo 'hiii'; 
 					//$j=1;
 					//echo $j;
 				}
+				$project_list[]=array('id'=>$project_id,
+						'desc'=>$project_description,
+						'status'=>$status,
+						'task_of_list'=>$task_data,
+				);
+				//for($j=0;$j<count($count);$j++){
+				$result=array(
+						'project_listd'=>$project_list,
+				);
+				echo json_encode($result);
 				//echo $count;die;
 				//die;
 				die;
