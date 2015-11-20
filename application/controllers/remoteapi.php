@@ -91,7 +91,7 @@ class Remoteapi {
 		{
 			$query= "select * from project";
 			$sqls=mysqli_query($CONNECTION,$query);
-			$count=mysqli_num_rows($sqls);//echo $count;die;
+			$count=mysqli_num_rows($sqls);
 			if(isset($count) && $count > 0)
 			{
 					//$project_data=array();
@@ -125,6 +125,31 @@ class Remoteapi {
 		}
 	}
 	
+	/* Function for Update Task For Androide Application */
+	function project_update()
+	{
+		// Todo Project Update Body Hear;
+	}
+	
+	/* Function for Image Update For Androide Application */
+	function image_project_update()
+	{
+		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
+		if($CONNECTION)
+		{
+			$value=json_decode($json);
+			$query="update set task";
+		}
+		else
+		{
+			echo 'Server Error Connection Not Found';
+		}
+	}
+	
+	
+	
+	
+	/*  Function For test For json Format For project */
 	function demo()
 	{
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
@@ -135,69 +160,44 @@ class Remoteapi {
 			$count=mysqli_num_rows($sqls);//echo $count;die;
 			if(isset($count) && $count > 0)
 			{
-					while($result_project=mysqli_fetch_assoc($sqls))
+				while($result_project=mysqli_fetch_assoc($sqls))
+				{
+	
+					$project_data[]=$result_project;
+					//print_r($result_project['project_id']);die;
+					$query= "select * from task where project_id='".$result_project['project_id']."'";
+					$sql=mysqli_query($CONNECTION,$query);
+					$count=mysqli_num_rows($sql);
+					$task_data	=	array();
+					if(isset($count) && $count > 0)
 					{
-						
-						$project_data[]=$result_project;
-						//print_r($result_project['project_id']);die;
-						$query= "select * from task where project_id='".$result_project['project_id']."'";
-						$sql=mysqli_query($CONNECTION,$query);
-						$count=mysqli_num_rows($sql);
-						$task_data	=	array();
-						if(isset($count) && $count > 0)
+						while($result_task=mysqli_fetch_assoc( $sql ))
 						{
-							while($result_task=mysqli_fetch_assoc( $sql ))
-							{
-								$task_data[]=$result_task;
-							}
+							$task_data[]=$result_task;
 						}
-						$local_var=array('task_of_list'=>$task_data);
-						//print_r($project_data[0]);die;
-						array_push($project_data,$local_var); 
-						
-						echo json_encode($project_data); 
-						
-						/*for($i=0;$i<count($task_data);$i++)
-						{
-						if ($i==count($task_data))
-							array_push($project_data, $var);
-							else
-								$datass[] = $project_data[$i];
-									
-						}*/
-						
 					}
-				
-					die;
-				//$var=array('list_of_task'=>$task_data);
+					$local_var=array('task_of_list'=>$task_data);
+					array_push($project_data,$local_var);
+					echo json_encode($project_data);die;
+				}
+	
 				
 			}
-			
-		//	array_push($project_data, $var);
-			//$result	=	array(
-					//'project_list'		=>$temp_data,
-					//'task_of_list'		=>	$task_data,
-					//'project_list'=>$project_data
-			//);//print_r($result);die;
-			print_r(json_encode($datass));
-			die;
-		
+					
+				print_r(json_encode($datass));
+				die;
+	
 		}
 		else
 		{
 			echo 'database does not exist';
 		}
 	}
-	
-	
-	function project_update()
-	{
-		// Todo Project Update Body Hear;
-	}
-	
-	
 }
 
 
 
 /* End of login controller */
+
+
+
