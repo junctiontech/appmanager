@@ -185,10 +185,16 @@ class Remoteapi {
 					array_push($project_data,$local_var);
 					echo json_encode($project_data);die;*/
 				}
+				$demo=array(
+								'test'=>'demo',
+								'testing'=>'demoing',
+							);
+				
 				$result=array(
 								'id'=>$project_id,
 								'desc'=>$project_description,
 								'status'=>$status,
+								'task_of_list'=>$demo,
 							 );
 				echo json_encode($result);die;
 			}
