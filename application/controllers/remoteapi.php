@@ -7,7 +7,7 @@ class Remoteapi {
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','appmanager');
 		if($CONNECTION)
 		{
-			$data=json_decode($_POST['employeeData']);
+			$data=json_decode($_POST['employeeData']);print_r($data);die;
 			$imei=$data->employeeIMEI;//echo $imei;
 			foreach ($data->employeeLocationList as $list)
 				{
@@ -127,7 +127,7 @@ class Remoteapi {
 			{
 					while($result_project=mysqli_fetch_assoc($sqls))
 					{
-						echo $j;
+						
 						$j=0;
 						$project_data[]=$result_project;
 						//print_r($result_project['project_id']);die;
