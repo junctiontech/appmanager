@@ -190,6 +190,7 @@ class Remoteapi {
 					//);
 					
 				}
+				echo $count;die;
 				for($j=0;$j<count($count);$j++){
 					$result=array(
 							'project_list'=>array('id'=>$project_id[$j],
