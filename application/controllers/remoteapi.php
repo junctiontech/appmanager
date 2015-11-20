@@ -203,8 +203,9 @@ class Remoteapi {
 						echo json_encode($result);
 					}
 					//}
+					echo 'hiii'; 
 					$j+1;
-					
+					echo $j;
 				}
 				//echo $count;die;
 				//die;
