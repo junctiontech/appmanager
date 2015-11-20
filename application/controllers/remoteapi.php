@@ -8,7 +8,7 @@ class Remoteapi {
 		if($CONNECTION)
 		{
 			$data=json_decode($_POST['employeeData']);
-			echo file_put_contents("test.txt",$_POST['employeeData']);//die;
+			//echo file_put_contents("test.txt",$_POST['employeeData']);//die;
 			$imei=$data->employeeIMEI;//echo $imei;
 			foreach ($data->employeeLocationList as $list)
 				{
