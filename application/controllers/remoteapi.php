@@ -189,13 +189,14 @@ class Remoteapi {
 					//		'test'=>'demo',
 					//		'testing'=>'demoing',
 					//);
+					$project_listd=array('id'=>$project_id[$j],
+							'desc'=>$project_description[$j],
+							'status'=>$status[$j],
+							'task_of_list'=>$task_data,
+					);
 					for($j=0;$j<count($count);$j++){
 						$result=array(
-								'project_list'=>array('id'=>$project_id[$j],
-										'desc'=>$project_description[$j],
-										'status'=>$status[$j],
-										'task_of_list'=>$task_data,
-								),
+								'project_list'=>$project_listd,
 						);
 					}
 					//$j++;
