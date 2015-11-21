@@ -110,7 +110,7 @@ class Remoteapi {
 						}
 					}
 					$temp_project_list[]=array('project_id'=>$project_id,
-							'project_name'=>$project_description,
+							'project_description'=>$project_description,
 							'status'=>$status,
 							'task_of_list'=>$task_data,
 					);
@@ -132,7 +132,7 @@ class Remoteapi {
 		}
 	}
 	
-	function project_demo()
+	function project_demo_format()
 	{
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
 		if($CONNECTION!=='')
