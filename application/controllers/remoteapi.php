@@ -198,16 +198,17 @@ class Remoteapi {
 							'task_of_list'=>$task_data, 
 					);
 					//for($j=0;$j<count($count);$j++){ 
-						$result=array(
-								'project_listd'=>$project_list,
-						);
-						echo json_encode($result);
+						
 					//} 
 					//}
 					//echo 'hiii'; 
 					//$j=1;
 					//echo $j;
 				}
+				$result=array(
+						'project_listd'=>$project_list,
+				);
+				echo json_encode($result);
 				//echo $count;die;
 				//die;
 				die;
