@@ -90,20 +90,14 @@ class Remoteapi {
 		{
 			$query= "select * from project";
 			$sqls=mysqli_query($CONNECTION,$query);
-			$count=mysqli_num_rows($sqls);//echo $count;die;
+			$count=mysqli_num_rows($sqls);
 			if(isset($count) && $count > 0)
 			{
-				//$j=0;
 				while($result_project=mysqli_fetch_assoc($sqls))
 				{
 					$project_id=$result_project['project_id'];
 					$project_description= $result_project['project_description'];
 					$status= $result_project['status'];
-						
-						
-		
-					//$project_data[]=$result_project;
-					//	print_r($result_project[$j]['project_id']);die;
 					$query= "select * from task where project_id='".$result_project['project_id']."'";
 					$sql=mysqli_query($CONNECTION,$query);
 					$counts=mysqli_num_rows($sql);
@@ -115,51 +109,22 @@ class Remoteapi {
 							$task_data[]=$result_task;
 						}
 					}
-					//$local_var=array('task_of_list'=>$task_data);
-					//array_push($project_data,$local_var);
-					//echo json_encode($project_data);die;
-					//$demo=array(
-					//		'test'=>'demo',
-					//		'testing'=>'demoing' ,
-					//);
-					//echo $project_id;echo $project_description;echo $status;echo $task_data;die;
-					//if($j==1){
 					$temp_project_list[]=array('project_id'=>$project_id,
 							'project_name'=>$project_description,
 							'status'=>$status,
 							'task_of_list'=>$task_data,
 					);
-					//for($j=0;$j<count($count);$j++){
-		
-					//}
-					//}
-					//echo 'hiii';
-					//$j=1;
-					//echo $j;
 				}
 				$result=array(
 						'project_of_list'=>$temp_project_list,
 				);
 				echo json_encode($result);
 				die;
-				$demo=array(
-						'test'=>'demo',
-						'testing'=>'demoing',
-				);
-		
-				$result=array(
-						'project_list'=>array('id'=>$project_id,
-								'desc'=>$project_description,
-								'status'=>$status,
-								'task_of_list'=>$demo,
-						),
-				);
-				echo json_encode($result);die;
 			}
-				
-			print_r(json_encode($datass));
-			die;
-		
+			else 
+			{
+				echo 'Project List Found On Server';	
+			}
 		}
 		else
 		{
