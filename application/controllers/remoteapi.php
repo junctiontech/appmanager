@@ -114,7 +114,7 @@ class Remoteapi {
 							'project_description'=>$project_description,
 							'status'=>$status,
 							'start_date'=>$start_date,
-							'task_of_list'=>$task_data,
+							'list_of_task'=>$task_data,
 					);
 				}
 				$result=array(
