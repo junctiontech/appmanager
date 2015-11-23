@@ -28,7 +28,7 @@ $(function(){
 								<strong><?=$this->session->flashdata('category_error_login')?></strong> 
 							</div>
 						</div>
-					<?php } ?>
+					<?php } ?> 
 		<div class="fadein" style="margin-top:2cm;">
 			<div class=" ">
 				<img src="images/image1.jpg" height="100%" width="100%">
