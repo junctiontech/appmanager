@@ -19,7 +19,7 @@ $(function(){
 });
 </script>
 </head>
-<body class="page-body" style="background-color:black; ">
+<body class="page-body" style="background-color:#a24689; ">
 	<div class="row">
 	
 		<?php  if($this->session->flashdata('category_error_login')) { ?>
