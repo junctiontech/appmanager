@@ -67,7 +67,7 @@
  				else
  				{
 	 				?> <script>alert('Your User id And Password Not Correct');</script> <?php
-	 					redirect('login');
+	 					redirect('login','refresh');
  				}
  			}
  			else
@@ -75,7 +75,7 @@
  				?> <script>alert('Your Organization Deactivated Please Contact Your Addministration Department');</script> <?php
  			//	$this->session->set_flashdata('category_error','message');
  				//$this->session->set_flashdata('message','Your Organization Deactivated Please Contact Your Addministration Department');
- 				redirect('login');
+ 				redirect('login','refresh');
  			}
  		}
  		else 
@@ -83,7 +83,7 @@
  			//$this->session->set_flashdata('category_error','message');
  			//$this->session->set_flashdata('message','please enter correct user id and password');	
  			?> <script>alert('Your User id And Password Not Correct');</script> <?php
- 			redirect('login');
+ 			redirect('login','refresh');
  		}
 	 		
  	}
