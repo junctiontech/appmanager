@@ -7,7 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="Application Manager" />
 	<meta name="author" content="" />
-	<title>Application Manager</title>
+	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/images/junctionerplogo (2).png" />
+	<title>Zero Erp</title>
 	<!-- base url defined -->
 	<base href="<?php echo base_url(); ?>"/>
 	<!-- hrms css started added by palak on 20 june -->
