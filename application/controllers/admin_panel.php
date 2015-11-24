@@ -23,6 +23,7 @@
  	/* Function for verify Admin for his account area view.......................................................................*/
  	function verify_admin()
  	{
+ 		error_reporting('0');
  		$userid=$this->input->post('username');
  		if('admin'== $userid && 'admin'== $this->input->post('password'))
  		{
