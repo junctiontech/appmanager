@@ -39,6 +39,6 @@
 			.datepicker{z-index:1151 !important;}
 		</style>
 		
-</head>
+</head>	
 <!-- head closed -->
 

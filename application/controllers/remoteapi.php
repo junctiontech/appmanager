@@ -82,7 +82,7 @@ class Remoteapi {
 		
 	}
 	
-	
+	/* Function For Retrive Project List*/
 	function project()
 	{
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
@@ -134,6 +134,23 @@ class Remoteapi {
 		}
 	}
 	
+	
+	/* Function for Update Task For Androide Application */
+	function project_update()
+	{
+		$data=json_decode($_POST['json']);
+		$CONNECTION=mysqli_connect("localhost",'root','bitnami',$data->db_name);
+		if($CONNECTION)
+		{
+			foreach ($data as $value)
+			{
+				$insert="insert into expenser(task_id,date,amount,type,description) values ('".$value->task_id."','".$value->date."','".$value->amount."','".$value->type."','".$value->description."')";
+				$query=mysqli_query($CONNECTION,$insert);
+			}
+		}
+	}
+	
+	
 	function project_demo_format()
 	{
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
@@ -144,60 +161,35 @@ class Remoteapi {
 			$count=mysqli_num_rows($sqls);
 			if(isset($count) && $count > 0)
 			{
-					//$project_data=array();
-					while($result_project=mysqli_fetch_assoc($sqls))
-					{	
-						$project_data[]=$result_project;	
-					}
+				//$project_data=array();
+				while($result_project=mysqli_fetch_assoc($sqls))
+				{
+					$project_data[]=$result_project;
+				}
 			}
-					$query= "select * from task";
-					$sql=mysqli_query($CONNECTION,$query);
-					$count=mysqli_num_rows($sql);
-					$task_data	=	array();
-					if(isset($count) && $count > 0)
-					{
-						while($result_task=mysqli_fetch_assoc( $sql ))
-						{
-							$task_data[]=$result_task;
-						}
-					}
-				 	$result	=	array(
-							'project_list'		=>$project_data,
-							'task_of_list'		=>	$task_data,
-					);
-					echo json_encode($result);
-					die;
-				
+			$query= "select * from task";
+			$sql=mysqli_query($CONNECTION,$query);
+			$count=mysqli_num_rows($sql);
+			$task_data	=	array();
+			if(isset($count) && $count > 0)
+			{
+				while($result_task=mysqli_fetch_assoc( $sql ))
+				{
+					$task_data[]=$result_task;
+				}
+			}
+			$result	=	array(
+					'project_list'		=>$project_data,
+					'task_of_list'		=>	$task_data,
+			);
+			echo json_encode($result);
+			die;
 		}
-		else 
+		else
 		{
 			echo 'database does not exist';
 		}
 	}
-	
-	/* Function for Update Task For Androide Application */
-	function project_update()
-	{
-		// Todo Project Update Body Hear;
-	}
-	
-	/* Function for Image Update For Androide Application */
-	function image_project_update()
-	{
-		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
-		if($CONNECTION)
-		{
-			$value=json_decode($json);
-			$query="update set task";
-		}
-		else
-		{
-			echo 'Server Error Connection Not Found';
-		}
-	}
-	
-	
-	
 	
 	/*  Function For test For json Format For project */
 	function demo()
@@ -246,7 +238,7 @@ class Remoteapi {
 							'status'=>$status,
 							'task_of_list'=>$task_data, 
 					);
-					//for($j=0;$j<count($count);$j++){ 
+					//for($j=0;$j<count($count);$j++){
 						
 					//} 
 					//}
@@ -288,6 +280,3 @@ class Remoteapi {
 
 
 /* End of login controller */
-
-
-

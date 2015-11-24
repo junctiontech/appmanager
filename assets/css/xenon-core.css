@@ -1158,7 +1158,11 @@ label.cbr-inline + .cbr-inline{margin-left:10px;}
 .btn.btn-blue{background-color:#0e62c7;color:#ffffff;}
 .btn.btn-blue:hover{background-color:#0c56af;text-color:#ffffff;}
 .btn.btn-blue:active,
-.btn.btn-blue:focus{background-color:#0c56af;border-color:#0c52a6;}
+.btn.btn-green:focus{background-color:#0c56af;border-color:#0c52a6;}
+.btn.btn-green{background-color:#53ac80;color:#ffffff;}
+.btn.btn-green:hover{background-color:#7d3669;text-color:#ffffff; transition: opacity 1s;}
+.btn.btn-green:active,
+.btn.btn-green:focus{background-color:#0c56af;border-color:#0c52a6;}
 .btn.btn-red{background-color:#d5080f;color:#ffffff;}
 .btn.btn-red:hover{background-color:#bc070d;text-color:#ffffff;}
 .btn.btn-red:active,

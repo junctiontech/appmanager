@@ -17,18 +17,33 @@ Class Login extends CI_Controller {
 	{
 		$this->parser->parse('include/header',$this->data);
 		$this->load->view('dashboard',$this->data);
+		$this->parser->parse('include/footer_dashboard',$this->data);
 	}
 	
 	/* Function for login Application view.....................................................................*/
 	function application_login()
 	{
+		//$app_list=$this->data['app_list']=$this->login_model->app_list();
+		//if(isset($_GET['id'])&&!$_GET['id']=='login'&&!$_GET['id']=='reg')
+		//{ 
+		//	$list_dbname=$this->data['list_dbname']=$this->login_model->list_dbname($_GET['id']);
+		//}
+	//	$this->parser->parse('include/header',$this->data);
+		$this->load->view('application_login',$this->data);
+		//$this->parser->parse('include/footer_dashboard',$this->data);
+	}
+	
+	/* Function for login Application List.....................................................................*/
+	function application_list()
+	{
 		$app_list=$this->data['app_list']=$this->login_model->app_list();
 		if(isset($_GET['id'])&&!$_GET['id']=='login'&&!$_GET['id']=='reg')
-		{ 
+		{
 			$list_dbname=$this->data['list_dbname']=$this->login_model->list_dbname($_GET['id']);
 		}
 		$this->parser->parse('include/header',$this->data);
-		$this->load->view('app_login',$this->data);
+		$this->load->view('application_list',$this->data);
+		$this->parser->parse('include/footer_dashboard',$this->data);
 	}
 	
 	/* Function For registration Application view for new organization.......................................................*/
