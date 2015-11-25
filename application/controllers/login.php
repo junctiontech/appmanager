@@ -373,7 +373,7 @@ Class Login extends CI_Controller {
 			else
 			{
 				$subjects="junctionerp :- Your Application Registered Successfully";
-				$messages= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b>$json->organization_name</b> User Name:- <b>$json->username</b> Password:- <b>$json->Password</b> Database Name:- <b>$json->database_name</b> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager</p></body></html>";
+				$messages= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b>$json->organization_name</b> <br> User Name:- <b>$json->username</b> <br> Password:- <b>$json->Password <br> </b> Database Name:- <b>$json->database_name</b> <br> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager</p></body></html>";
 				$names='Junction Software Pvt Ltd';
 					
 				/*
