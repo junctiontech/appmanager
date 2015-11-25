@@ -20,7 +20,7 @@ class Admin_model extends CI_Model{
 		if($data)			// when organization admin login admin panel and create session in admin login part
 		{ 
 			$qry=$this->db->query("select organizations.*,registered_application.* from organizations,registered_application where organizations.organization_id=$data && registered_application.organization_id=$data");
-			if(!qry)
+			if(!$qry)
 			{
 				$qry=$this->db->query("select organizations.*,registered_application.* from organizations,registered_application where organizations.organization_id=$data ");
 			}
