@@ -205,7 +205,7 @@
  			$data=$_GET['json'];
  			$var=json_decode($data);
  			$this->admin_model->dlt_org_app('registered_application',array('registration_id'=>$var->reg_app_id));
- 			$data=array('name'=>$var->session);
+ 			$data=array('organization_name'=>$var->session);
  			$query=$this->admin_model->verify_admin('organizations',$data);
  			$qry=$this->admin_model->org_list($query[0]->organization_id);
  			$session_data=array(
