@@ -206,14 +206,14 @@
  			$var=json_decode($data);
  			$this->admin_model->dlt_org_app('registered_application',array('registration_id'=>$var->reg_app_id));
  			$data=array('organization_name'=>$var->session);
- 			$query=$this->admin_model->verify_admin('organizations',$data);print_r($query);
- 			$qry=$this->admin_model->org_list($query[0]->organization_id);print_r($qry);
+ 			$query=$this->admin_model->verify_admin('organizations',$data);
+ 			$qry=$this->admin_model->org_list($query[0]->organization_id);
  			$session_data=array(
  					'username'=>$var->session,
- 					'organization_id'=>$qry[0]->organization_id,
+ 					'organization_id'=>$query[0]->organization_id,
  					'app_name'=>$qry[0]->application_id,
- 					'email'=>$qry[0]->email
- 			);print_r($session_data);die;
+ 					'email'=>$query[0]->email
+ 			);
  			$this->session->set_userdata('username',$session_data);
  			$this->session->set_flashdata('category_success', 'success message');
  			$this->session->set_flashdata('message', $this->config->item("user").' Application delete successfully');
