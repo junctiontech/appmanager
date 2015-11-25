@@ -193,7 +193,7 @@ Class Login extends CI_Controller {
 			{
 				?>
 					<span id="txt" class="alert alert-danger"> Your <?=$field_name; ?> Already Exist Please Try With Another DataBase Name </span>
-				<?php 
+				<?php
 			}
 		}
 	}
@@ -464,6 +464,6 @@ Class Login extends CI_Controller {
 		$userdata=$this->session->userdata('user_data');
 		$unset_userdata=$this->session->unset_userdata($userdata);
 		$this->session->sess_destroy();
-		redirect('admin_panel');
+		redirect('login');
 	}	
 }

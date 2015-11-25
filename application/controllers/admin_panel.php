@@ -207,16 +207,18 @@
  			$this->admin_model->dlt_org_app('registered_application',array('registration_id'=>$var->reg_app_id));
  			$data=array('Username'=>$var->session);
  			$query=$this->admin_model->verify_admin('organizations',$data);
- 			$qry=$this->admin_model->org_list($query[0]->organization_id);
+ 			$qry=$this->admin_model->org_list($query[0]->organization_id);print_r($qry);
  			$session_data=array(
  					'username'=>$_GET['session'],
  					'organization_id'=>$qry[0]->organization_id,
  					'app_name'=>$qry[0]->application_id,
  					'email'=>$qry[0]->email
- 			);
+ 			);print_r($session_data);die;
  			$this->session->set_userdata('username',$session_data);
  			$this->session->set_flashdata('category_success', 'success message');
  			$this->session->set_flashdata('message', $this->config->item("user").' Application delete successfully');
+ 			?> <script>alert('Your Application Delete Successfully');</script> <?php
+ 			if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
  			redirect('admin_panel/manage_admin');
  		}
  		if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
