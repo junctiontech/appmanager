@@ -207,13 +207,13 @@
  			$this->admin_model->dlt_org_app('registered_application',array('registration_id'=>$var->reg_app_id));
  			$data=array('Username'=>$var->session);
  			$query=$this->admin_model->verify_admin('organizations',$data);
- 			$qry=$this->admin_model->org_list($query[0]->organization_id);print_r($qry);
+ 			$qry=$this->admin_model->org_list($query[0]->organization_id);
  			$session_data=array(
- 					'username'=>$_GET['session'],
+ 					'username'=>$var->session,
  					'organization_id'=>$qry[0]->organization_id,
  					'app_name'=>$qry[0]->application_id,
  					'email'=>$qry[0]->email
- 			);print_r($session_data);die;
+ 			);
  			$this->session->set_userdata('username',$session_data);
  			$this->session->set_flashdata('category_success', 'success message');
  			$this->session->set_flashdata('message', $this->config->item("user").' Application delete successfully');
@@ -222,6 +222,7 @@
  			redirect('admin_panel/manage_admin');
  		}
  		if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
+ 		$userdata=$this->session->userdata('username');
  		$reg_app_info=$this->data['reg_app_info']=$this->admin_model->get_single_org_app_info('registered_application',$id);
  		$app_info=$this->data['app_info']=$this->login_model->app_list($reg_app_info[0]->application_id);
  		$url=$app_info[0]->application_url.$app_info[0]->delete_function;
