@@ -24,7 +24,7 @@ if(!($this->session->userdata('userdata'))==''){ echo $this->session->userdata('
 										<i class="fa-star"></i>
 									</div>
 									<div class="xe-label">
-										<h4><strong><a style="color: white" href="<?php echo base_url();?>login/registration_application?id=<?=$list->application_id?>"><?=$list->application_id?></a></strong></h4>
+										<h4><strong><a style="color: white" href="<?php echo base_url();?>login/registration_application?id=<?=$list->application_id?>"><?php echo str_replace("_", " ", $list->application_id)?></a></strong></h4>
 									</div>
 								</div>
 								<div class="xe-lower">
