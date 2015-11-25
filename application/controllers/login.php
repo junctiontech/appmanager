@@ -297,7 +297,7 @@ Class Login extends CI_Controller {
 			$json=json_decode($_GET['json']);
 			$code_application_id=md5($json->registration_id);
 			$subject="junctionerp :-Please Activate Your Account ";
-			$message= " <html><body><h3>Hello: Admin </h3><p> Organization Name:- <b>$json->organization_name  </b> Your Organization is successfully Registered</p><p><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/activate_org/$json->registration_id/$code_application_id</p></body></html>";
+			$message= " <html><body><h3>Hello: Admin </h3><p> Organization Name:- <b>$json->organization_name  </b><br> Your Organization is successfully Registered</p><p><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/activate_org/$json->registration_id/$code_application_id</p></body></html>";
 			$name='Junction Software Pvt Ltd';
 			/*
 			 This example shows settings to use when sending via Google's Gmail servers.
