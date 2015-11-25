@@ -61,7 +61,7 @@ Class Login extends CI_Controller {
 		if($activate_org)
 		{
 			?><script>alert('Your Application Activate Please Login With Your Credentials');</script><?php
-			redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login','refresh');
+			redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
 		}
 	}
 	
@@ -289,7 +289,7 @@ Class Login extends CI_Controller {
 			if($result)
 			{	
 				?><script>alert('Servar Error Please Try Again !!!!');</script><?php 
-				redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=reg','refresh');
+				redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
 			}	
 		}
 		if(isset($json->code)&& $json->code=='200')
@@ -373,7 +373,7 @@ Class Login extends CI_Controller {
 			else
 			{
 				$subjects="junctionerp :- Your Application Registered Successfully";
-				$messages= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b>$json->organization_name</b> User Name:- <b>$json->username</b> Password:- <b>$json->Password</b> Database Name:- <b>$json->database_name</b> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login</p></body></html>";
+				$messages= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b>$json->organization_name</b> User Name:- <b>$json->username</b> Password:- <b>$json->Password</b> Database Name:- <b>$json->database_name</b> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager</p></body></html>";
 				$names='Junction Software Pvt Ltd';
 					
 				/*
@@ -450,7 +450,7 @@ Class Login extends CI_Controller {
 				else
 				{
 					?><script> alert('Your Application Registered Successfully Please Activate Your Application With Help Of Registered Email !!!!');</script><?php
-					redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login','refresh');
+					redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
 				}
 			}
 		}
