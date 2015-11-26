@@ -207,13 +207,14 @@ Class Login extends CI_Controller {
 			$json=$_POST;	
 			$data=json_encode($json);
 			$value=json_decode($data);
-			$explode=explode("@",$value->username);
 		}
 		else
 		{	
 			$json=$_POST['json'];
 			$value=json_decode($json); 
 			$url_name=$value->device;
+			$explode=explode("@",$value->username);
+			
 		}	
 		if(isset($_SERVER['HTTP_REFERER']) && isset($value->device)!=='')
 		{
@@ -240,19 +241,28 @@ Class Login extends CI_Controller {
 						{
 							if($explode>1)
 							{
-								echo 'hiii';
+								$data=array(
+												'url'=>$url_name,
+												'database_name'=>$value->db_name,
+												'username'=>$value->username,
+												'password'=>$value->password,
+												'organization_id'=>$status_org_info[0]->organization_id,
+												'organization_name'=>str_replace(' ','_',$status_org_info[0]->organization_name),
+										    );
 							}
-		echo 'byee';	die;
-							$url=$app_url_info[0]->application_url.$app_url_info[0]->login_function;
-							$data=array(
-									'url'=>$url_name,
-									'database_name'=>$value->db_name,
-									'username'=>$value->username,
-									'password'=>md5($value->password),
-									'organization_id'=>$status_org_info[0]->organization_id,
-									'organization_name'=>str_replace(' ','_',$status_org_info[0]->organization_name),
-							);
+							else
+							{
+								$data=array(
+										'url'=>$url_name,
+										'database_name'=>$value->db_name,
+										'username'=>$value->username,
+										'password'=>md5($value->password),
+										'organization_id'=>$status_org_info[0]->organization_id,
+										'organization_name'=>str_replace(' ','_',$status_org_info[0]->organization_name),
+								);
+							}
 							$value=json_encode($data);
+							$url=$app_url_info[0]->application_url.$app_url_info[0]->login_function;
 							redirect($url.'?json='.$value);
 						}
 						else 
