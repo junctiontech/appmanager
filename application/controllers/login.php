@@ -203,15 +203,11 @@ Class Login extends CI_Controller {
 	/* Function for user login for his application to verify all detail central server and application server.....................................................................................*/
 	function login_function()
 	{	//print_r($_POST['json']);die;
-		$result=array(
-				'status'=>'200',
-				'result'=>'success',
-				'userType'=>$row->role_id,
-		);print_r($result);die;
 		if(isset($_POST) && isset($_POST['json'])==''){
 			$json=$_POST;	
 			$data=json_encode($json);
 			$value=json_decode($data);
+			$explode=explode("@",$value->username);
 		}
 		else
 		{	
@@ -242,6 +238,11 @@ Class Login extends CI_Controller {
 					{
 						if($app_info[0]->status=='active')  // check status application active or not
 						{
+							if($explode>1)
+							{
+								echo 'hiii';
+							}
+		echo 'byee';	die;
 							$url=$app_url_info[0]->application_url.$app_url_info[0]->login_function;
 							$data=array(
 									'url'=>$url_name,
