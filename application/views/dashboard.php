@@ -19,6 +19,9 @@
 	</script>
 </head>
 <body class="page-body" style="background-color:#7d3669; ">
+<div class="page-loading-overlay">
+	<div class="loader-2"></div>
+</div>
 <a class="btn btn-icon btn-green" style="color: white; font-size:1.3em;" href="<?php echo base_url();?>login"><i class="fa-fire">  Home</i></a>
 	<div style="position: absolute; top:0;right:0;" >
 		<a class="btn btn-icon btn-green" style="color: white; font-size:1.1em;" onclick="callAjax();" data-toggle="modal" data-target="#modal-8" href="<?php echo base_url();?>admin_panel"><i class="fa-fire">  Account Login</i></a>
