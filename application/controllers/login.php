@@ -207,7 +207,7 @@ Class Login extends CI_Controller {
 				'status'=>'200',
 				'result'=>'success',
 				'userType'=>$row->role_id,
-		);print_r($data);die;
+		);print_r($result);die;
 		if(isset($_POST) && isset($_POST['json'])==''){
 			$json=$_POST;	
 			$data=json_encode($json);
