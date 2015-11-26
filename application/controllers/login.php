@@ -252,7 +252,7 @@ Class Login extends CI_Controller {
 										    );
 							}
 							else
-							{
+							{ echo 'byeeee';
 								$data=array(
 										'url'=>$url_name,
 										'database_name'=>$value->db_name,
