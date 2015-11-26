@@ -239,8 +239,8 @@ Class Login extends CI_Controller {
 					{
 						if($app_info[0]->status=='active')  // check status application active or not
 						{
-							$explode=explode("@",$value->username); echo count($explode);die;
-							if(count($explode)>2)  
+							$explode=explode("@",$value->username); 
+							if(count($explode)== 2)  
 							{ 
 								$data=array(
 												'url'=>$url_name,
