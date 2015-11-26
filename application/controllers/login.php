@@ -241,7 +241,7 @@ Class Login extends CI_Controller {
 						{
 							$explode=explode("@",$value->username);
 							if($explode>1)
-							{
+							{ echo 'hiiiii';
 								$data=array(
 												'url'=>$url_name,
 												'database_name'=>$value->db_name,
