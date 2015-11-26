@@ -241,7 +241,7 @@ Class Login extends CI_Controller {
 						{
 							$explode=explode("@",$value->username);
 							if($explode>1)
-							{ echo 'hiiiii';die;
+							{ echo 'hiiiii';
 								$data=array(
 												'url'=>$url_name,
 												'database_name'=>$value->db_name,
@@ -261,7 +261,7 @@ Class Login extends CI_Controller {
 										'organization_id'=>$status_org_info[0]->organization_id,
 										'organization_name'=>str_replace(' ','_',$status_org_info[0]->organization_name),
 								);
-							}
+							}die;
 							$value=json_encode($data);
 							$url=$app_url_info[0]->application_url.$app_url_info[0]->login_function;
 							redirect($url.'?json='.$value);
