@@ -105,6 +105,7 @@
  	{
  		
  		/* code for when server update response his password */
+ 		error_reporting('0');
  		if(isset($_GET['session']) && $_GET['session']!=='')
  		{
  			$data=array('Username'=>$_GET['session']);
@@ -199,7 +200,7 @@
  /* Function For delete Application by organization admin */
  	function delete_app_org($id=false)
  	{
- 		
+ 		error_reporting('0');
  		if(isset($_GET['json'])&&$_GET['json'])
  		{
  			$data=$_GET['json'];
