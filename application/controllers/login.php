@@ -213,7 +213,7 @@ Class Login extends CI_Controller {
 			$json=$_POST['json'];
 			$value=json_decode($json); 
 			$url_name=$value->device;
-			$explode=explode("@",$value->username);
+			
 			
 		}	
 		if(isset($_SERVER['HTTP_REFERER']) && isset($value->device)!=='')
@@ -239,6 +239,7 @@ Class Login extends CI_Controller {
 					{
 						if($app_info[0]->status=='active')  // check status application active or not
 						{
+							$explode=explode("@",$value->username);
 							if($explode>1)
 							{
 								$data=array(
