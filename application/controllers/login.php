@@ -207,7 +207,6 @@ Class Login extends CI_Controller {
 			$json=$_POST;	
 			$data=json_encode($json);
 			$value=json_decode($data);
-			$explode=explode("@",$value->username);print_r($explode);die;
 		}
 		else
 		{	
