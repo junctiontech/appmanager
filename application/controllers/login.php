@@ -202,7 +202,7 @@ Class Login extends CI_Controller {
 	
 	/* Function for user login for his application to verify all detail central server and application server.....................................................................................*/
 	function login_function()
-	{	print_r($_POST['json']);die;
+	{	//print_r($_POST['json']);die;
 		if(isset($_POST) && isset($_POST['json'])==''){
 			$json=$_POST;	
 			$data=json_encode($json);
