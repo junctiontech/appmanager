@@ -125,4 +125,20 @@ class Login_model extends CI_Model
 		$qry=$this->db->update($table,array('status'=>'active'));
 		return true;
 	}
+	
+	/* function for Get Data Organization And Application Admin */
+	function get_reset_password($table=false,$filter=false)
+	{
+		$this->db->select('*');
+		$qry=$this->db->get_where($table,$filter);
+		return true;
+	}
+	
+	/* function for update Password Organization And Application Admin */
+	function set_reset_password($table=false,$filter=false,$data=false)
+	{
+		$this->db->where($filter);
+		$qry=$this->db->update($table,$data);
+		return true;
+	}
 }
