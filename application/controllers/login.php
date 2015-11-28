@@ -513,6 +513,11 @@ Class Login extends CI_Controller {
 			{
 				$updatePassword=$this->login_model->set_reset_password('registered_application',array('email'=>$UserEmail),array('password'=>$code));
 			}
+			else 
+			{
+				?><script> alert('Email Id Does Not Exist');</script><?php
+				 redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
+			}
 		}
 		if($updatePassword)
 		{
