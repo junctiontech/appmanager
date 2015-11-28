@@ -493,8 +493,8 @@ Class Login extends CI_Controller {
 
 	function reset_password_view()
 	{
+		$this->parser->parse('include/header',$this->data);
 		$this->load->view('reset_password',$this->data);
-		$this->parser->parse('include/footer_dashboard',$this->data);
 	}
 	
 	function reset_password()

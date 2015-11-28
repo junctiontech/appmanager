@@ -2,7 +2,7 @@
 	<div class="modal-header">
 		<!--  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
 		</br>
-		<h4 class="modal-title">Admin Account Login</h4>
+		<h4 class="modal-title">Reset Password</h4>
 		<!--  <div class="errors-container">
 		</div>-->
 	</div>
