@@ -104,7 +104,7 @@ Class Login extends CI_Controller {
 							'application_id'=>$this->input->post('application_name'),
 							'application_admin_name'=>$this->input->post('application_admin_name'),
 							'application_admin_username'=>$this->input->post('application_username'),
-							'application_admin_password'=>md5($this->input->post('application_password')),
+							'application_admin_password'=>$this->input->post('application_password'),
 							'application_admin_email'=>$this->input->post('application_email'),
 							'application_admin_mobile'=>$this->input->post('application_mobile'),
 							'db_name'=>trim($db_name),
@@ -306,7 +306,7 @@ Class Login extends CI_Controller {
 	/* Function For Application Result Show Message If Success Or Not */
 	function result_application()
 	{
-		$json=json_decode($_GET['json']);print_r($json);die;
+		$json=json_decode($_GET['json']);
 		if(isset($json->code) && $json->code=='500')
 		{
 			$result=$this->login_model->result_application($json->organization_id);
