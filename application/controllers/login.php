@@ -533,7 +533,7 @@ Class Login extends CI_Controller {
 		if($updatePassword)
 		{
 			$subject=" Zero Erp:- Reset Your Password ";
-			$message= " <html><body><h3>Hello: $id Administrator </h3><p> Please Use This Temporary Password And Reset Your Password <br> Temporary Password:- <b>$code  </b><br> </p><p><h3>Please Click In This Link And Update Your Password   :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/$id</p></body></html>";
+			$message= " <html><body><h3>Hello: $id Administrator </h3><p> Please Use This Temporary Password And Reset Your Password <br> Temporary Password:- <b>$code  </b><br> </p><p><h3>Please Click In This Link And Update Your Password   :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/reset_confirm_password/$id</p></body></html>";
 			$name='Junction Software Pvt Ltd';
 			/*
 			 This example shows settings to use when sending via Google's Gmail servers.
@@ -616,12 +616,31 @@ Class Login extends CI_Controller {
 			
 	}
 	
+	function reset_confirm_password($id=false)
+	{
+		$id=$this->data['id'];// check id mens application or organization is print or not
+		$this->parser->parse('include/header',$this->data);
+		$this->load->view('reset_confirm_password',$this->data);
+	}
+	
 	function UpdatePassword()
 	{
-		$TempPassword=$this->input->post('temp_password');
-		if($TempPassword)
+		$id=$this->input->post('id');
+		if($id=='Application')
 		{
-			$EmailOrg=$this->login_model->get_reset_password('organizations',array('email'=>$UserEmail));
+			$Emailapp=$this->login_model->get_reset_password('registered_application',array('email'=>$this->input->post('useremailid'),'password'=>$this->input->post('temp_password')));
+			if($Emailapp)
+			{
+				$updatePassword=$this->login_model->set_reset_password('registered_application',array('email'=>$this->input->post('useremailid')),array('password'=>new_password));
+			}
+		}
+		else
+		{
+			$EmailOrg=$this->login_model->get_reset_password('organizations',array('email'=>$this->input->post('useremailid'),'password'=>$this->input->post('temp_password')));
+			if($EmailOrg)
+			{
+				$updatePassword=$this->login_model->set_reset_password('organizations',array('email'=>$this->input->post('useremailid')),array('password'=>new_password));
+			}
 		}
 	}
 }

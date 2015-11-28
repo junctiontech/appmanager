@@ -38,6 +38,13 @@
 			    <div id="dialogboxfoot"></div>
   			</div>
 		</div> -->
+		<input type="hidden" name="id" value=""/>
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="field-1">Email Id</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" name="useremailid" id="app_usermailid" placeholder="Please Enter Email" required>
+			</div>
+		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="field-1">Temporary Password</label>
 			<div class="col-sm-10">
