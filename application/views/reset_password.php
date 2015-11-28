@@ -7,7 +7,7 @@
 		</div>-->
 	</div>
 	<div class="modal-body">
-		<form role="form" method="POST"  id="ajaxcontent" class="" action="<?=base_url();?>login/reset_password_view" style="border:#d1d1d1 1px solid; padding: 25px;">
+		<form role="form" method="POST"  id="ajaxcontent" class="" action="<?=base_url();?>login/reset_password" style="border:#d1d1d1 1px solid; padding: 25px;">
 			<div class="form-group">
 				<label class="control-label" for="username">Email Id</label>
 				<input type="text" class="form-control" name="usermailid" id="username" autocomplete="off" required/>
