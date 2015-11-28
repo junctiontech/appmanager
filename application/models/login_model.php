@@ -130,7 +130,7 @@ class Login_model extends CI_Model
 	function get_reset_password($table=false,$filter=false)
 	{
 		$this->db->select('*');
-		$qry=$this->db->get_where($table,$filter);
+		$qry=$this->db->get_where($table,$filter);print_r($filter);print_r($qry);
 		return true;
 	}
 	
