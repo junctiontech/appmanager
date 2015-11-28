@@ -594,6 +594,8 @@ Class Login extends CI_Controller {
 				print "We encountered an error sending your mail";
 					
 			}
+			?><script> alert('Please Check Your Registered Email');</script><?php
+				redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
 		}
 		else 
 		{
