@@ -11,7 +11,7 @@
 			<div class="">
 				<input type="radio" class="" name="panel" value="org_admin" id="username" autocomplete="off" required/>Organization Admin &nbsp;&nbsp;&nbsp;&nbsp;
 				<input type="radio" class="" name="panel" value="app_admin" id="username" autocomplete="off" required/>Application Admin
-			</div>
+			</div><br>
 			<div class="form-group">
 				<label class="control-label" for="username">Email Id</label>
 				<input type="text" class="form-control" name="usermailid" id="username" autocomplete="off" required/>

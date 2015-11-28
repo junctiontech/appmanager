@@ -500,29 +500,40 @@ Class Login extends CI_Controller {
 	function reset_password()
 	{
 		$UserEmail=$this->input->post('usermailid');
-		$EmailOrg=$this->login_model->get_reset_password('organizations',array('email'=>$UserEmail));
+		$choose_application=$this->input->post('panel');
 		$code=substr(md5(microtime()),rand(0,26),5);
-		if($EmailOrg)
+		if($choose_application=='org_admin')
 		{
-			$updatePassword=$this->login_model->set_reset_password('organizations',array('email'=>$UserEmail),array('password'=>$code));
-		}
-		else
-		{
-			$EmailRegApp=$this->login_model->set_reset_password('registered_application',array('email'=>$UserEmail));
-			if($EmailRegApp)
+			$EmailOrg=$this->login_model->get_reset_password('organizations',array('email'=>$UserEmail));
+			if($EmailOrg)
 			{
-				$updatePassword=$this->login_model->set_reset_password('registered_application',array('email'=>$UserEmail),array('password'=>$code));
+				$id='Organization';
+				$updatePassword=$this->login_model->set_reset_password('organizations',array('email'=>$UserEmail),array('password'=>$code));
 			}
-			else 
+			else
 			{
 				?><script> alert('Email Id Does Not Exist');</script><?php
 				 redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
 			}
 		}
+		else 
+		{
+			$EmailRegApp=$this->login_model->set_reset_password('registered_application',array('email'=>$UserEmail));
+			if($EmailRegApp)
+			{
+				$id='Application';
+				$updatePassword=$this->login_model->set_reset_password('registered_application',array('email'=>$UserEmail),array('password'=>$code));
+			}
+			else
+			{
+				?><script> alert('Email Id Does Not Exist');</script><?php
+				  redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
+			}
+		}
 		if($updatePassword)
 		{
 			$subject=" Zero Erp:- Reset Your Password ";
-			$message= " <html><body><h3>Hello: Administrator </h3><p> Please Use This Temporary Password And Reset Your Password <br> Temporary Password:- <b>$code  </b><br> </p><p><h3>Please Click In This Link And Update Your Password   :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/activate_org</p></body></html>";
+			$message= " <html><body><h3>Hello: $id Administrator </h3><p> Please Use This Temporary Password And Reset Your Password <br> Temporary Password:- <b>$code  </b><br> </p><p><h3>Please Click In This Link And Update Your Password   :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/$id</p></body></html>";
 			$name='Junction Software Pvt Ltd';
 			/*
 			 This example shows settings to use when sending via Google's Gmail servers.
