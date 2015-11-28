@@ -97,13 +97,16 @@ Class Login extends CI_Controller {
 					$data=array(
 							'organization_id'=>$org_id,
 							'organization_name'=>$this->input->post('organization_name'),
-							'application_id'=>$this->input->post('application_name'),
-							'name'=>$this->input->post('application_admin_name'),
-							'Username'=>$this->input->post('application_username'),
-							'password'=>md5($this->input->post('application_password')),
+							'organization_admin_UserName'=>$this->input->post('username'),
+							'organization_admin_password'=>$this->input->post('password'),
+							'organization_admin_mobile'=>$this->input->post('mobile'),
 							'organization_admin_email'=>$this->input->post('email'),
+							'application_id'=>$this->input->post('application_name'),
+							'application_admin_name'=>$this->input->post('application_admin_name'),
+							'application_admin_username'=>$this->input->post('application_username'),
+							'application_admin_password'=>md5($this->input->post('application_password')),
 							'application_admin_email'=>$this->input->post('application_email'),
-							'mobile'=>$this->input->post('application_mobile'),
+							'application_admin_mobile'=>$this->input->post('application_mobile'),
 							'db_name'=>trim($db_name),
 							'url'=>$url
 					);
@@ -131,14 +134,14 @@ Class Login extends CI_Controller {
 							'organization_id'=>$this->input->post('organization_id'),
 							'organization_name'=>$this->input->post('organization_name'),
 							'organization_admin_email'=>$this->input->post('organization_admin_email'),
-							'url'=>$url,
 							'application_id'=>$this->input->post('application_id'),
-							'name'=>$this->input->post('application_admin_name'),
+							'application_admin_name'=>$this->input->post('application_admin_name'),
 							'application_admin_email'=>$this->input->post('application_admin_email'),
-							'mobile'=>$this->input->post('application_mobile'),
-							'Username'=>$this->input->post('application_username'),
-							'password'=>md5($this->input->post('application_password')),
+							'application_admin_mobile'=>$this->input->post('application_mobile'),
+							'application_admin_username'=>$this->input->post('application_username'),
+							'application_admin_password'=>$this->input->post('application_password'),
 							'db_name'=>trim(str_replace(' ','_',$this->input->post('db_name'))),
+							'url'=>$url,
 						);
 			$json=json_encode($array);
 			$data=json_decode($json);
@@ -146,14 +149,14 @@ Class Login extends CI_Controller {
 		$data_registered_app=array(
 				'organization_id'=>$data->organization_id,
 				'application_id'=>$data->application_id,
-				'name'=>$data->name,
-				'Username'=>$data->Username,
-				'password'=>$data->password,
+				'name'=>$data->application_admin_name,
+				'Username'=>$data->application_admin_username,
+				'password'=>md5($data->application_admin_password),
 				'email'=>$data->application_admin_email,
-				'mobile'=>$data->mobile,
+				'mobile'=>$data->application_admin_mobile,
 				'db_name'=>$data->db_name,
 				'status'=>'suspend',
-				'created_by'=>$data->name,
+				'created_by'=>$data->application_admin_name,
 				'created_on'=>date("Y-m-d")
 		);
 		$set_new_user=$this->data['set_new_user']=$this->login_model->set_registration_application('registered_application',$data_registered_app);
@@ -161,13 +164,17 @@ Class Login extends CI_Controller {
 		$data_user=array(
 				'registration_id'=>$set_new_user,
 				'organization_id'=>$data->organization_id,
+				'organization_name'=>$data->organization_name,
+				'organization_admin_UserName'=>$data->organization_admin_UserName,
+				'organization_admin_password'=>$data->organization_admin_password,
+				'organization_admin_mobile'=>$data->organization_admin_mobile,
+				'organization_admin_email'=>$data->organization_admin_email,
 				'application_id'=>$data->application_id,
 				'application_admin_email'=>$data->application_admin_email,
-				'organization_admin_email'=>$data->organization_admin_email,
-				'organization_name'=>$data->organization_name,
+				'application_admin_mobile'=>$data->application_admin_mobile,
+				'application_admin_username'=>$data->application_admin_username,
+				'application_admin_password'=>$data->application_admin_password,
 				'db_name'=>$data->db_name,
-				'Username'=>$data->Username,
-				'Password'=>$data->password,
 				'UserType'=>'masteruser'
 		);	
 		$json= json_encode($data_user);// create json for sending purpose
@@ -313,8 +320,8 @@ Class Login extends CI_Controller {
 		{
 			$json=json_decode($_GET['json']);
 			$code_application_id=md5($json->registration_id);
-			$subject="junctionerp :-Please Activate Your Account ";
-			$message= " <html><body><h3>Hello: Admin </h3><p> Organization Name:- <b>$json->organization_name  </b><br> Your Organization is successfully Registered</p><p><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/activate_org/$json->registration_id/$code_application_id</p></body></html>";
+			$subject="Zero Erp:-  Please Activate Your Account ";
+			$message= " <html><body><h3>Hello:  Organization Administrator </h3><p> Your Organization is Successfully Registered Some Important Details Are <br> Organization Name:- <b>$json->organization_name  </b><br> Database Name-: <b>$json->db_name  </b><br>  User Name-: <b>$json->organization_admin_UserName  </b><br> Password:- <b>$json->organization_admin_UserName </b><br> Mobile:-  <b>$json->organization_admin_mobile </b><br> </p><p><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/activate_org/$json->registration_id/$code_application_id</p></body></html>";
 			$name='Junction Software Pvt Ltd';
 			/*
 			 This example shows settings to use when sending via Google's Gmail servers.
@@ -390,7 +397,7 @@ Class Login extends CI_Controller {
 			else
 			{
 				$subjects="junctionerp :- Your Application Registered Successfully";
-				$messages= " <html><body><h3>Hello: Application Administrator </h3><p> Organization Name:- <b>$json->organization_name</b> <br> User Name:- <b>$json->username</b> <br> Password:- <b>$json->Password <br> </b> Database Name:- <b>$json->database_name</b> <br> Your Application is successfully Registered</p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager</p></body></html>";
+				$messages= " <html><body><h3>Hello: Application Administrator </h3><p>Your Application is Successfully Registered Some Important Details Are <br> Organization Name:- <b>$json->organization_name</b> <br> User Name:- <b>$json->application_admin_username</b> <br> Password:- <b>$json->application_admin_password <br> </b> Database Name:- <b>$json->database_name</b> <br> Mobile Number:- <b>$json->application_admin_mobile </b> <br> </p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager</p></body></html>";
 				$names='Junction Software Pvt Ltd';
 					
 				/*
