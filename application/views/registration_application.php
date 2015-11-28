@@ -98,7 +98,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-4" align="center">
-					<input type="checkbox" class="" name="app_checkbox" id="chk" onclick="application_entry(this.id)" required>
+					<input type="checkbox" class="" name="app_checkbox" id="chk" onclick="application_entry(this.id)" >
 				</div>
 			</div>
 			<div class="form-group">

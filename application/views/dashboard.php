@@ -19,6 +19,7 @@
 	</script>
 </head>
 <body class="page-body" style="background-color:#7d3669; ">
+<noscript><div align="center" style="color:brown"><h2>Please Enable Your Java Script With Help Of Browser Setting It`s Must......</h2></div></noscript>
 <div class="page-loading-overlay">
 	<div class="loader-2"></div>
 </div>
