@@ -21,7 +21,7 @@
 <body class="page-body" style="background-color:#7d3669; ">
 	<noscript>
 		<img src="images/error.png" height="150px" width="160px" style="margin:20px">
-			  <h2>Your Browser Have Dissabled Java Script Please Enable With Help Of Browser Setting....</h2> 
+			  <h2><font color="white">Your Browser Have Dissabled Java Script Please Enable With Help Of Browser Setting....</font></h2> 
 			  <style>div { color:white;display:none; }</style>
 	</noscript>
 	<div class="page-loading-overlay">
