@@ -8,7 +8,7 @@
 	</div>
 	<div class="modal-body">
 		<form role="form" method="POST"  id="ajaxcontent" class="" action="<?=base_url();?>login/reset_password" style="border:#d1d1d1 1px solid; padding: 25px;">
-			<div class="form-group">
+			<div class="">
 				<label class="control-label" for="username">Choose </label>
 				<input type="radio" class="" name="panel" value="org_admin" id="username" autocomplete="off" required/>Organization Admin
 				<input type="radio" class="" name="panel" value="app_admin" id="username" autocomplete="off" required/>Application Admin
