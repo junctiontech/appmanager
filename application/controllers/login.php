@@ -306,7 +306,7 @@ Class Login extends CI_Controller {
 	/* Function For Application Result Show Message If Success Or Not */
 	function result_application()
 	{
-		$json=json_decode($_GET['json']);
+		$json=json_decode($_GET['json']);print_r($json);die;
 		if(isset($json->code) && $json->code=='500')
 		{
 			$result=$this->login_model->result_application($json->organization_id);
@@ -321,7 +321,7 @@ Class Login extends CI_Controller {
 			$json=json_decode($_GET['json']);
 			$code_application_id=md5($json->registration_id);
 			$subject="Zero Erp:-  Please Activate Your Account ";
-			$message= " <html><body><h3>Hello:  Organization Administrator </h3><p> Your Organization is Successfully Registered Some Important Details Are <br> Organization Name:- <b>$json->organization_name  </b><br> Database Name-: <b>$json->database_name  </b><br>  User Name-: <b>$json->organization_admin_UserName  </b><br> Password:- <b>$json->organization_admin_UserName </b><br> Mobile:-  <b>$json->organization_admin_mobile </b><br> </p><p><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/activate_org/$json->registration_id/$code_application_id</p></body></html>";
+			$message= " <html><body><h3>Hello:  Organization Administrator </h3><p> Your Organization is Successfully Registered Some Important Details Are <br> Organization Name:- <b>$json->organization_name  </b><br> Database Name-: <b>$json->database_name  </b><br>  User Name-: <b>$json->organization_admin_UserName  </b><br> Password:- <b>$json->organization_admin_password </b><br> Mobile:-  <b>$json->organization_admin_mobile </b><br> </p><p><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/activate_org/$json->registration_id/$code_application_id</p></body></html>";
 			$name='Junction Software Pvt Ltd';
 			/*
 			 This example shows settings to use when sending via Google's Gmail servers.
