@@ -20,6 +20,7 @@
 </head>
 <body class="page-body" style="background-color:#7d3669; ">
 <noscript>
+	<img src="images/CRM.jpg" height="50px" width="60px" style="margin:20px">
 			  This page needs JavaScript activated to work. 
 			  <style>div { display:none; }</style>
 	</noscript>
