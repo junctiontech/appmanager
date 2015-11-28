@@ -20,7 +20,7 @@
 </head>
 <body class="page-body" style="background-color:#7d3669; ">
 	<noscript>
-		<img src="images/error.png" height="150px" width="160px" style="margin:20px">
+		<img src="images/error.png" height="150px" width="160px" style="margin-left:200px">
 			  <h2><font color="white">Your Browser Have Dissabled Java Script Please Enable With Help Of Browser Setting....</font></h2> 
 			  <style>div { color:white;display:none; }</style>
 	</noscript>
