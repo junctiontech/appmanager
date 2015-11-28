@@ -500,7 +500,7 @@ Class Login extends CI_Controller {
 	function reset_password()
 	{
 		$UserEmail=$this->input->post('usermailid');
-		$EmailOrg=$this->login_model->get_reset_password('organizations',array('email'=>$UserEmail));print_r($EmailOrg);die;
+		$EmailOrg=$this->login_model->get_reset_password('organizations',array('email'=>$UserEmail));
 		$code=substr(md5(microtime()),rand(0,26),5);
 		if($EmailOrg)
 		{
