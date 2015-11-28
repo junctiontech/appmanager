@@ -500,7 +500,7 @@ Class Login extends CI_Controller {
 	function reset_password()
 	{
 		$UserEmail=$this->input->post('usermailid');
-		$EmailOrg=$this->login_model->get_reset_password('organizations',array('email'=>$UserEmail));
+		$EmailOrg=$this->login_model->get_reset_password('organizations',array('email'=>$UserEmail));print_r($EmailOrg);die;
 		$code=substr(md5(microtime()),rand(0,26),5);
 		if($EmailOrg)
 		{
@@ -522,7 +522,7 @@ Class Login extends CI_Controller {
 		if($updatePassword)
 		{
 			$subject=" Zero Erp:- Reset Your Password ";
-			$message= " <html><body><h3>Hello: Administrator </h3><p> Please Use This Temporary Password And Reset Your Password <br> Temporary:- <b>$code  </b><br> </p><p><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/activate_org/$json->registration_id/$code_application_id</p></body></html>";
+			$message= " <html><body><h3>Hello: Administrator </h3><p> Please Use This Temporary Password And Reset Your Password <br> Temporary:- <b>$code  </b><br> </p><p><h3>Please Click In This Link And Update Your Password   :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/activate_org</p></body></html>";
 			$name='Junction Software Pvt Ltd';
 			/*
 			 This example shows settings to use when sending via Google's Gmail servers.
