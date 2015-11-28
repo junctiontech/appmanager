@@ -20,9 +20,9 @@
 </head>
 <body class="page-body" style="background-color:#7d3669; ">
 <noscript>
-	<img src="images/CRM.jpg" height="50px" width="60px" style="margin:20px">
-			  This page needs JavaScript activated to work. 
-			  <style>div { display:none; }</style>
+	<div align="center" style="color:white"><img src="images/CRM.jpg" height="150px" width="160px" style="margin:20px">
+			  <h2>This page needs JavaScript activated to work.</h2> 
+			  <style>div { display:none; }</style></div>
 	</noscript>
 <div class="page-loading-overlay">
 	<div class=""></div>
