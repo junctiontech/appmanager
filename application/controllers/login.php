@@ -275,6 +275,16 @@ Class Login extends CI_Controller {
 						}
 						else 
 						{
+							if(isset($value->device) && $value->device=='androide')
+							{
+								$data=array(
+										'code'=>'400',
+										'status'=>'error',
+										'result'=>'Your Application Not Active',
+								);
+									
+								echo json_encode($data);die;
+							}
 							?><script>alert('Your Application Not Active');</script><?php 
 								//echo 'not active organization';
 							redirect($url_name,'refresh');
@@ -282,6 +292,16 @@ Class Login extends CI_Controller {
 					}
 					else
 					{
+						if(isset($value->device) && $value->device=='androide')
+						{
+							$data=array(
+									'code'=>'400',
+									'status'=>'error',
+									'result'=>'Your Application Not Active',
+							);
+								
+							echo json_encode($data);die;
+						}
 						// todo hear msg show if Organization suspend by super admin then redirect
 						?><script>alert('Your Organization Not Active');</script><?php 
 						//echo 'not active organization';
