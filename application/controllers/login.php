@@ -618,7 +618,7 @@ Class Login extends CI_Controller {
 	
 	function reset_confirm_password($id=false)
 	{
-		$id=$this->data['id'];// check id mens application or organization is print or not
+		$this->data['id']=$id;// check id mens application or organization is print or not
 		$this->parser->parse('include/header',$this->data);
 		$this->load->view('reset_confirm_password',$this->data);
 	}
