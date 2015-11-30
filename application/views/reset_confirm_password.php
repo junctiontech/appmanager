@@ -28,7 +28,7 @@
 		<h3 class="panel-title">Manage Organization</h3>
 	</div>-->
 	<div class="panel-body">
-		<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>login/set_registration_application">
+		<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>login/UpdatePassword">
 		<div align="center" id="show_error"></div>
 		<!-- <div id="dialogoverlay"></div>
 		<div id="dialogbox">
