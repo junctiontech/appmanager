@@ -197,9 +197,9 @@
 							</li>
 						
 						</ul>
-					</li> -->
+					</li> 
 					<li><a href="<?=base_url()?>role/user_role"> <i class="linecons-t-shirt" title="User Management"></i><span class="title" >User Management</span></a></li>
-					<li><a href="<?=base_url()?>role/role_management"> <i class="linecons-comment" title="Role Management"></i><span class="title" >Role Management</span></a></li>
+					<li><a href="<?=base_url()?>role/role_management"> <i class="linecons-comment" title="Role Management"></i><span class="title" >Role Management</span></a></li> -->
 				</ul>
 				<?php }else{?>
 				
