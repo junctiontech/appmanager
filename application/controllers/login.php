@@ -618,7 +618,6 @@ Class Login extends CI_Controller {
 	
 	function reset_confirm_password($id=false)
 	{
-		print_r($id);die;
 		$id=$this->data['id'];// check id mens application or organization is print or not
 		$this->parser->parse('include/header',$this->data);
 		$this->load->view('reset_confirm_password',$this->data);
@@ -627,6 +626,8 @@ Class Login extends CI_Controller {
 	function UpdatePassword()
 	{
 		$id=$this->input->post('id');
+		$email=$this->input->post('useremailid'); echo $email;
+		echo $id; die;
 		if($id=='Application')
 		{
 			$Emailapp=$this->login_model->get_reset_password('registered_application',array('email'=>$this->input->post('useremailid'),'password'=>$this->input->post('temp_password')));

@@ -38,7 +38,7 @@
 			    <div id="dialogboxfoot"></div>
   			</div>
 		</div> -->
-		<input type="hidden" name="id" value=""/>
+		<input type="hidden" name="id" value="<?php echo $id; ?>"/>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="field-1">Email Id</label>
 			<div class="col-sm-10">
