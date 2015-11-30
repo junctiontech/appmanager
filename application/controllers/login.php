@@ -340,7 +340,7 @@ Class Login extends CI_Controller {
 		{
 			$json=json_decode($_GET['json']);
 			$code_application_id=md5($json->registration_id);
-			$subject="Zero Erp:-  Please Activate Your Account ";
+			$subject="Zero ERP:-  Please Activate Your Account ";
 			$message= " <html><body><h3>Hello:  Organization Administrator </h3><p> Your Organization is Successfully Registered Some Important Details Are <br> Organization Name:- <b>$json->organization_name  </b><br> Database Name-: <b>$json->database_name  </b><br>  User Name-: <b>$json->organization_admin_UserName  </b><br> Password:- <b>$json->organization_admin_password </b><br> Mobile:-  <b>$json->organization_admin_mobile </b><br> </p><p><h3>Please Click In This Link And Activate Your Account  :)</h3></p><p> http://junctiondev.cloudapp.net/appmanager/login/activate_org/$json->registration_id/$code_application_id</p></body></html>";
 			$name='Junction Software Pvt Ltd';
 			/*
@@ -416,7 +416,7 @@ Class Login extends CI_Controller {
 			}
 			else
 			{
-				$subjects="junctionerp :- Your Application Registered Successfully";
+				$subjects="Zero ERP :- Your Application Registered Successfully";
 				$messages= " <html><body><h3>Hello: Application Administrator </h3><p>Your Application is Successfully Registered Some Important Details Are <br> Organization Name:- <b>$json->organization_name</b> <br> User Name:- <b>$json->application_admin_username</b> <br> Password:- <b>$json->application_admin_password <br> </b> Database Name:- <b>$json->database_name</b> <br> Mobile Number:- <b>$json->application_admin_mobile </b> <br> </p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager</p></body></html>";
 				$names='Junction Software Pvt Ltd';
 					
