@@ -631,10 +631,10 @@ Class Login extends CI_Controller {
 			$Emailapp=$this->login_model->get_reset_password('registered_application',array('email'=>$this->input->post('useremailid'),'password'=>$this->input->post('temp_password')));
 			if($Emailapp)
 			{
-				$updatePassword=$this->login_model->set_reset_password('registered_application',array('email'=>$this->input->post('useremailid')),array('password'=>$this->input->post('new_password')));
+				$updatePassword=$this->login_model->set_reset_password('registered_application',array('email'=>$this->input->post('useremailid')),array('password'=>md5($this->input->post('new_password'))));
 				if($updatePassword)
 				{
-					?> <script>alert('Your Password Upadate Successfully');</script> <?php 
+					?> <script>alert('Your Password Update Successfully');</script> <?php 
 					redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
 				}
 			}
@@ -644,7 +644,7 @@ Class Login extends CI_Controller {
 			$EmailOrg=$this->login_model->get_reset_password('organizations',array('email'=>$this->input->post('useremailid'),'password'=>$this->input->post('temp_password')));
 			if($EmailOrg)
 			{
-				$updatePassword=$this->login_model->set_reset_password('organizations',array('email'=>$this->input->post('useremailid')),array('password'=>$this->input->post('new_password')));
+				$updatePassword=$this->login_model->set_reset_password('organizations',array('email'=>$this->input->post('useremailid')),array('password'=>md5($this->input->post('new_password'))));
 				if($updatePassword)
 				{
 					?> <script>alert('Your Password Upadate Successfully');</script> <?php
