@@ -416,7 +416,7 @@ Class Login extends CI_Controller {
 			}
 			else
 			{
-				$subjects="Zero ERP :- Your Application Registered Successfully";
+				$subjects=" Zero ERP :- Your Application Registered Successfully ";
 				$messages= " <html><body><h3>Hello: Application Administrator </h3><p>Your Application is Successfully Registered Some Important Details Are <br> Organization Name:- <b>$json->organization_name</b> <br> User Name:- <b>$json->application_admin_username</b> <br> Password:- <b>$json->application_admin_password <br> </b> Database Name:- <b>$json->database_name</b> <br> Mobile Number:- <b>$json->application_admin_mobile </b> <br> </p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager</p></body></html>";
 				$names='Junction Software Pvt Ltd';
 					
