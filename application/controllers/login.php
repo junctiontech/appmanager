@@ -526,7 +526,7 @@ Class Login extends CI_Controller {
 			}
 			else
 			{
-				?><script> alert('Email Id Does Not Exist');</script><?php
+				  ?><script> alert('Email Id Does Not Exist');</script><?php
 				  redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
 			}
 		}
@@ -605,19 +605,20 @@ Class Login extends CI_Controller {
 				print "We encountered an error sending your mail";
 					
 			}
-			?><script> alert('Please Check Your Registered Email');</script><?php
+				?><script> alert('Please Check Your Registered Email');</script><?php
 				redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
 		}
 		else 
 		{
 			?><script> alert('Email Id Does Not Exist');</script><?php
-					   redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
+			 redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
 		}
 			
 	}
 	
 	function reset_confirm_password($id=false)
 	{
+		print_r($di);die;
 		$id=$this->data['id'];// check id mens application or organization is print or not
 		$this->parser->parse('include/header',$this->data);
 		$this->load->view('reset_confirm_password',$this->data);
