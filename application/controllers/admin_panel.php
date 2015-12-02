@@ -310,7 +310,7 @@
  	{	
  		if (!$this->session->userdata('username')){ $this->session->set_flashdata('category_error_login', " Your Session Is Expired!! Please Login Again. "); redirect(base_url());}
  		$userdata=$this->session->userdata('username');
- 		$org_list=$this->data['org_list']=$this->admin_model->org_list($userdata['organization_id']);
+ 		$org_list=$this->data['org_list']=$this->admin_model->org_list($userdata['organization_id']);print_r($org_list);die;
  		$app_list=$this->data['app_list']=$this->login_model->app_list($_GET['app']);  // application information get for registration url
  		$this->parser->parse('include/header',$this->data);
  		$this->parser->parse('include/left_menu',$this->data);

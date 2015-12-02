@@ -143,22 +143,6 @@ class Remoteapi {
 	}
 	
 	
-	/* Function for Update Task For Androide Application */
-	function project_update()
-	{
-		$data=json_decode($_POST['json']);
-		$CONNECTION=mysqli_connect("localhost",'root','bitnami',$data->db_name);
-		if($CONNECTION)
-		{
-			foreach ($data as $value)
-			{
-				$insert="insert into expenser(task_id,date,amount,type,description) values ('".$value->task_id."','".$value->date."','".$value->amount."','".$value->type."','".$value->description."')";
-				$query=mysqli_query($CONNECTION,$insert);
-			}
-		}
-	}
-	
-	
 	function project_demo_format()
 	{
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');

@@ -50,12 +50,6 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1"></label>
 				<div class="col-sm-10">
-					<input type="hidden" name="application_id" value="<?php echo $_GET['app']; ?>" required/>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label" for="field-1"></label>
-				<div class="col-sm-10">
 					<input type="hidden" name="organization_name" value="<?php echo $userdata['organization_name']; ?>" required/>
 				</div>
 			</div>

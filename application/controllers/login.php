@@ -176,7 +176,7 @@ Class Login extends CI_Controller {
 				'application_admin_password'=>$data->application_admin_password,
 				'db_name'=>$data->db_name,
 				'UserType'=>'masteruser'
-		);	
+		);	echo'<pre>';print_r($data_user);echo'</pre>';exit;
 		$json= json_encode($data_user);// create json for sending purpose
 		redirect($data->url.'?data='.$json);
 		
