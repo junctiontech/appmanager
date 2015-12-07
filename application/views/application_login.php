@@ -23,11 +23,11 @@
 	<div class="modal-body">
 		<form role="form" method="POST"  id="ajaxcontent" class="" action="<?=base_url();?>login/login_function" style="border:#d1d1d1 1px solid; padding: 25px;">
 			<div class="form-group">
-				<label class="control-label" for="db_name">Data Base Name</label>
+				<label class="control-label" for="db_name">Organization</label>
 				<input type="text" class="form-control" name="db_name" id="db_name" autocomplete="off" required/>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="username">User id</label>
+				<label class="control-label" for="username">User</label>
 				<input type="text" class="form-control" name="username" id="username" autocomplete="off" required/>
 			</div>
 			<div class="form-group">

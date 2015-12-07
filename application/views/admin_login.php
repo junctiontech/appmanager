@@ -23,7 +23,7 @@
 	<div class="modal-body">
 		<form role="form" method="POST"  id="ajaxcontent" class="" action="<?=base_url();?>admin_panel/verify_admin" style="border:#d1d1d1 1px solid; padding: 25px;">
 			<div class="form-group">
-				<label class="control-label" for="username">User id</label>
+				<label class="control-label" for="username">User</label>
 				<input type="text" class="form-control" name="username" id="username" autocomplete="off" required/>
 			</div>
 			<div class="form-group">
