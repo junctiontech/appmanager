@@ -8,7 +8,7 @@ class Appmanagergateway extends CI_Controller
 		$this->data['url']=base_url();
 		$this->load->library('parser');
 		$this->load->library('session');
-		$this->load->model('Appmanagergateway_model');
+		$this->load->model('appmanagergateway_model');
 		//$this->load->library('email');
 	 }
 	function CheckAuthonticate($Filter=false)
