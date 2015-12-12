@@ -1,5 +1,5 @@
 <?php
-class AppmanagerGateway_model extends CI_Model
+class Appmanagergateway_model extends CI_Model
 {
 	function __construct(){
 		parent::__construct();
