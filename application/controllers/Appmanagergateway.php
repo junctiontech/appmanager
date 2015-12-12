@@ -1,13 +1,16 @@
 <?php
 class Appmanagergateway extends CI_Controller
 {
-	function __construct()
-	{
-		parent::__construct();//$this->load->model('login_model');
+ 	function __construct() {
+		parent::__construct();
+		$this->data[]='';
 		$this->load->helper('url');
 		$this->data['url']=base_url();
-		$this->load->model('appmanagergateway_model');
-	}
+		$this->load->library('parser');
+		$this->load->library('session');
+		$this->load->model('Appmanagergateway_model');
+		//$this->load->library('email');
+	 }
 	function CheckAuthonticate($Filter=false)
 	{  
 		//echo $Filter;die;
