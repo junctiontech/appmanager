@@ -6,11 +6,11 @@ class Appmanagergateway extends CI_Controller
 		parent::__construct();//$this->load->model('login_model');
 		$this->load->helper('url');
 		$this->data['url']=base_url();
-		//$this->load->model('appmanagergateway_model');
+		$this->load->model('appmanagergateway_model');
 	}
 	function CheckAuthonticate($Filter=false)
 	{  
-		echo $Filter;die;
+		//echo $Filter;die;
 		$url= $_SERVER['HTTP_REFERER']; echo $url;die;
 		$CheckDatabaseName=$this->data['CheckDatabaseName']=$this->appmanagergateway_model->GetSingleData('registered_application',array('db_name'=>$Filter));//print_r($CheckDatabaseName);die;
 		if($CheckDatabaseName)
