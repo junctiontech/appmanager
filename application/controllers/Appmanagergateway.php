@@ -11,7 +11,7 @@ class Appmanagergateway extends CI_Controller
 	function CheckAuthonticate($Filter=false)
 	{  
 		//echo $Filter;die;
-		$url= $_SERVER['HTTP_REFERER']; echo $url;die;
+		//$url= $_SERVER['HTTP_REFERER']; echo $url;die;
 		$CheckDatabaseName=$this->data['CheckDatabaseName']=$this->appmanagergateway_model->GetSingleData('registered_application',array('db_name'=>$Filter));//print_r($CheckDatabaseName);die;
 		if($CheckDatabaseName)
 		{
@@ -22,24 +22,24 @@ class Appmanagergateway extends CI_Controller
 				if($CheckApplicationStatus)
 				{
 					$result= 'success';
-					if ($result){ header('location:'.$url.'?result='.$result); }
+					if ($result){ header('location:http://junctiondev.cloudapp.net/zeroerp/remoteapi/test?result='.$result); }
 				}
 				else
 				{
 					$result ='fail_application';
-					if ($result){ header('location:'.$url.'?result='.$result); }
+					if ($result){ header('location:location:http://junctiondev.cloudapp.net/zeroerp/remoteapi/test?result='.$result); }
 				}
 			}
 			else
 			{
 				$result ='fail_organization'; //redirect into function when organization not activate name not exist
-				if ($result){ header('location:'.$url.'?result='.$result); }
+				if ($result){ header('location:location:http://junctiondev.cloudapp.net/zeroerp/remoteapi/test?result='.$result); }
 			}
 		}
 		else
 		{
 			$result= 'fail_database';//redirect into function when database name not exist
-		if (isset($result)){ header('location:'.$url.'?result='.$result); }
+		if (isset($result)){ header('location:location:http://junctiondev.cloudapp.net/zeroerp/remoteapi/test?result='.$result); }
 		}
 		die;
 	}
