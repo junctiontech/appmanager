@@ -18,7 +18,7 @@ class Appmanagergateway extends CI_Controller
 		//die;
 		//print_r($_GET['json']);die;
 		
-		$value=json_decode($_GET['data']);
+		$value=json_decode($_GET['json']);
 		$CheckDatabaseName=$this->data['CheckDatabaseName']=$this->appmanagergateway_model->GetSingleData('registered_application',array('db_name'=>$value->employeeOrganizationName));//print_r($CheckDatabaseName);die;
 		if($CheckDatabaseName)
 		{
