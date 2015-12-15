@@ -16,10 +16,10 @@ class Appmanagergateway extends CI_Controller
 		//echo $data;die;
 		//echo $_GET['data'];
 		//die;
-		print_r($_GET['json']);die;
+		//print_r($_GET['json']);die;
+		
 		$value=json_decode($_GET['data']);
-		print_r($value);die;
-		$CheckDatabaseName=$this->data['CheckDatabaseName']=$this->appmanagergateway_model->GetSingleData('registered_application',array('db_name'=>$Filter));//print_r($CheckDatabaseName);die;
+		$CheckDatabaseName=$this->data['CheckDatabaseName']=$this->appmanagergateway_model->GetSingleData('registered_application',array('db_name'=>$value->employeeOrganizationName));//print_r($CheckDatabaseName);die;
 		if($CheckDatabaseName)
 		{
 			$CheckOrganizationStatus=$this->data['CheckOrganizationStatus']=$this->appmanagergateway_model->GetSingleData('organizations',array('organization_id'=>$CheckDatabaseName[0]->organization_id,'status'=>'active'));//print_r($CheckOrganizationStatus);die;
@@ -29,8 +29,8 @@ class Appmanagergateway extends CI_Controller
 				if($CheckApplicationStatus)
 				{
 					//$CheckApplicationUrl=$this->data['CheckApplicationurl']=$this->appmanagergateway_model->GetSingleData('applications',array('application_id'=>$CheckDatabaseName[0]->application_id));//print_r($CheckApplicationUrl);die;
-					$result= 'success';
-					if ($result){ redirect('http://junctiondev.cloudapp.net/zeroerp/remoteapi/locationUpdate?result='.$result.'&&'.$data); }
+					$data=array('result'=>'success','data'=>$_GET['data']);$json=json_encode($data);
+					if ($result){ redirect('http://junctiondev.cloudapp.net/zeroerp/remoteapi/locationUpdate?json='.$json); }
 				}
 				else
 				{
