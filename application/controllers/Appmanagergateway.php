@@ -11,7 +11,7 @@ class Appmanagergateway extends CI_Controller
 		$this->load->model('appmanagergateway_model');
 	 }
 	function CheckAuthonticate($Filter=false,$data=false)
-	{ // echo $Filter;
+	{  echo $Filter; print_r($Filter);die;
 		//echo $data;die;
 		echo $_GET['data'];
 		die;
