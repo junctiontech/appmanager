@@ -21,26 +21,26 @@ class Appmanagergateway extends CI_Controller
 				$CheckApplicationStatus=$this->data['CheckApplicationStatus']=$this->appmanagergateway_model->GetSingleData('registered_application',array('registration_id'=>$CheckDatabaseName[0]->registration_id,'status'=>'active'));//print_r($CheckApplicationStatus);die;
 				if($CheckApplicationStatus)
 				{
-					$CheckApplicationUrl=$this->data['CheckApplicationurl']=$this->appmanagergateway_model->GetSingleData('applications',array('application_id'=>$CheckDatabaseName[0]->application_id));//print_r($CheckApplicationUrl);die;
+					//$CheckApplicationUrl=$this->data['CheckApplicationurl']=$this->appmanagergateway_model->GetSingleData('applications',array('application_id'=>$CheckDatabaseName[0]->application_id));//print_r($CheckApplicationUrl);die;
 					$result= 'success';
-					if ($result){ redirect($CheckApplicationUrl[0]->application_url.'remoteapi/test?result='.$result); }
+					if ($result){ redirect('http://junctiondev.cloudapp.net/zeroerp/remoteapi/locationUpdate?result='.$result); }
 				}
 				else
 				{
 					$result ='fail_application';
-					if ($result){ redirect($CheckApplicationUrl[0]->application_url.'remoteapi/locationUpdate?result='.$result); }
+					if ($result){ redirect('http://junctiondev.cloudapp.net/zeroerp/remoteapi/locationUpdate?result='.$result); }
 				}
 			}
 			else
 			{
 				$result ='fail_organization'; //redirect into function when organization not activate name not exist
-				if ($result){ redirect($CheckApplicationUrl[0]->application_url.'remoteapi/locationUpdate?result='.$result); }
+				if ($result){ redirect('http://junctiondev.cloudapp.net/zeroerp/remoteapi/locationUpdate?result='.$result); }
 			}
 		}
 		else
 		{
 			$result= 'fail_database';//redirect into function when database name not exist
-		if (isset($result)){ redirect($CheckApplicationUrl[0]->application_url.'remoteapi/locationUpdate?result='.$result); }
+		if (isset($result)){ redirect('http://junctiondev.cloudapp.net/zeroerp/remoteapi/locationUpdate?result='.$result); }
 		}
 		die;
 	}
