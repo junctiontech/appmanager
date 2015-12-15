@@ -28,19 +28,19 @@ class Appmanagergateway extends CI_Controller
 				else
 				{
 					$result ='fail_application';
-					if ($result){ redirect($CheckApplicationUrl[0]->application_url.'remoteapi/test?result='.$result); }
+					if ($result){ redirect($CheckApplicationUrl[0]->application_url.'remoteapi/locationUpdate?result='.$result); }
 				}
 			}
 			else
 			{
 				$result ='fail_organization'; //redirect into function when organization not activate name not exist
-				if ($result){ redirect($CheckApplicationUrl[0]->application_url.'remoteapi/test?result='.$result); }
+				if ($result){ redirect($CheckApplicationUrl[0]->application_url.'remoteapi/locationUpdate?result='.$result); }
 			}
 		}
 		else
 		{
 			$result= 'fail_database';//redirect into function when database name not exist
-		if (isset($result)){ redirect($CheckApplicationUrl[0]->application_url.'remoteapi/test?result='.$result); }
+		if (isset($result)){ redirect($CheckApplicationUrl[0]->application_url.'remoteapi/locationUpdate?result='.$result); }
 		}
 		die;
 	}
