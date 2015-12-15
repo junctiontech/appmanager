@@ -9,7 +9,7 @@ class Appmanagergateway_model extends CI_Model
 	function GetSingleData($table=false,$filter=false)
 	{
 		$this->db->where($filter);
-		$query=$this->db->get($table);
+		$query=$this->db->get($table);//print_r($query);die;
 		return $query->result();
 	} 
 }

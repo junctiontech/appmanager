@@ -9,12 +9,9 @@ class Appmanagergateway extends CI_Controller
 		$this->load->library('parser');
 		$this->load->library('session');
 		$this->load->model('appmanagergateway_model');
-		//$this->load->library('email');
 	 }
 	function CheckAuthonticate($Filter=false)
-	{  
-		//echo $Filter;die;
-		$url= $_SERVER['HTTP_REFERER']; echo $url;die;
+	{  //echo $Filter;die;
 		$CheckDatabaseName=$this->data['CheckDatabaseName']=$this->appmanagergateway_model->GetSingleData('registered_application',array('db_name'=>$Filter));//print_r($CheckDatabaseName);die;
 		if($CheckDatabaseName)
 		{
@@ -24,25 +21,26 @@ class Appmanagergateway extends CI_Controller
 				$CheckApplicationStatus=$this->data['CheckApplicationStatus']=$this->appmanagergateway_model->GetSingleData('registered_application',array('registration_id'=>$CheckDatabaseName[0]->registration_id,'status'=>'active'));//print_r($CheckApplicationStatus);die;
 				if($CheckApplicationStatus)
 				{
+					$CheckApplicationUrl=$this->data['CheckApplicationurl']=$this->appmanagergateway_model->GetSingleData('applications',array('application_id'=>$CheckDatabaseName[0]->application_id));//print_r($CheckApplicationUrl);die;
 					$result= 'success';
-					if ($result){ header('location:http://junctiondev.cloudapp.net/zeroerp/remoteapi/test?result='.$result); }
+					if ($result){ redirect($CheckApplicationUrl[0]->application_url.'remoteapi/test?result='.$result); }
 				}
 				else
 				{
 					$result ='fail_application';
-					if ($result){ header('location:http://junctiondev.cloudapp.net/zeroerp/remoteapi/test?result='.$result); }
+					if ($result){ redirect($CheckApplicationUrl[0]->application_url.'remoteapi/test?result='.$result); }
 				}
 			}
 			else
 			{
 				$result ='fail_organization'; //redirect into function when organization not activate name not exist
-				if ($result){ header('location:http://junctiondev.cloudapp.net/zeroerp/remoteapi/test?result='.$result); }
+				if ($result){ redirect($CheckApplicationUrl[0]->application_url.'remoteapi/test?result='.$result); }
 			}
 		}
 		else
 		{
 			$result= 'fail_database';//redirect into function when database name not exist
-		if (isset($result)){ header('location:http://junctiondev.cloudapp.net/zeroerp/remoteapi/test?result='.$result); }
+		if (isset($result)){ redirect($CheckApplicationUrl[0]->application_url.'remoteapi/test?result='.$result); }
 		}
 		die;
 	}
