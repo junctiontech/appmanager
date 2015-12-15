@@ -10,8 +10,9 @@ class Appmanagergateway extends CI_Controller
 		$this->load->library('session');
 		$this->load->model('appmanagergateway_model');
 	 }
-	function CheckAuthonticate($Filter=false)
+	function CheckAuthonticate($Filter=false,$data=false)
 	{  //echo $Filter;die;
+		print_r($_GET['json']);die;
 		$CheckDatabaseName=$this->data['CheckDatabaseName']=$this->appmanagergateway_model->GetSingleData('registered_application',array('db_name'=>$Filter));//print_r($CheckDatabaseName);die;
 		if($CheckDatabaseName)
 		{
@@ -23,7 +24,7 @@ class Appmanagergateway extends CI_Controller
 				{
 					//$CheckApplicationUrl=$this->data['CheckApplicationurl']=$this->appmanagergateway_model->GetSingleData('applications',array('application_id'=>$CheckDatabaseName[0]->application_id));//print_r($CheckApplicationUrl);die;
 					$result= 'success';
-					if ($result){ redirect('http://junctiondev.cloudapp.net/zeroerp/remoteapi/locationUpdate?result='.$result); }
+					if ($result){ redirect('http://junctiondev.cloudapp.net/zeroerp/remoteapi/locationUpdate?result='.$result.'&&'.$data); }
 				}
 				else
 				{
