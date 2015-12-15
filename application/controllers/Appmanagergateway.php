@@ -13,7 +13,7 @@ class Appmanagergateway extends CI_Controller
 	function CheckAuthonticate($Filter=false,$data=false)
 	{ // echo $Filter;
 		//echo $data;die;
-		$value=json_decode($_GET['data']);
+		$value=json_decode($_POST['data']);
 		print_r($value);die;
 		$CheckDatabaseName=$this->data['CheckDatabaseName']=$this->appmanagergateway_model->GetSingleData('registered_application',array('db_name'=>$Filter));//print_r($CheckDatabaseName);die;
 		if($CheckDatabaseName)
