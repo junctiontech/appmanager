@@ -18,7 +18,7 @@ class Appmanagergateway extends CI_Controller
 		//die;
 		//print_r($_GET['json']);die;
 		
-		$value=json_decode($_GET['json']);print_r($value);die;
+		$value=json_decode($_GET['json']);echo $value->employeeOrganizationName;die;
 		$CheckDatabaseName=$this->data['CheckDatabaseName']=$this->appmanagergateway_model->GetSingleData('registered_application',array('db_name'=>$value->employeeOrganizationName));//print_r($CheckDatabaseName);die;
 		if($CheckDatabaseName)
 		{
@@ -29,7 +29,8 @@ class Appmanagergateway extends CI_Controller
 				if($CheckApplicationStatus)
 				{
 					//$CheckApplicationUrl=$this->data['CheckApplicationurl']=$this->appmanagergateway_model->GetSingleData('applications',array('application_id'=>$CheckDatabaseName[0]->application_id));//print_r($CheckApplicationUrl);die;
-					$data=array('result'=>'success','data'=>$_GET['json']);$json=json_encode($data);
+					$data=array('result'=>'success','data'=>$_GET['json']);
+					$json=json_encode($data);
 					if ($result){ redirect('http://junctiondev.cloudapp.net/zeroerp/remoteapi/locationUpdate?json='.$json); }
 				}
 				else
