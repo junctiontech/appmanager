@@ -3,6 +3,17 @@
 /* Controller for login Functionality */
 class Remoteapi {
 	
+	function CheckAuthontication($DatabaseName=false)
+	{
+		$CONNECTION=mysqli_connect('localhost','root','bitnami','appmanager');
+		if($CONNECTION)
+		{
+			$GetSingleData= "select db_name from registered_application where db_name='".$DatabaseName."' and ";
+		}
+	}
+	
+	
+	
 	function locationUpdate(){
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','appmanager');
 		if($CONNECTION)
