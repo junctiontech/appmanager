@@ -15,7 +15,7 @@ class Appmanagergateway extends CI_Controller
 		//echo $Filter; print_r($Filter);die;
 		//echo $data;die;
 		//echo $_GET['data'];
-		//die;
+		//die; 
 		//print_r($_GET['json']);die;
 		
 		$value=json_decode($_GET['json']);print_r($value);die;//echo $value->employeeOrganizationName;die;
