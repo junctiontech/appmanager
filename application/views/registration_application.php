@@ -66,7 +66,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Mobile</label>
 				<div class="col-sm-10">
-					<input type="number" pattern=""  class="form-control" data-mask="mobile" name="mobile" id="mobile" placeholder="Please Enter Mobile Number" required>
+					<input type="text" pattern=""  class="form-control" data-mask="" name="mobile" id="mobile" placeholder="Please Enter Mobile Number" required>
 				</div>
 			</div>
 			<div class="form-group">
