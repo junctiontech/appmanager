@@ -116,7 +116,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Mobile</label>
 				<div class="col-sm-10">
-					<input type="number" pattern=""  class="form-control" data-mask="phone" name="application_mobile" id="app_mobile" placeholder="Please Enter Application Admin Mobile Number" required>
+					<input type="text" pattern=""  class="form-control" data-mask="" name="application_mobile" id="app_mobile" placeholder="Please Enter Application Admin Mobile Number" required>
 				</div>
 			</div>
 			<div class="form-group">
