@@ -62,7 +62,7 @@ Class Login extends CI_Controller {
 		$activate_org=$this->data['activate_org']=$this->login_model->activate_org('registered_application',array('registration_id'=>$id));
 		$application_id=$this->data['application_id']=$this->login_model->app_id($id);
 		
-		if($activate_org && $application_id='School')
+		if($activate_org='true' && $application_id='School')
 		{
 			?><script>alert('Your Application Activate Please Login With Your Credentials');</script><?php
 			redirect('http://junctiondev.cloudapp.net/appmanager/login/school','refresh');

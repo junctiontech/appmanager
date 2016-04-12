@@ -129,7 +129,7 @@ class Login_model extends CI_Model
 	function app_id($id)
 	{
 	$qry=$this->db->query("Select application_id from registered_application where registration_id='$id'");
-		return $qry->result;
+		return $qry->result();
 	}
 	
 	/* function for Get Data Organization And Application Admin */
