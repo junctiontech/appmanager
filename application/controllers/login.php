@@ -51,17 +51,27 @@ Class Login extends CI_Controller {
 	{  
 		$this->parser->parse('include/header',$this->data);
 		$app_list=$this->data['app_list']=$this->login_model->app_list($_GET['id']);
+		
 		$this->load->view('registration_application',$this->data);		
+		$this->parser->parse('include/footer',$this->data);
 	}
 	
 	/* function for activate account with help of mail  */
 	function activate_org($id=false)
 	{
 		$activate_org=$this->data['activate_org']=$this->login_model->activate_org('registered_application',array('registration_id'=>$id));
-		if($activate_org)
+		$application_id=$this->data['application_id']=$this->login_model->app_id($id);
+		
+		if($activate_org && $application_id='School')
+		{
+			?><script>alert('Your Application Activate Please Login With Your Credentials');</script><?php
+			redirect('http://junctiondev.cloudapp.net/appmanager/login/school','refresh');
+		}
+		else 
 		{
 			?><script>alert('Your Application Activate Please Login With Your Credentials');</script><?php
 			redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
+			
 		}
 	}
 	
@@ -69,7 +79,9 @@ Class Login extends CI_Controller {
 	function set_registration_application()
 	{
 		$org_id=$this->input->post('org_id');
+		
 		$org_name=$this->input->post('organization_name');
+	
 		$email=$this->input->post('email');
 		$username=$this->input->post('username');
 		$db_name=str_replace(' ','_',$this->input->post('db_name'));
@@ -86,12 +98,14 @@ Class Login extends CI_Controller {
 							'address'=>$this->input->post('address'),
 							'Username'=>$this->input->post('username'),
 							'password'=>md5($this->input->post('password')),
+							'Terms'=>$this->input->post('terms'),
 							'status'=>'active',
 							'created_by'=>$this->input->post('name'),
 							'created_on'=>date("Y-m-d")
 						   );
 				// variable name take org_id because org_id also avilabe and put same variable name so its easy otherwise condition put into $data_registered_app array in org_id variable with condition
 				$org_id=$this->data['set_new_user']=$this->login_model->set_registration_application('organizations',$data); // insert data into organization table
+			
 				if($org_id)
 				{
 					$data=array(
@@ -337,7 +351,8 @@ Class Login extends CI_Controller {
 			}	
 		}
 		if(isset($json->code)&& $json->code=='200')
-		{
+		{	$application_id=$this->data['application_id']=$this->login_model->app_id($json->registration_id);
+			
 			$json=json_decode($_GET['json']);
 			$code_application_id=md5($json->registration_id);
 			$subject="Zero ERP:-  Please Activate Your Account ";
@@ -409,15 +424,17 @@ Class Login extends CI_Controller {
 			//$mail->addAttachment($uploadfile,$filename);
 			
 			//send the message, check for errors
+			
+			
 			if (!$mail->send())
 			{
 				print "We encountered an error sending your mail";
 					
 			}
-			else
+			elseif($application_id='School')
 			{
-				$subjects=" Zero ERP :- Your Application Registered Successfully ";
-				$messages= " <html><body><h3>Hello: Application Administrator </h3><p>Your Application is Successfully Registered Some Important Details Are <br> Organization Name:- <b>$json->organization_name</b> <br> User Name:- <b>$json->application_admin_username</b> <br> Password:- <b>$json->application_admin_password <br> </b> Database Name:- <b>$json->database_name</b> <br> Mobile Number:- <b>$json->application_admin_mobile </b> <br> </p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager</p></body></html>";
+			$subjects=" Zero ERP :- Your Application Registered Successfully ";
+				$messages= " <html><body><h3>Hello: Application Administrator </h3><p>Your Application is Successfully Registered Some Important Details Are <br> Organization Name:- <b>$json->organization_name</b> <br> User Name:- <b>$json->application_admin_username</b> <br> Password:- <b>$json->application_admin_password <br> </b> Database Name:- <b>$json->database_name</b> <br> Mobile Number:- <b>$json->application_admin_mobile </b> <br> </p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager/login</p></body></html>";
 				$names='Junction Software Pvt Ltd';
 					
 				/*
@@ -486,15 +503,111 @@ Class Login extends CI_Controller {
 				//$mail->addAttachment($uploadfile,$filename);
 			
 				//send the message, check for errors
+				
+				
 				if (!$mail->send()) 
 				{
 					print "We encountered an error sending your mail";
 						
 				}
-				else
+				elseif($application_id='School')
 				{
 					?><script> alert('Your Application Registered Successfully Please Activate Your Application With Help Of Registered Email !!!!');</script><?php
-					redirect('http://junctiondev.cloudapp.net/appmanager','refresh');
+					redirect('http://junctiondev.cloudapp.net/appmanager/login/school','refresh');
+				}
+				else{
+					?><script> alert('Your Application Registered Successfully Please Activate Your Application With Help Of Registered Email !!!!');</script><?php
+					redirect('http://junctiondev.cloudapp.net/appmanager/','refresh');
+				}
+			}	
+			
+			else
+			{
+				$subjects=" Zero ERP :- Your Application Registered Successfully ";
+				$messages= " <html><body><h3>Hello: Application Administrator </h3><p>Your Application is Successfully Registered Some Important Details Are <br> Organization Name:- <b>$json->organization_name</b> <br> User Name:- <b>$json->application_admin_username</b> <br> Password:- <b>$json->application_admin_password <br> </b> Database Name:- <b>$json->database_name</b> <br> Mobile Number:- <b>$json->application_admin_mobile </b> <br> </p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager/login</p></body></html>";
+				$names='Junction Software Pvt Ltd';
+					
+				/*
+				 This example shows settings to use when sending via Google's Gmail servers.
+				 */
+			
+				//SMTP needs accurate times, and the PHP time zone MUST be set
+				//This should be done in your php.ini, but this is how to do it if you don't have access to that
+				//	date_default_timezone_set('Etc/UTC');
+			
+				//require 'PHPMailer/PHPMailerAutoload.php';
+			
+				//Create a new PHPMailer instance
+				//$mail = new PHPMailer;
+			
+				//Tell PHPMailer to use SMTP
+				//$mail->isSMTP();
+			
+				//Enable SMTP debugging
+				// 0 = off (for production use)
+				// 1 = client messages
+				// 2 = client and server messages
+				//$mail->SMTPDebug = 0;
+			
+				//Ask for HTML-friendly debug output
+				//	$mail->Debugoutput = 'html';
+			
+				//Set the hostname of the mail server
+				//$mail->Host = 'smtp.gmail.com';
+			
+				//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+				//	$mail->Port = 587;
+			
+				//Set the encryption system to use - ssl (deprecated) or tls
+				//$mail->SMTPSecure = 'tls';
+			
+				//Whether to use SMTP authentication
+				//$mail->SMTPAuth = true;
+			
+				//Username to use for SMTP authentication - use full email address for gmail
+				//$mail->Username = "dev4junction@gmail.com";
+			
+				//Password to use for SMTP authentication
+				//	$mail->Password = 'initial1$';
+			
+				//Set who the message is to be sent from
+				$mail->setFrom($json->application_admin_email,$names);
+					
+				//Set an alternative reply-to address
+				$mail->addReplyTo('dev4junction@gmail.com', $names);
+			
+				//Set who the message is to be sent to
+				$mail->addAddress($json->application_admin_email);
+			
+				//Set the subject line
+				$mail->Subject = $subjects;
+			
+				//Read an HTML message body from an external file, convert referenced images to embedded,
+				//convert HTML into a basic plain-text alternative body
+				$mail->msgHTML($messages);
+			
+				//Replace the plain text body with one created manually
+				$mail->AltBody = 'This is a plain-text message body';
+			
+				//Attach an image file
+				//$mail->addAttachment($uploadfile,$filename);
+			
+				//send the message, check for errors
+				
+				
+				if (!$mail->send()) 
+				{
+					print "We encountered an error sending your mail";
+						
+				}
+				elseif($application_id='School')
+				{
+					?><script> alert('Your Application Registered Successfully Please Activate Your Application With Help Of Registered Email !!!!');</script><?php
+					redirect('http://junctiondev.cloudapp.net/appmanager/login/school','refresh');
+				}
+				else{
+					?><script> alert('Your Application Registered Successfully Please Activate Your Application With Help Of Registered Email !!!!');</script><?php
+					redirect('http://junctiondev.cloudapp.net/appmanager/','refresh');
 				}
 			}
 		}
@@ -516,7 +629,12 @@ Class Login extends CI_Controller {
 		$this->parser->parse('include/header',$this->data);
 		$this->load->view('reset_password',$this->data);
 	}
-	
+	function school()
+	{
+		$this->parser->parse('include/header',$this->data);
+		$this->load->view('school',$this->data);
+		$this->parser->parse('include/footer_dashboard',$this->data);
+	}
 	function reset_password()
 	{
 		$UserEmail=$this->input->post('usermailid');
