@@ -1,6 +1,6 @@
 <!-- add organization page added by palak on 20 th june -->
 <!-- add organization body starts -->
-<body style="background-color: #7d3669" >
+<body style="background-color: #E58121" >
 <!--  <div class="page-loading-overlay">
 	<div class="loader-2"></div>
 </div>-->
