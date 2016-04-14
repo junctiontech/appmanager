@@ -14,7 +14,7 @@
 | path to your installation.
 
 */
-|if($_SERVER['HTTP_HOST']=="localhost"){
+if($_SERVER['HTTP_HOST']=="localhost"){
 	$port=$_SERVER['SERVER_PORT'];
 	$config['base_url']	= "http://localhost:$port/appmanager/";
 }
