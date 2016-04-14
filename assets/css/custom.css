@@ -63,3 +63,10 @@
   visibility: visible;
 }
 .hide{display:none;}
+
+.hidebox{display:none;}
+
+.schoolform{
+	margin-top:100px;
+	
+}

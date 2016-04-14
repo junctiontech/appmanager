@@ -125,6 +125,13 @@ class Login_model extends CI_Model
 		$qry=$this->db->update($table,array('status'=>'active'));
 		return true;
 	}
+	/* function for fetching application_id from registered_application table*/
+	function app_id($id)
+	{
+		$qry=$this->db->query("Select application_id from registered_application where registration_id='$id'");
+		print_r($this->db->query);die;
+		return $qry->Result();
+	}                                       
 	
 	/* function for Get Data Organization And Application Admin */
 	function get_reset_password($table=false,$filter=false)

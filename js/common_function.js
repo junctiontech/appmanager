@@ -66,7 +66,7 @@ function check_dbname(dbname,id)
 		 return false;
 }
 
-function application_entry(value)
+/* function application_entry(value)
 {	
 	if(document.getElementById('chk').checked==true)
 		{     
@@ -90,8 +90,35 @@ function application_entry(value)
 		}
 	
 	//alert(email);
+} */
+function myfunction()
+{
+			var name =document.getElementById('name').value;
+			var email =document.getElementById('email').value;
+			var mobile =document.getElementById('mobile').value;
+			var username =document.getElementById('username').value;
+			var password =document.getElementById('password').value;
+			document.getElementById('app_admin_name').value= name;
+			document.getElementById('app_email').value= email;
+			document.getElementById('app_mobile').value= mobile;
+			document.getElementById('app_username').value= username;
+			document.getElementById('app_password').value= password;
 }
 
+function toggle_visibility(className) {
+
+       var els = document.getElementsByClassName(className);
+	   
+	    for(var i=0; i<els.length; ++i){
+      var s = els[i].style;
+      s.display = s.display==='block' ? 'none' : 'block';
+   };
+  // toggle_visibility('a');
+       /* if(display == 'block')
+       e[0].style.display; = 'none';
+       else
+         e[0].style.display;= 'block'; */
+    }
 
 /*
 function CustomAlert(){
