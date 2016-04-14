@@ -47,7 +47,7 @@ Class Login extends CI_Controller {
 	}
 	
 	/* Function For registration Application view for new organization.......................................................*/
-function registration_application()
+	function registration_application()
 	{  
 	$app_list=$this->data['app_list']=$this->login_model->app_list($_GET['id']);
 	
@@ -443,11 +443,7 @@ function registration_application()
 			elseif($application_id='School')
 			{
 			$subjects=" Zero ERP :- Your Application Registered Successfully ";
-<<<<<<< HEAD
 				$messages= " <html><body><h3>Hello: Application Administrator </h3><p>Your Application is Successfully Registered Some Important Details Are <br> Organization Name:- <b>$json->organization_name</b> <br> User Name:- <b>$json->application_admin_username</b> <br> Password:- <b>$json->application_admin_password <br> </b> Database Name:- <b>$json->database_name</b> <br> Mobile Number:- <b>$json->application_admin_mobile </b> <br> </p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager/login/school</p></body></html>";
-=======
-				$messages= " <html><body><h3>Hello: Application Administrator </h3><p>Your Application is Successfully Registered Some Important Details Are <br> Organization Name:- <b>$json->organization_name</b> <br> User Name:- <b>$json->application_admin_username</b> <br> Password:- <b>$json->application_admin_password <br> </b> Database Name:- <b>$json->database_name</b> <br> Mobile Number:- <b>$json->application_admin_mobile </b> <br> </p><p><h3>Please Click In This Link And Login With Use Of Those Userid, Password And Database :)</h3>http://junctiondev.cloudapp.net/appmanager/login</p></body></html>";
->>>>>>> branch 'master' of https://github.com/junctiontech/appmanager.git
 				$names='Junction Software Pvt Ltd';
 					
 				/*

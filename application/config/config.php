@@ -14,19 +14,10 @@
 | path to your installation.
 
 */
-if($_SERVER['HTTP_HOST']=="localhost"){
-	$port=$_SERVER['SERVER_PORT'];
-	$config['base_url']	= "http://localhost:$port/appmanager/";
-}
-if($_SERVER['HTTP_HOST']=="junctiondev.cloudapp.net"){
-	$config['base_url']	= 'http://junctiondev.cloudapp.net/appmanager/';
-}
-if($_SERVER['HTTP_HOST']=="junctiontech.in"){
-	$config['base_url']	= 'http://junctiontech.in/projects/appmanager/';
-}
+
 //http://localhost/appmanager/
 // http://junctiondev.cloudapp.net/appmanager/
-$config['base_url']	= '';
+$config['base_url']	= 'http://junctiondev.cloudapp.net/appmanager/';
 
 /*
 |--------------------------------------------------------------------------

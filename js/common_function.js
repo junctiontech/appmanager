@@ -66,7 +66,7 @@ function check_dbname(dbname,id)
 		 return false;
 }
 
-/* function application_entry(value)
+function application_entry(value)
 {	
 	if(document.getElementById('chk').checked==true)
 		{     
@@ -90,7 +90,7 @@ function check_dbname(dbname,id)
 		}
 	
 	//alert(email);
-} */
+}
 function myfunction()
 {
 			var name =document.getElementById('name').value;
@@ -113,11 +113,7 @@ function toggle_visibility(className) {
       var s = els[i].style;
       s.display = s.display==='block' ? 'none' : 'block';
    };
-  // toggle_visibility('a');
-       /* if(display == 'block')
-       e[0].style.display; = 'none';
-       else
-         e[0].style.display;= 'block'; */
+ 
     }
 
 /*
