@@ -222,7 +222,7 @@ Class Login extends CI_Controller {
 			if($check_org && $field_name=='Database name')
 			{
 				?>
-					<span id="txt" class="alert alert-danger"> Your <?=$field_name; ?> Already Exist Please Try With Another DataBase Name </span>
+					<span id="txt" class="alert alert-danger"> Your <?=$field_name; ?> Already Exist Please Try With Another DataBase Name Change in organization name field</span>
 				<?php
 			}
 		}

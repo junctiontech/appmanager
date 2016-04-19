@@ -49,7 +49,7 @@ function check_username(username)
 }
 
 function check_dbname(dbname,id)
-{
+{	var id='db_name';
 	$.ajax({
 			type: 'POST',
 			url: 'login/verification_new_user',
