@@ -66,7 +66,7 @@ Class Login extends CI_Controller {
 	}
 	
 	/* function for activate account with help of mail  */
-	function activate_org($id=false,$codeid=false $name=false)
+	function activate_org($id=false,$codeid=false,$name=false)
 	{
 		$activate_org=$this->data['activate_org']=$this->login_model->activate_org('registered_application',array('registration_id'=>$id));
 		$application_id=$this->data['application_id']=$this->login_model->app_id($id);
