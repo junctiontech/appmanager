@@ -66,7 +66,7 @@ function check_dbname(dbname,id)
 		 return false;
 }
 
-function application_entry(value)
+/* function application_entry(value)
 {	
 	if(document.getElementById('chk').checked==true)
 		{     
@@ -90,9 +90,9 @@ function application_entry(value)
 		}
 	
 	//alert(email);
-}
+} */
 function myfunction()
-{			var organization_name =document.getElementById('organization_name').value;
+{var organization_name = document.getElementById('organization_name').value;
 			var name =document.getElementById('name').value;
 			var email =document.getElementById('email').value;
 			var mobile =document.getElementById('mobile').value;
