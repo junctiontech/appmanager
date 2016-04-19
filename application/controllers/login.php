@@ -640,7 +640,7 @@ Class Login extends CI_Controller {
 		$this->load->view('reset_password',$this->data);
 	}
 	function school($schoolname=false)
-	{echo 'hi';die;
+	{
 		$school_detail=$this->data['schooldetail']=$this->login_model->schooldetail($schoolname);
 		print_r($school_detail);die;
 		$this->parser->parse('include/header',$this->data);
