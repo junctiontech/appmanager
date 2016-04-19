@@ -147,4 +147,9 @@ class Login_model extends CI_Model
 		$qry=$this->db->update($table,$data);
 		return true;
 	}
+	function schooldetail($schoolname)
+	{
+		$qry=$this->db->query("select organization_name from organizations where organization_name='$schoolname'");
+		return $qry->result();
+	}
 }

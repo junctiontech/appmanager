@@ -134,6 +134,9 @@
 					<textarea class="form-control" name="address" placeholder="Please Enter Address" required /></textarea>
 				</div>
 			</div>
+			<hr>
+			<h4> Credentials to login </h4>
+			<hr>
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">User name</label>
 				<div class="col-sm-10">
@@ -152,9 +155,7 @@
 					<input type="text" readonly class="form-control" name="db_name" id="db_name" placeholder="Please Enter Data Base Name" onchange="check_dbname(this.value,this.id)" required>
 				</div>
 			</div>
-			<hr>
-			<h2> Credentials to login </h2>
-			<hr>
+			
 			<div class="form-group">
 				<label class="col-sm-6 control-label" for="field-1"><b>If Application Registration Detail Is different So Please uncheck Checkbox</b> </label>
 			</div>
