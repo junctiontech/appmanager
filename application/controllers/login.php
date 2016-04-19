@@ -522,7 +522,7 @@ Class Login extends CI_Controller {
 				elseif($application_id='School')
 				{
 					?><script> alert('Your Application Registered Successfully Please Activate Your Application With Help Of Registered Email !!!!');</script><?php
-					redirect('http://junctiondev.cloudapp.net/appmanager/login/school/$json->organization_name','refresh');
+					redirect('http://junctiondev.cloudapp.net/appmanager/login/school/'.$json->organization_name,'refresh');
 				}
 				else{
 					?><script> alert('Your Application Registered Successfully Please Activate Your Application With Help Of Registered Email !!!!');</script><?php
@@ -640,7 +640,7 @@ Class Login extends CI_Controller {
 		$this->load->view('reset_password',$this->data);
 	}
 	function school($schoolname=false)
-	{
+	{echo 'hi';die;
 		$school_detail=$this->data['schooldetail']=$this->login_model->schooldetail($schoolname);
 		print_r($school_detail);die;
 		$this->parser->parse('include/header',$this->data);
