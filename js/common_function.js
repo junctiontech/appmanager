@@ -15,6 +15,17 @@ function check_organization(org_name,id)
 		 }); 
 	return false;
 }
+function nospaces(t){
+
+if(t.value.match(/\s/g)){
+
+alert('Sorry, you are not allowed to enter any spaces');
+
+t.value=t.value.replace(/\s/g,'');
+
+}
+
+}
 
 function check_email(email,id)
 {

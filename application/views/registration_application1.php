@@ -107,7 +107,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Organization Name</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="organization_name" id="org" onkeyup="myfunction()" placeholder="Organization Name" onchange="check_organization(this.value,this.id);check_dbname(this.value);"   required >
+					<input type="text" class="form-control" name="organization_name" id="org" onkeyup="myfunction(); nospaces(this);" placeholder="Organization Name" onchange="check_organization(this.value,this.id);check_dbname(this.value);"   required >
 				</div>
 			</div>
 			<div class="form-group">
