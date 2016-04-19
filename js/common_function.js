@@ -92,7 +92,7 @@ function application_entry(value)
 	//alert(email);
 }
 function myfunction()
-{
+{			var organization_name =document.getElementById('organization_name').value;
 			var name =document.getElementById('name').value;
 			var email =document.getElementById('email').value;
 			var mobile =document.getElementById('mobile').value;
@@ -103,6 +103,7 @@ function myfunction()
 			document.getElementById('app_mobile').value= mobile;
 			document.getElementById('app_username').value= username;
 			document.getElementById('app_password').value= password;
+			document.getElementById('db_name').value= organization_name;
 }
 
 function toggle_visibility(className) {
