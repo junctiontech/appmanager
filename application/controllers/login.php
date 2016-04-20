@@ -642,7 +642,7 @@ Class Login extends CI_Controller {
 	function school($schoolname=false)
 	{
 		if(!empty($schoolname)){
-		$this->session->set_userdata('user_data',$schoolname);
+		$this->session->set_userdata('schoolname',$schoolname);
 		print_r($this->session->userdata('schoolname'));die;
 		}
 		$school_detail=$this->data['schooldetail']=$this->login_model->schooldetail($schoolname);
