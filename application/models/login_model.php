@@ -150,8 +150,12 @@ class Login_model extends CI_Model
 	}
 	function schooldetail($schoolname)
 	{
-		$qry=$this->db->query("select organization_name from organizations where organization_name='$schoolname'");
-		return $qry->result();
+		$this->db->select('organization_name');
+		$this->db->from('organizations');
+		$this->db->where(array('organization_name'=>$schoolname));
+		$qry=$this->db->get();
+		
+		return $qry;
 	}
 	
 	function schoolinfo()
