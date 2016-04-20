@@ -83,6 +83,7 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
+$school='';
 $active_group = 'school';
 $active_record = TRUE;
 $db['school']['hostname'] = 'localhost';
