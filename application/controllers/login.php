@@ -641,8 +641,7 @@ Class Login extends CI_Controller {
 	}
 	function school($schoolname=false)
 	{	echo 'hi';
-		$school_detail=$this->data['schooldetail']=$this->login_model->schooldetail($schoolname);
-		print_r($school_detail);
+		
 		if(!empty($schoolname)){
 			echo 'wao';
 		$this->session->set_userdata('schoolname',$schoolname);
@@ -650,7 +649,8 @@ Class Login extends CI_Controller {
 		$school_info=$this->data['schoolinfo']=$this->login_model->schoolinfo();
 		print_r($school_info);die;
 		}
-	
+		$school_detail=$this->data['schooldetail']=$this->login_model->schooldetail($schoolname);
+		print_r($school_detail);
 		$this->parser->parse('include/header',$this->data);
 		$this->load->view('school',$this->data);
 		$this->parser->parse('include/footer',$this->data);
