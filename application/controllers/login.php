@@ -650,7 +650,7 @@ Class Login extends CI_Controller {
 
 		}
 		$school_detail=$this->data['schooldetail']=$this->login_model->schooldetail($schoolname);
-		
+		print_r($school_detail);die;
 		$this->parser->parse('include/header',$this->data);
 		$this->load->view('school',$this->data);
 		$this->parser->parse('include/footer',$this->data);
