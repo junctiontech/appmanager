@@ -35,7 +35,7 @@ Class Login extends CI_Controller {
 	
 	/* Function for login Application List.....................................................................*/
 	function application_list()
-	{
+	{ 
 		$app_list=$this->data['app_list']=$this->login_model->app_list();
 		if(isset($_GET['id'])&&!$_GET['id']=='login'&&!$_GET['id']=='reg')
 		{

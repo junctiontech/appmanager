@@ -1,6 +1,7 @@
 <?php
 class Login_model extends CI_Model
 {
+	
 	function __construct()
 	{
 		parent::__construct();
@@ -155,9 +156,8 @@ class Login_model extends CI_Model
 	
 	function schoolinfo()
 	{
-		$school=$this->load->database('school');
+		$school=$this->load->database('school',true);
 		$qry=$school->query("select SchoolName,SchoolMoto,Logo from generalsetting");
-		print_r($qry);die;
 		return $qry->result();
 	}
 }
