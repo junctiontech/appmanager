@@ -157,6 +157,7 @@ class Login_model extends CI_Model
 	{
 		$school=$this->load->database('school');
 		$qry=$school->query("select SchoolName,SchoolMoto,Logo from generalsetting");
+		print_r($qry);die;
 		return $qry->result();
 	}
 }
