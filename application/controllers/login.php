@@ -641,14 +641,15 @@ Class Login extends CI_Controller {
 	}
 	function school($schoolname=false)
 	{
+		$school_detail=$this->data['schooldetail']=$this->login_model->schooldetail($schoolname);
+		
 		if(!empty($schoolname)){
 			
 		$this->session->set_userdata('schoolname',$schoolname);
 		$schoolinfo=$this->data['schoolinfo']=$this->login_model->schoolinfo();
 		print_r($schoolinfo);die;
 		}
-		$school_detail=$this->data['schooldetail']=$this->login_model->schooldetail($schoolname);
-		
+	
 		$this->parser->parse('include/header',$this->data);
 		$this->load->view('school',$this->data);
 		$this->parser->parse('include/footer',$this->data);
