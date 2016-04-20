@@ -148,7 +148,7 @@ class Login_model extends CI_Model
 		$qry=$this->db->update($table,$data);
 		return true;
 	}
-	function schooldetail($schoolname)
+	function schooldetail($schoolname=false)
 	{print_r($schoolname);die;
 		$this->db->select('organization_name');
 		$this->db->from('organizations');
