@@ -149,7 +149,7 @@ class Login_model extends CI_Model
 		return true;
 	}
 	function schooldetail($schoolname)
-	{
+	{print_r($schoolname);die;
 		$this->db->select('organization_name');
 		$this->db->from('organizations');
 		$this->db->where(array('organization_name'=>$schoolname));
