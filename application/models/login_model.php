@@ -152,4 +152,11 @@ class Login_model extends CI_Model
 		$qry=$this->db->query("select organization_name from organizations where organization_name='$schoolname'");
 		return $qry->result();
 	}
+	
+	function schoolinfo()
+	{
+		$school=$this->load->database('school');
+		$qry=$school->query("select SchoolName,SchoolMoto,Logo from generalsetting");
+		return $qry->result();
+	}
 }

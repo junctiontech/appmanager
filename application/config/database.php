@@ -83,7 +83,10 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
-$school='';
+$CI =& get_instance();
+$CI->load->library('session'); 
+$school=$CI->session->userdata('schoolname'); 
+
 $active_group = 'school';
 $active_record = TRUE;
 $db['school']['hostname'] = 'localhost';
