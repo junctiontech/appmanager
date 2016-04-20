@@ -88,18 +88,18 @@ $active_record = TRUE;
 $db['school']['hostname'] = 'localhost';
 $db['school']['username'] = $username;
 $db['school']['password'] = $password;
-$db['default']['database'] = $school;
-$db['default']['dbdriver'] = 'mysql';
-$db['default']['dbprefix'] = '';
-$db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = FALSE;
-$db['default']['cache_on'] = FALSE;
-$db['default']['cachedir'] = '';
-$db['default']['char_set'] = 'utf8';
-$db['default']['dbcollat'] = 'utf8_general_ci';
-$db['default']['swap_pre'] = '';
-$db['default']['autoinit'] = TRUE;
-$db['default']['stricton'] = FALSE;
+$db['school']['database'] = $school;
+$db['school']['dbdriver'] = 'mysql';
+$db['school']['dbprefix'] = '';
+$db['school']['pconnect'] = TRUE;
+$db['school']['db_debug'] = FALSE;
+$db['school']['cache_on'] = FALSE;
+$db['school']['cachedir'] = '';
+$db['school']['char_set'] = 'utf8';
+$db['school']['dbcollat'] = 'utf8_general_ci';
+$db['school']['swap_pre'] = '';
+$db['school']['autoinit'] = TRUE;
+$db['school']['stricton'] = FALSE;
 
 
 
