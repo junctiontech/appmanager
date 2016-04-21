@@ -35,7 +35,7 @@ Class Login extends CI_Controller {
 	
 	/* Function for login Application List.....................................................................*/
 	function application_list()
-	{ 
+	{
 		$app_list=$this->data['app_list']=$this->login_model->app_list();
 		if(isset($_GET['id'])&&!$_GET['id']=='login'&&!$_GET['id']=='reg')
 		{
@@ -67,7 +67,7 @@ Class Login extends CI_Controller {
 	
 	/* function for activate account with help of mail  */
 	function activate_org($id=false,$codeid=false,$name=false)
-	{
+	{echo 'activate';
 		$activate_org=$this->data['activate_org']=$this->login_model->activate_org('registered_application',array('registration_id'=>$id));
 		$application_id=$this->data['application_id']=$this->login_model->app_id($id);
 		
@@ -639,17 +639,18 @@ Class Login extends CI_Controller {
 		$this->parser->parse('include/header',$this->data);
 		$this->load->view('reset_password',$this->data);
 	}
-	function school($schoolname=false)
+function school($schoolname=false)
 	{	
 		
-		if(!empty($schoolname)){
+		/* if(!empty($schoolname)){
 			
 		$this->session->set_userdata('schoolname',$schoolname);
 	
 		$school_info=$this->data['schoolinfo']=$this->login_model->schoolinfo();
 
-		}
+		} */
 		$school_detail=$this->data['schooldetail']=$this->login_model->schooldetail($schoolname);
+		
 		
 		$this->parser->parse('include/header',$this->data);
 		$this->load->view('school',$this->data);
