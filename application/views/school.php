@@ -43,19 +43,11 @@
 					<strong><?=$this->session->flashdata('category_error_login')?></strong> 
 				</div>
 			</div>
-		<?php } if(!empty($schooldetail)){ 
-		
-			foreach($schooldetail as $detail)?>
+		<?php } ?> 
+
 			<div class="col-md-12" style="top:100px">
-			<h2 class="text-center" style ="font-family:Edwardian Script ITC; font-size:58px; color:#339559"><b><?=isset ($detail->organization_name) ?$detail->organization_name:''?></b></H2>			
+			<h2 class="text-center" style ="font-family:Edwardian Script ITC; font-size:58px; color:#339559"><b>St joseph convent school</b></H2>			
 			</div>
-			
-			<?php }?>
-			
-			<div class="col-md-12" style="top:100px">
-			<h2 class="text-center" style ="font-family:Edwardian Script ITC; font-size:58px; color:#339559"><b> Virtue alone Enobles<b></h2>
-			</div>
-			
 			<div class="col-md-12" style="top:100px">
 				<?php if(!empty($studentshow->Image)){?>
 			<img src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" class="avatar img-circle img-thumbnail" style="height:200px; width:200px; margin-top:-100px;"  alt="user image">
@@ -63,7 +55,9 @@
 				<img src="<?=base_url();?>/assets/images/user-2.png" style="height:200px; width:200px">
 				<?php } ?>
 			</div>
-			
+			<div class="col-md-12" style="top:100px">
+			<h2 class="text-center" style ="font-family:Edwardian Script ITC; font-size:58px; color:#339559"><b> Virtue alone Enobles<b></h2>
+			</div>
 		</div>	
 		
 	</div>

@@ -128,10 +128,9 @@ class Login_model extends CI_Model
 	/* function for fetching application_id from registered_application table*/
 	function app_id($id)
 	{
-		$qry=$this->db->query("Select application_id from registered_application where registration_id='$id'");
-		print_r($this->db->query);die;
-		return $qry->Result();
-	}                                       
+	$qry=$this->db->query("Select application_id from registered_application where registration_id='$id'");
+		return $qry->result();
+	}
 	
 	/* function for Get Data Organization And Application Admin */
 	function get_reset_password($table=false,$filter=false)
@@ -147,24 +146,5 @@ class Login_model extends CI_Model
 		$this->db->where($filter);
 		$qry=$this->db->update($table,$data);
 		return true;
-	}
-	
-	function schooldetail($schoolname=false)
-	{
-		$qry=$this->db->query("Select organization_name from organizations where organization_name='$schoolname'");
-print_r($qry);die;
-		return $qry->result();
-		/* $this->db->select('organization_name');
-		$this->db->from('organizations');
-		$this->db->where(array('organization_name'=>$schoolname));
-		$qry=$this->db->get();
-		return $qry; */
-	}
-	
-	function schoolinfo()
-	{
-		$school=$this->load->database('school',true);
-		$qry=$school->query("select SchoolName,SchoolMoto,Logo from generalsetting");
-		return $qry->result();
 	}
 }
