@@ -85,7 +85,7 @@ $db['default']['stricton'] = FALSE;
 
 
 
-$CI =& get_instance();
+/* $CI =& get_instance();
 $CI->load->library('session'); 
 $school=$CI->session->userdata('schoolname'); 
 
@@ -105,6 +105,6 @@ $db['school']['char_set'] = 'utf8';
 $db['school']['dbcollat'] = 'utf8_general_ci';
 $db['school']['swap_pre'] = '';
 $db['school']['autoinit'] = TRUE;
-$db['school']['stricton'] = FALSE;
+$db['school']['stricton'] = FALSE; */
 /* End of file database.php */
 /* Location: ./application/config/database.php */
