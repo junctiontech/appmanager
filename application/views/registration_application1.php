@@ -203,3 +203,29 @@
 			
 			</div>
 			</div>
+			
+			<div class="form-group">
+			<div class="col-sm-10" style="left:140px;top:10px">
+			<input tabindex="5" type="checkbox" name="terms" value="Accepted" class="app_checkbox" id="chk" required>
+			<label for="minimal-checkbox-1-11" style="font-size:14px">I agree to the Junction Software terms and privacy policy</label>
+			<br>
+			</div>
+			</div>
+	<div class="form-group">
+	<div class="col-sm-10" style="left:140px;top:20px;margin-bottom:40px">
+		<button type="submit" class="btn btn-white" style="color:black;background-color:#E58121;font-size:1.1em" >Submit</button>
+		<button type="reset" class="btn btn-white"
+			onClick="window.history.back();">Cancel</button>
+			</div>
+		</div>
+	</form>
+				
+
+
+</div>
+<!-- body container ends starts -->
+
+<!-- main content div end -->
+</div>
+</div>
+<!-- page container div end -->

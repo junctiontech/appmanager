@@ -12,8 +12,9 @@
 |
 | If this is not set then CodeIgniter will guess the protocol, domain and
 | path to your installation.
-|
+
 */
+
 //http://localhost/appmanager/
 // http://junctiondev.cloudapp.net/appmanager/
 $config['base_url']	= 'http://junctiondev.cloudapp.net/appmanager/';
