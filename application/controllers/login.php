@@ -252,7 +252,7 @@ Class Login extends CI_Controller {
 		}   
 			if(!$value->db_name)                    //Super Admin Case if login into Application
 			{
-				if('admin'==$this->input->POST['username'] && 'admin'==$this->input->post('password'))
+				if('admin'==$this->input->POST('username') && 'admin'==$this->input->post('password'))
 				{
 					$this->session->set_userdata(array('username'=>'admin'));
 					$this->session->userdata('username');
