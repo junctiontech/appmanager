@@ -1,7 +1,6 @@
 <?php
 class Login_model extends CI_Model
 {
-	
 	function __construct()
 	{
 		parent::__construct();
@@ -130,6 +129,7 @@ class Login_model extends CI_Model
 	function app_id($id)
 	{
 		$qry=$this->db->query("Select application_id from registered_application where registration_id='$id'");
+		print_r($this->db->query);die;
 		return $qry->Result();
 	}                                       
 	
@@ -148,14 +148,17 @@ class Login_model extends CI_Model
 		$qry=$this->db->update($table,$data);
 		return true;
 	}
+	
 	function schooldetail($schoolname=false)
-	{print_r($schoolname);die;
-		$this->db->select('organization_name');
+	{
+		$qry=$this->db->query("Select organization_name from organizations where organization_name='$schoolname'");
+print_r($qry);die;
+		return $qry->result();
+		/* $this->db->select('organization_name');
 		$this->db->from('organizations');
 		$this->db->where(array('organization_name'=>$schoolname));
 		$qry=$this->db->get();
-		
-		return $qry;
+		return $qry; */
 	}
 	
 	function schoolinfo()
