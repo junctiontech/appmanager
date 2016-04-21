@@ -156,7 +156,7 @@ class Login_model extends CI_Model
 		$this->db->from('organizations');
 		$this->db->where(array('organization_name'=>$schoolname));
 		$qry=$this->db->get();
-		return $qry; 
+		return $qry->result(); 
 	}
 	
 	function schoolinfo()
