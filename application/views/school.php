@@ -1,70 +1,122 @@
 <!-- Dashboard page Start by Ankit 09 oct -->
-<head>
-	<style>
-		body {font-family:Arial, Helvetica, sans-serif; font-size:12px;}
-		 
-		.fadein { 
-		position:relative; height:300px; width:1000px; margin:0 auto;
-		background: url("slideshow-bg.png") repeat-x scroll left top transparent;
-		padding: 20px;
-		 }
-		.fadein img { position:absolute; left:10px; top:10px; }
-	</style>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	<script>
-		$(function(){
-			$('.fadein img:gt(-2)').hide();
-			setInterval(function(){$('.fadein :first-child').fadeOut().next('img').fadeIn().end().appendTo('.fadein');}, 1500);
-		});
-	</script>
-</head>
-<body class="page-body" style="background-color:white; ">
-	<noscript>
-		<img src="images/error.png" height="150px" width="160px" style="margin-left:200px">
-			  <h2><font color="white">Your Browser Have Dissabled Java Script Please Enable With Help Of Browser Setting....</font></h2> 
-			  <style>div { color:white;display:none; }</style>
-	</noscript>
-	<div class="page-loading-overlay">
-		<div class=""></div>
-	</div>
-	
-	<div style="position: absolute; top:0;right:0;">
-		<a class="btn btn-icon btn-green" style="color: white; font-size:1.1em;" onclick="callAjax();" data-toggle="modal" data-target="#modal-8" href="<?php echo base_url();?>login/reset_password_view"><i class="fa-fire">Reset Password</i></a>
-		<a class="btn btn-icon btn-green" style="color: white; font-size:1.1em;" onclick="callAjax();" data-toggle="modal" data-target="#modal-8" href="<?php echo base_url();?>admin_panel"><i class="fa-fire">Account Login</i></a>
-		<a class="btn btn-icon btn-green" style="color: white; font-size:1.1em;"  data-toggle="modal" data-target="#modal-8" href="<?php echo base_url();?>login/application_login"><i class="fa-fire">Application Login</i></a>	
-	</div>
-	<div class="row ">
-			<div class="container">
-		<?php  if($this->session->flashdata('category_error_login')) { ?>
-			<div class="row-fluid"> 
-				<div class="alert alert-danger">
-					<strong><?=$this->session->flashdata('category_error_login')?></strong> 
-				</div>
-			</div>
-		<?php } if(!empty($schooldetail)){ 
-		
-			foreach($schooldetail as $detail)?>
-			<div class="col-md-12" style="top:100px">
-			<h2 class="text-center" style ="font-family:Edwardian Script ITC; font-size:58px; color:#339559"><b><?=isset ($detail->organization_name) ?$detail->organization_name:''?></b></H2>			
-			</div>
-			
-			<?php }?>
-			
-			<div class="col-md-12" style="top:100px">
-			<h2 class="text-center" style ="font-family:Edwardian Script ITC; font-size:58px; color:#339559"><b> Virtue alone Enobles<b></h2>
-			</div>
-			
-			<div class="col-md-12" style="top:100px">
-			
-			<img src="<?=base_url();?>/images/sms.png" class="avatar img-circle img-thumbnail" style="height:200px; width:200px; margin-top:-100px;"  alt="user image">
-			
-				
-			</div>
-			
-		</div>	
-		
-	</div>
-	
-</div>	
+<body class="login">
+
+<!-- header starts here -->
+
+<div id="facebook-Bar">
+
+  <div id="facebook-Frame">
+
+    <div id="logo"> <a href="http://w3lessons.info">W3lessons.info</a> </div>
+
+    <div id="header-main-right">
+
+      <div id="header-main-right-nav">
+
+        <form method="post" action="" id="login_form" name="login_form">
+
+          <table border="0" style="border:none">
+
+            <tr>
+
+              <td ><input type="text" tabindex="1"  id="email" placeholder="Email or Phone" name="email" class="inputtext radius1" value=""></td>
+
+              <td ><input type="password" tabindex="2" id="pass" placeholder="Password" name="pass" class="inputtext radius1" ></td>
+
+              <td ><input type="submit" class="fbbutton" name="login" value="Login" /></td>
+
+            </tr>
+
+            <tr>
+
+              <td><label>
+
+                  <input id="persist_box" type="checkbox" name="persistent" value="1" checked="1"/>
+
+                  <span style="color:#ccc;">Keep me logged in</span></label></td>
+
+              <td><label><a href="" style="color:#ccc; text-decoration:none">forgot your password?</a></label></td>
+
+            </tr>
+
+          </table>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- header ends here -->
+
+<div class="loginbox radius">
+
+  <h2 style="color:#141823; text-align:center;">Welcome to Facebook</h2>
+
+  <div class="loginboxinner radius">
+
+    <div class="loginheader">
+
+      <h4 class="title">Connect with friends and the world around you.</h4>
+
+    </div>
+
+    <!--loginheader-->
+
+    <div class="loginform">
+
+      <form id="login" action="" method="post">
+
+        <p>
+
+          <input type="text" id="firstname" name="firstname" placeholder="First Name" value="" class="radius mini" />
+
+          <input type="text" id="lastname" name="lastname" placeholder="Last Name" value="" class="radius mini" />
+
+        </p>
+
+        <p>
+
+          <input type="text" id="email" name="email" placeholder="Your Email" value="" class="radius" />
+
+        </p>
+
+        <p>
+
+          <input type="text" id="remail" name="remail" placeholder="Re-enter Email" class="radius" />
+
+        </p>
+
+        <p>
+
+          <input type="password" id="password" name="password" placeholder="New Password" class="radius" />
+
+        </p>
+
+        <p>
+
+          <button class="radius title" name="signup">Sign Up for Facebook</button>
+
+        </p>
+
+      </form>
+
+    </div>
+
+    <!--loginform-->
+
+  </div>
+
+  <!--loginboxinner-->
+
+</div>
+
+<!--loginbox-->
+
 </body>
 
+</html>

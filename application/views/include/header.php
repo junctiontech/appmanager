@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/xenon-components.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/xenon-skins.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/custom.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/popup_box.css">
 	<!-- mandatory scripts starts added by palak on 20th june -->
 	<script src="<?php echo base_url(); ?>assets/js/jquery-1.11.1.min.js"></script>
