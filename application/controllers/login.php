@@ -51,18 +51,10 @@ Class Login extends CI_Controller {
 	{  
 	$app_list=$this->data['app_list']=$this->login_model->app_list($_GET['id']);
 	
-	if($app_list[0]->application_id=='School')
-	{
-		
-		$this->parser->parse('include/SchoolHeader',$this->data);
-		$this->load->view('registration_application1',$this->data);		
-		$this->parser->parse('include/SchoolFooter',$this->data);
-	}
-	else{
 		$this->parser->parse('include/header',$this->data);
 		$this->load->view('registration_application',$this->data);		
 		$this->parser->parse('include/footer',$this->data);
-	}
+
 	}
 	
 	/* function for activate account with help of mail  */
@@ -74,7 +66,7 @@ Class Login extends CI_Controller {
 		if($activate_org='true' && $application_id='School')
 		{
 			?><script>alert('Your Application Activate Please Login With Your Credentials');</script><?php
-			redirect('http://junctiondev.cloudapp.net/appmanager/login/school/'.$name,'refresh');
+			redirect('http://junctiondev.cloudapp.net/appmanager/login/school'.$name,'refresh');
 		}
 		else 
 		{
@@ -222,7 +214,7 @@ Class Login extends CI_Controller {
 			if($check_org && $field_name=='Database name')
 			{
 				?>
-					<span id="txt" class="alert alert-danger"> Your <?=$field_name; ?> Already Exist Please Try With Another DataBase Name Change in organization name field</span>
+					<span id="txt" class="alert alert-danger"> Your <?=$field_name; ?> Already Exist Please Try With Another Unique organisation key</span>
 				<?php
 			}
 		}

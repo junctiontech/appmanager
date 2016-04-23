@@ -27,13 +27,11 @@
 	<div class="page-loading-overlay">
 		<div class=""></div>
 	</div>
-	<div style="position: absolute; top:0;left:0;">
-		<a class="btn btn-icon btn-green" style="color: white; font-size:1.1em;" href="<?php echo base_url();?>login/school"><i class="fa-fire">  Home</i></a>
-	</div>
-	<div style="position: absolute; top:0;right:0;" >
-		<a class="btn btn-icon btn-green" style="color: white; font-size:1.1em;" onclick="callAjax();" data-toggle="modal" data-target="#modal-8" href="<?php echo base_url();?>login/reset_password_view"><i class="fa-fire">  Reset Password</i></a>
-		<a class="btn btn-icon btn-green" style="color: white; font-size:1.1em;" onclick="callAjax();" data-toggle="modal" data-target="#modal-8" href="<?php echo base_url();?>admin_panel"><i class="fa-fire">  Account Login</i></a>
-		<a class="btn btn-icon btn-green" style="color: white; font-size:1.1em;"  data-toggle="modal" data-target="#modal-8" href="<?php echo base_url();?>login/application_login"><i class="fa-fire">  Application Login</i></a>	
+	
+	<div style="position: absolute; top:0;right:0;">
+		<a class="btn btn-icon btn-green" style="color: white; font-size:1.1em;" onclick="callAjax();" data-toggle="modal" data-target="#modal-8" href="<?php echo base_url();?>login/reset_password_view"><i class="fa-fire">Reset Password</i></a>
+		<a class="btn btn-icon btn-green" style="color: white; font-size:1.1em;" onclick="callAjax();" data-toggle="modal" data-target="#modal-8" href="<?php echo base_url();?>admin_panel"><i class="fa-fire">Account Login</i></a>
+		<a class="btn btn-icon btn-green" style="color: white; font-size:1.1em;"  data-toggle="modal" data-target="#modal-8" href="<?php echo base_url();?>login/application_login"><i class="fa-fire">Application Login</i></a>	
 	</div>
 	<div class="row ">
 			<div class="container">
@@ -58,7 +56,7 @@
 			
 			<div class="col-md-12" style="top:100px">
 				<?php if(!empty($studentshow->Image)){?>
-			<img src="<?=base_url();?>/uploaded_images/<?=isset($studentshow->Image) ?$studentshow->Image:''?>" class="avatar img-circle img-thumbnail" style="height:200px; width:200px; margin-top:-100px;"  alt="user image">
+			<img src="<?=base_url();?>/images/sms.png<?=isset($studentshow->Image) ?$studentshow->Image:''?>" class="avatar img-circle img-thumbnail" style="height:200px; width:200px; margin-top:-100px;"  alt="user image">
 				<?php } else {?>
 				<img src="<?=base_url();?>/assets/images/user-2.png" style="height:200px; width:200px">
 				<?php } ?>
