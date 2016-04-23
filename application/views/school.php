@@ -55,11 +55,10 @@
 			</div>
 			
 			<div class="col-md-12" style="top:100px">
-				<?php if(!empty($studentshow->Image)){?>
-			<img src="<?=base_url();?>/images/sms.png<?=isset($studentshow->Image) ?$studentshow->Image:''?>" class="avatar img-circle img-thumbnail" style="height:200px; width:200px; margin-top:-100px;"  alt="user image">
-				<?php } else {?>
-				<img src="<?=base_url();?>/assets/images/user-2.png" style="height:200px; width:200px">
-				<?php } ?>
+			
+			<img src="<?=base_url();?>/images/sms.png" class="avatar img-circle img-thumbnail" style="height:200px; width:200px; margin-top:-100px;"  alt="user image">
+			
+				
 			</div>
 			
 		</div>	
