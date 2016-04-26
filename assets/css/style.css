@@ -69,13 +69,7 @@ h2 { font-size: 30px; line-height:38px; font-weight:normal; }
 
  
 
-.radius { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
 
-.radius1 { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
-
-.title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color:#8E989E; line-height:28px; font-weight:normal; text-align:center; font-size:16px; }
-
- 
 
 @media screen and (max-width: 430px) {
 
@@ -97,8 +91,8 @@ h2 { font-size: 30px; line-height:38px; font-weight:normal; }
  
 
 #facebook-Bar {
-
-    background:#45619D;
+	
+	background-color:#E58121 !important;
 
     border-bottom: 1px solid #0053A6;
 
@@ -135,7 +129,7 @@ h2 { font-size: 30px; line-height:38px; font-weight:normal; }
 
     position: relative;
 
-    width: 160px;
+    width: 560px;
 
 }
 
