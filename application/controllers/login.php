@@ -82,7 +82,7 @@ Class Login extends CI_Controller {
 		//print_r($parm);
 		//echo 'HIIII';
 		//print_r($_POST);
-		// echo $this->input->post('organization_name');echo $this->input->post('name'); echo $this->input->post('terms');echo $this->input->post('password');echo $this->input->post('name');
+		 echo $this->input->post('organization_name');echo $this->input->post('name'); echo $this->input->post('terms');echo $this->input->post('password');echo $this->input->post('name');
 		//return;
 //die;
 		$org_id='';
@@ -112,7 +112,7 @@ Class Login extends CI_Controller {
 							'created_on'=>date("Y-m-d")
 						   );
 				// variable name take org_id because org_id also avilabe and put same variable name so its easy otherwise condition put into $data_registered_app array in org_id variable with condition
-				//print_r($data);return;
+				print_r($data);return;die;
 				$org_id=$this->data['set_new_user']=$this->login_model->set_registration_application('organizations',$data); // insert data into organization table
 			
 				if($org_id)
