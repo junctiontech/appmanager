@@ -82,10 +82,10 @@ Class Login extends CI_Controller {
 		//print_r($parm);
 		//echo 'HIIII';
 		//print_r($_POST);
-		// echo $this->input->post('organization_name');
-		//return;
-//die;
-		$org_id=$this->input->post('org_id');
+		 echo $this->input->post('organization_name');echo $this->input->post('name'); echo $this->input->post('terms');echo $this->input->post('password');echo $this->input->post('name');
+		return;
+die;
+		$org_id='';
 		
 		$org_name=$this->input->post('organization_name');
 	
