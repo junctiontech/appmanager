@@ -80,11 +80,11 @@ Class Login extends CI_Controller {
 	function set_registration_application($parm=false)
 	{
 		//print_r($parm);
-		echo 'HIIII';
-		print_r($_POST);
-		 echo $this->input->post('organization_name');
-		return;
-		die;
+		//echo 'HIIII';
+		//print_r($_POST);
+		// echo $this->input->post('organization_name');
+		//return;
+//die;
 		$org_id=$this->input->post('org_id');
 		
 		$org_name=$this->input->post('organization_name');
@@ -92,7 +92,8 @@ Class Login extends CI_Controller {
 		$email=$this->input->post('email');
 		$username=$this->input->post('username');
 		$db_name=str_replace(' ','_',$this->input->post('db_name'));
-		$url=$this->input->post('app_url').$this->input->post('app_reg_fun');
+		//$url=$this->input->post('app_url').$this->input->post('app_reg_fun');
+		$url='http://junctiondev.cloudapp.net/sms/user_management/clone_db';
 		if($db_name)
 		{
 			if(isset($org_id) && $org_id=='')
@@ -347,6 +348,8 @@ Class Login extends CI_Controller {
 	/* Function For Application Result Show Message If Success Or Not */
 	function result_application()
 	{
+		echo $_GET['json'];
+		return;die;
 		$json=json_decode($_GET['json']);
 		if(isset($json->code) && $json->code=='500')
 		{
@@ -608,6 +611,8 @@ Class Login extends CI_Controller {
 					print "We encountered an error sending your mail";
 						
 				}
+				echo $json;
+				return;
 				elseif($application_id='School')
 				{
 					?><script> alert('Your Application Registered Successfully Please Activate Your Application With Help Of Registered Email !!!!');</script><?php
