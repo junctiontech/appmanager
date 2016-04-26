@@ -77,8 +77,12 @@ Class Login extends CI_Controller {
 	}
 	
 		/* Function For insert organization and application information diffrent table and server application user table.........................................................*/
-	function set_registration_application()
+	function set_registration_application($parm=false)
 	{
+		print_r($parm);
+		echo $parm;
+		
+		die;
 		$org_id=$this->input->post('org_id');
 		
 		$org_name=$this->input->post('organization_name');
