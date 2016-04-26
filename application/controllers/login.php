@@ -145,13 +145,13 @@ Class Login extends CI_Controller {
 	
 	/* function for registration application............................................................................*/
 	function org_admin_registration_application() 
-	{
+	{ echo'hit';
 		if(isset($_GET['data']) && $_GET['data']!=='')
 		{
-			$data=json_decode($_GET['data']);
+			$data=json_decode($_GET['data']);echo 'junction';print_r($data);return;die;
 		}
 		else
-		{
+		{	return;
 			$url=$this->input->post('app_url').$this->input->post('app_reg_fun');
 			$array=array(
 							'organization_id'=>$this->input->post('organization_id'),
