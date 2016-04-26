@@ -133,7 +133,7 @@ Class Login extends CI_Controller {
 							'db_name'=>trim($db_name),
 							'url'=>$url
 					);
-					$json=json_encode($data);echo $json; return;
+					//$json=json_encode($data);echo $json; return;
 					redirect('http://junctiondev.cloudapp.net/appmanager/login/org_admin_registration_application?data='.$json);
 				}
 				
