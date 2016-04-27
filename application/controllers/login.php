@@ -349,7 +349,7 @@ Class Login extends CI_Controller {
 
 	/* Function For Application Result Show Message If Success Or Not */
 	function result_application()
-	{	echo'appmab';return;
+	{	echo 'appmanager final response'; return; die;
 		echo $_GET['json'];
 		return;die;
 		$json=json_decode($_GET['json']);
