@@ -208,7 +208,7 @@ Class Login extends CI_Controller {
 	}
 
 	function clone_db($json_data) 
-	{ echo $json_data;die;
+	{ //echo $json_data;die;
 	 	$json_data=$json_data;//echo $json_data;return;die;
 		$var=json_decode($json_data);
 		$database_name=$var->db_name;
@@ -218,14 +218,14 @@ Class Login extends CI_Controller {
 		//echo $database_name;
 		//return;die;
 		$set_users=$this->data['set_users']=$this->login_model->clone_db($database_name);echo'db create';echo '</br>';echo $json_data;
-		return;
+
 		$this->set_user($json_data);
 		//redirect('http://junctiondev.cloudapp.net/sms/user_management/set_user?data='.$json_data);
 	}
 	
 	/* function for clone db with in registration time */
 	function set_user($json_data)
-	{	echo 'set user';return;die;
+	{	echo 'set user';die;
 		//$json_data=$_GET['data'];// echo $json_data;return;die; 
 		$var=json_decode($json_data); 
 		$data=array( 
