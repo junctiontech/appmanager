@@ -134,7 +134,8 @@ Class Login extends CI_Controller {
 							'url'=>$url
 					);
 					$json=json_encode($data);///echo $json; return;
-					redirect('http://junctiondev.cloudapp.net/appmanager/login/org_admin_registration_application?data='.$json);
+					$this->org_admin_registration_application($json);
+					//redirect('http://junctiondev.cloudapp.net/appmanager/login/org_admin_registration_application?data='.$json);
 				}
 				
 			}
@@ -144,11 +145,11 @@ Class Login extends CI_Controller {
 	}
 	
 	/* function for registration application............................................................................*/
-	function org_admin_registration_application() 
+	function org_admin_registration_application($json) 
 	{ //echo'hit';return; die;
-		if(isset($_GET['data']) && $_GET['data']!=='')
+		if(isset($json) && $json!=='')
 		{
-			$data=json_decode($_GET['data']);//echo 'junction';print_r($data);return;die;
+			$data=$json;//echo 'junction';print_r($data);return;die;
 		}
 		else
 		{ 	//return;
@@ -202,11 +203,11 @@ Class Login extends CI_Controller {
 				'UserType'=>'masteruser'
 		);	
 		$json= json_encode($data_user);// create json for sending purpose
-		redirect($data->url.'?data='.$json);
-		
+		//redirect($data->url.'?data='.$json);
+		$this->clone_db($json);
 	}
 
-	function clone_db() 
+	function clone_db($json_data) 
 	{ 
 	 	$json_data=$_GET['data'];//echo $json_data;return;die;
 		$var=json_decode($json_data);
@@ -214,7 +215,7 @@ Class Login extends CI_Controller {
 		$this->session->set_userdata('db_name',$database_name);
 		$this->session->userdata('db_name');
 		$json_data=$_GET['data'];	
-		$set_users=$this->data['set_users']=$this->user_management_model->clone_db($database_name);//echo'db create';echo '</br>';echo $json_data;//return;
+		$set_users=$this->data['set_users']=$this->login_model->clone_db($database_name);//echo'db create';echo '</br>';echo $json_data;//return;
 		$this->set_user($json_data);
 		//redirect('http://junctiondev.cloudapp.net/sms/user_management/set_user?data='.$json_data);
 	}
@@ -230,7 +231,7 @@ Class Login extends CI_Controller {
 					'UserType'=>'0',
 					'Staff_terms'=>'Accepted'
 				   ); 
-		$status=$this->user_management_model->set_user($data,$var->db_name);//return;
+		$status=$this->login_model->set_user($data);//return;
 		if($status)
 		{
 			$data=array(
@@ -248,16 +249,18 @@ Class Login extends CI_Controller {
 							'database_name'=>$var->db_name,
 							'code'=>'200',
 						);
-			$database_name=$this->session->userdata('db_name');
-			$this->session->unset_userdata($database_name);
-			$this->session->sess_destroy();
+			//$database_name=$this->session->userdata('db_name');
+			//$this->session->unset_userdata($database_name);
+			//$this->session->sess_destroy();
 			$datas=json_encode($data);
+			$this->result_application($datas);
 			//redirect('http://junctiondev.cloudapp.net/appmanager/login/result_application?json='.$datas);
-			redirect('http://junctiondev.cloudapp.net/appmanager/login/result_application');
+			//redirect('http://junctiondev.cloudapp.net/appmanager/login/result_application');
 		}		
 		else
 		{
-			redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login');
+			$this->result_application();
+			//redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login');
 		}
 	}
 	
@@ -405,7 +408,7 @@ Class Login extends CI_Controller {
 
 	/* Function For Application Result Show Message If Success Or Not */
 	function result_application()
-	{	echo 'appmanager final response'; return; die;
+	{	echo "appmanager final response"; return; die;
 		echo $_GET['json'];
 		return;die;
 		$json=json_decode($_GET['json']);
