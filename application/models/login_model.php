@@ -73,7 +73,7 @@ class Login_model extends CI_Model
     	   }
     	   while(mysqli_more_results($connect) && mysqli_next_result($connect));
 				
-    	   		return;
+    	   		//return;
     	   $query="SELECT count(*) as 'Tables', table_schema as 'Database' FROM information_schema.TABLES WHERE table_schema= '".$database_name."' GROUP BY table_schema";
 		   $result=mysqli_query($connect,$query);
 		   $countTable=mysqli_fetch_assoc($result); //echo $countTable['Tables'];die;
@@ -82,7 +82,7 @@ class Login_model extends CI_Model
     	   		return true;
 		   }
 		   else
-		   {
+		   {	 	echo 'database does not exist';return;die;
 		   		$CII =& get_instance();
 			   	$CII->load->library('session'); //if it's not autoloaded in your CI setup
 			   	$database_name=$CII->session->userdata('db_name');
