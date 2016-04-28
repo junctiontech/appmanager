@@ -212,6 +212,7 @@ Class Login extends CI_Controller {
 	 	$var=json_decode($json_data);
 		$database_name=$var->db_name;
 		$this->session->set_userdata('db_name',$database_name);
+	echo	$this->session->user_data('db_name');
 		$set_users=$this->data['set_users']=$this->login_model->clone_db($database_name);
 		
 		$this->set_user($json_data);
@@ -222,7 +223,7 @@ Class Login extends CI_Controller {
 	function set_user($json_data)
 	{	//echo 'set user';die;
 		//$json_data=$_GET['data'];
-		echo $json_data;die; 
+		echo $json_data; 
 		$var=json_decode($json_data); 
 		$data=array( 
 					'Username'=>$var->application_admin_username,

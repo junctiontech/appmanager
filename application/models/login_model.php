@@ -93,7 +93,7 @@ class Login_model extends CI_Model
    
     function set_user($data=false)
     {
-    	//$this->load->database('default',TRUE);
+    	$this->load->database('default',TRUE);
     	$qry=	$this->db->insert('user',$data);
    	   	return true;
     }
