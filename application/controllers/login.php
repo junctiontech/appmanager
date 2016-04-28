@@ -66,7 +66,7 @@ Class Login extends CI_Controller {
 		if($activate_org='true' && $application_id='School')
 		{
 			?><script>alert('Your Application Activate Please Login With Your Credentials');</script><?php
-			redirect('http://junctiondev.cloudapp.net/appmanager/login/school/'.$name,'refresh');
+			redirect('http://junctiondev.cloudapp.net/appmanager/login/school'.$name,'refresh');
 		}
 		else 
 		{
@@ -77,16 +77,23 @@ Class Login extends CI_Controller {
 	}
 	
 		/* Function For insert organization and application information diffrent table and server application user table.........................................................*/
-	function set_registration_application()
+	function set_registration_application($parm=false)
 	{
-		$org_id=$this->input->post('org_id');
+		//print_r($parm);
+		//echo 'HIIII';
+		//print_r($_POST);
+		 //echo $this->input->post('organization_name');echo $this->input->post('name'); echo $this->input->post('terms');echo $this->input->post('password');echo $this->input->post('name');
+		//return;
+//die;
+		$org_id='';
 		
 		$org_name=$this->input->post('organization_name');
 	
 		$email=$this->input->post('email');
 		$username=$this->input->post('username');
 		$db_name=str_replace(' ','_',$this->input->post('db_name'));
-		$url=$this->input->post('app_url').$this->input->post('app_reg_fun');
+		//$url=$this->input->post('app_url').$this->input->post('app_reg_fun');
+		$url='http://junctiondev.cloudapp.net/sms/user_management/clone_db';
 		if($db_name)
 		{
 			if(isset($org_id) && $org_id=='')
@@ -105,6 +112,7 @@ Class Login extends CI_Controller {
 							'created_on'=>date("Y-m-d")
 						   );
 				// variable name take org_id because org_id also avilabe and put same variable name so its easy otherwise condition put into $data_registered_app array in org_id variable with condition
+				//print_r($data);return;die;
 				$org_id=$this->data['set_new_user']=$this->login_model->set_registration_application('organizations',$data); // insert data into organization table
 			
 				if($org_id)
@@ -125,8 +133,9 @@ Class Login extends CI_Controller {
 							'db_name'=>trim($db_name),
 							'url'=>$url
 					);
-					$json=json_encode($data);
-					redirect('http://junctiondev.cloudapp.net/appmanager/login/org_admin_registration_application?data='.$json);
+					$json=json_encode($data);///echo $json; return;
+					$this->org_admin_registration_application($json);
+					//redirect('http://junctiondev.cloudapp.net/appmanager/login/org_admin_registration_application?data='.$json);
 				}
 				
 			}
@@ -136,15 +145,16 @@ Class Login extends CI_Controller {
 	}
 	
 	/* function for registration application............................................................................*/
-	function org_admin_registration_application() 
-	{
-		if(isset($_GET['data']) && $_GET['data']!=='')
+	function org_admin_registration_application($json) 
+	{ //echo'hit';return; die;
+		if(isset($json) && $json!=='')
 		{
-			$data=json_decode($_GET['data']);
+			$data=json_decode($json);//echo 'junction';print_r($data);return;die;
 		}
 		else
-		{
-			$url=$this->input->post('app_url').$this->input->post('app_reg_fun');
+		{ 	//return;
+			//$url=$this->input->post('app_url').$this->input->post('app_reg_fun');
+			$url='http://junctiondev.cloudapp.net/sms/user_management/clone_db';
 			$array=array(
 							'organization_id'=>$this->input->post('organization_id'),
 							'organization_name'=>$this->input->post('organization_name'),
@@ -193,10 +203,64 @@ Class Login extends CI_Controller {
 				'UserType'=>'masteruser'
 		);	
 		$json= json_encode($data_user);// create json for sending purpose
-		redirect($data->url.'?data='.$json);
-		
+		//redirect($data->url.'?data='.$json);
+		$this->clone_db($json);
 	}
 
+	function clone_db($json_data) 
+	{ 
+	 	$var=json_decode($json_data);
+		$database_name=$var->db_name;
+		$this->session->set_userdata('db_name',$database_name);
+		$set_users=$this->data['set_users']=$this->login_model->clone_db($database_name);
+		$this->set_user($json_data);
+		//redirect('http://junctiondev.cloudapp.net/sms/user_management/set_user?data='.$json_data);
+	}
+	
+	/* function for clone db with in registration time */
+	function set_user($json_data)
+	{	echo 'set user';die;
+		//$json_data=$_GET['data'];// echo $json_data;return;die; 
+		$var=json_decode($json_data); 
+		$data=array( 
+					'Username'=>$var->application_admin_username,
+					'Password'=>md5($var->application_admin_password),
+					'UserType'=>'',
+				   ); 
+		$status=$this->login_model->set_user($data);//return;
+		if($status)
+		{
+			$data=array(
+							'organization_id'=>$var->organization_id,
+							'registration_id'=>$var->registration_id,
+							'organization_name'=>$var->organization_name,
+							'organization_admin_email'=>$var->organization_admin_email,
+							'organization_admin_UserName'=>$var->organization_admin_UserName,
+							'organization_admin_password'=>$var->organization_admin_password,
+							'organization_admin_mobile'=>$var->organization_admin_mobile,
+							'application_admin_email'=>$var->application_admin_email,
+							'application_admin_username'=>$var->application_admin_username,
+							'application_admin_password'=>$var->application_admin_password,
+							'application_admin_mobile'=>$var->application_admin_mobile,
+							'database_name'=>$var->db_name,
+							'code'=>'200',
+						);
+			//$database_name=$this->session->userdata('db_name');
+			//$this->session->unset_userdata($database_name);
+			//$this->session->sess_destroy();
+			$datas=json_encode($data);
+			$this->result_application($datas);
+			//redirect('http://junctiondev.cloudapp.net/appmanager/login/result_application?json='.$datas);
+			//redirect('http://junctiondev.cloudapp.net/appmanager/login/result_application');
+		}		
+		else
+		{
+			$this->result_application();
+			//redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login');
+		}
+	}
+	
+	
 	
 	/* function for check organization information is already exist in database .......................................................*/
 	function verification_new_user()
@@ -214,7 +278,7 @@ Class Login extends CI_Controller {
 			if($check_org && $field_name=='Database name')
 			{
 				?>
-					<span id="txt" class="alert alert-danger"> Your <?=$field_name; ?> Already Exist Please Try With Another DataBase Name Change in organization name field</span>
+					<span id="txt" class="alert alert-danger"> Your <?=$field_name; ?> Already Exist Please Try With Another Unique organisation key</span>
 				<?php
 			}
 		}
@@ -244,7 +308,7 @@ Class Login extends CI_Controller {
 		}   
 			if(!$value->db_name)                    //Super Admin Case if login into Application
 			{
-				if('admin'==$this->input->POST['username'] && 'admin'==$this->input->post('password'))
+				if('admin'==$this->input->POST('username') && 'admin'==$this->input->post('password'))
 				{
 					$this->session->set_userdata(array('username'=>'admin'));
 					$this->session->userdata('username');
@@ -340,7 +404,9 @@ Class Login extends CI_Controller {
 
 	/* Function For Application Result Show Message If Success Or Not */
 	function result_application()
-	{
+	{	echo "appmanager final response"; return; die;
+		echo $_GET['json'];
+		return;die;
 		$json=json_decode($_GET['json']);
 		if(isset($json->code) && $json->code=='500')
 		{
