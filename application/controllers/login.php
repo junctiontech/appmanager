@@ -222,7 +222,7 @@ Class Login extends CI_Controller {
 	function set_user($json_data)
 	{	//echo 'set user';die;
 		//$json_data=$_GET['data'];
-		//echo $json_data;die; 
+		echo $json_data;die; 
 		$var=json_decode($json_data); 
 		$data=array( 
 					'Username'=>$var->application_admin_username,
