@@ -219,7 +219,7 @@ Class Login extends CI_Controller {
 		//return;die;
 		$set_users=$this->data['set_users']=$this->login_model->clone_db($database_name);echo'db create';echo '</br>';echo $json_data;
 		return;
-		$this->clone_db($json_data); 
+		$this->clone_db($json_data); die;
 		//redirect('http://junctiondev.cloudapp.net/sms/user_management/set_user?data='.$json_data);
 	}
 	
