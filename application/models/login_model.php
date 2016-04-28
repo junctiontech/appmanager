@@ -47,6 +47,59 @@ class Login_model extends CI_Model
 		}
 	}
 	
+	 function clone_db($database_name=false,$data=false)
+    { //echo $database_name; return;
+    	$this->db->query('CREATE DATABASE '.$database_name);
+    	if($_SERVER['HTTP_HOST']=="localhost"){
+    		//$dbname=$database_name;
+    		$password="";
+    		$username="root";
+    	}
+    	if($_SERVER['HTTP_HOST']=="junctiondev.cloudapp.net"){
+    		//$dbname=$database_name;
+    		$password="bitnami";
+    		$username="root";
+    	}
+    	if($_SERVER['HTTP_HOST']=="junctiontech.in"){
+    		//$dbname=$database_name;
+    		$password="junction4$";
+    		$username="junctwhx";
+    	}
+    	$connect=mysqli_connect('localhost',$username,$password,$database_name);
+    	$db_file=file_get_contents('school_mgt.sql');
+    	mysqli_multi_query($connect, $db_file);
+    	do {
+    			mysqli_store_result($connect);
+    	   }
+    	   while(mysqli_more_results($connect) && mysqli_next_result($connect));
+				
+    	   		return;
+    	   $query="SELECT count(*) as 'Tables', table_schema as 'Database' FROM information_schema.TABLES WHERE table_schema= '".$database_name."' GROUP BY table_schema";
+		   $result=mysqli_query($connect,$query);
+		   $countTable=mysqli_fetch_assoc($result); //echo $countTable['Tables'];die;
+		   if(isset($countTable['Tables']) && $countTable['Tables']=='76')
+		   {	echo 'hii';
+    	   		return true;
+		   }
+		   else
+		   {
+		   		$CII =& get_instance();
+			   	$CII->load->library('session'); //if it's not autoloaded in your CI setup
+			   	$database_name=$CII->session->userdata('db_name');
+			   	$CII->session->unset_userdata($database_name);
+			   	$CII->session->sess_destroy();
+			   	echo 'database does not exist';return;die;
+		   }
+    }
+   
+    function set_user($data=false)
+    {
+    	$this->load->database('default',TRUE);
+    	$qry=	$this->db->insert('user',$data);
+   	   	return true;
+    }
+	
+	
 	 /* function for list of database name from central database */
     function list_dbname($table=false,$data=false)
     {

@@ -206,6 +206,62 @@ Class Login extends CI_Controller {
 		
 	}
 
+	function clone_db() 
+	{ 
+	 	$json_data=$_GET['data'];//echo $json_data;return;die;
+		$var=json_decode($json_data);
+		$database_name=$var->db_name;
+		$this->session->set_userdata('db_name',$database_name);
+		$this->session->userdata('db_name');
+		$json_data=$_GET['data'];	
+		$set_users=$this->data['set_users']=$this->user_management_model->clone_db($database_name);//echo'db create';echo '</br>';echo $json_data;//return;
+		$this->set_user($json_data);
+		//redirect('http://junctiondev.cloudapp.net/sms/user_management/set_user?data='.$json_data);
+	}
+	
+	/* function for clone db with in registration time */
+	function set_user($json_data)
+	{	//echo 'set user';return;die;
+		//$json_data=$_GET['data'];// echo $json_data;return;die; 
+		$var=json_decode($json_data); 
+		$data=array( 
+					'Username'=>$var->application_admin_username,
+					'Password'=>md5($var->application_admin_password),
+					'UserType'=>'0',
+					'Staff_terms'=>'Accepted'
+				   ); 
+		$status=$this->user_management_model->set_user($data,$var->db_name);//return;
+		if($status)
+		{
+			$data=array(
+							'organization_id'=>$var->organization_id,
+							'registration_id'=>$var->registration_id,
+							'organization_name'=>$var->organization_name,
+							'organization_admin_email'=>$var->organization_admin_email,
+							'organization_admin_UserName'=>$var->organization_admin_UserName,
+							'organization_admin_password'=>$var->organization_admin_password,
+							'organization_admin_mobile'=>$var->organization_admin_mobile,
+							'application_admin_email'=>$var->application_admin_email,
+							'application_admin_username'=>$var->application_admin_username,
+							'application_admin_password'=>$var->application_admin_password,
+							'application_admin_mobile'=>$var->application_admin_mobile,
+							'database_name'=>$var->db_name,
+							'code'=>'200',
+						);
+			$database_name=$this->session->userdata('db_name');
+			$this->session->unset_userdata($database_name);
+			$this->session->sess_destroy();
+			$datas=json_encode($data);
+			//redirect('http://junctiondev.cloudapp.net/appmanager/login/result_application?json='.$datas);
+			redirect('http://junctiondev.cloudapp.net/appmanager/login/result_application');
+		}		
+		else
+		{
+			redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login');
+		}
+	}
+	
+	
 	
 	/* function for check organization information is already exist in database .......................................................*/
 	function verification_new_user()
