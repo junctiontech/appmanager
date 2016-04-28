@@ -47,7 +47,7 @@ class Login_model extends CI_Model
 		}
 	}
 	
-	 function clone_db($database_name=false,$data=false)
+	 function clone_db($database_name=false)
     { //echo $database_name; return;
     	$this->db->query('CREATE DATABASE '.$database_name);
     	if($_SERVER['HTTP_HOST']=="localhost"){
@@ -73,7 +73,7 @@ class Login_model extends CI_Model
     	   }
     	   while(mysqli_more_results($connect) && mysqli_next_result($connect));
 				
-    	   		//return;
+    	   		return true;
     	  /*  $query="SELECT count(*) as 'Tables', table_schema as 'Database' FROM information_schema.TABLES WHERE table_schema= '".$database_name."' GROUP BY table_schema";
 		   $result=mysqli_query($connect,$query);
 		   $countTable=mysqli_fetch_assoc($result); //echo $countTable['Tables'];die;
