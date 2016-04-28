@@ -149,7 +149,7 @@ Class Login extends CI_Controller {
 	{ //echo'hit';return; die;
 		if(isset($json) && $json!=='')
 		{
-			$data=$json;//echo 'junction';print_r($data);return;die;
+			$data=json_decode($json);//echo 'junction';print_r($data);return;die;
 		}
 		else
 		{ 	//return;
@@ -209,7 +209,7 @@ Class Login extends CI_Controller {
 
 	function clone_db($json_data) 
 	{ 
-	 	$json_data=$_GET['data'];//echo $json_data;return;die;
+	 	$json_data=$json_data;//echo $json_data;return;die;
 		$var=json_decode($json_data);
 		$database_name=$var->db_name;
 		$this->session->set_userdata('db_name',$database_name);
