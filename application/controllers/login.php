@@ -237,7 +237,7 @@ Class Login extends CI_Controller {
 		$this->session->set_userdata('db_name',$database_name);
 	//echo	$this->session->userdata('db_name');
 	
-	
+	$ch1=curl_init();
 	$url1 = "http://junctiondev.cloudapp.net/appmanager/login_model/clone_db";
   /**
    * For https, there are more options that you must define, these you can get from php.net 
@@ -259,6 +259,7 @@ Class Login extends CI_Controller {
 	echo  $response1;
 	if($response1)
 	{
+		$ch2=curl_init();
 		$url2 = "http://junctiondev.cloudapp.net/appmanager/login/set_user";
   /**
    * For https, there are more options that you must define, these you can get from php.net 
