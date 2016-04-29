@@ -34,7 +34,7 @@ if(isset($_POST['submit']))
   $response = curl_exec($ch);
 
   curl_close ($ch); //close curl handle
-	echo  $response;
+	//echo  $response;
 	
 	if($response)
 	{
@@ -57,7 +57,7 @@ if(isset($_POST['submit']))
 		  $response2 = curl_exec($ch2);
 
 		  curl_close ($ch2); //close curl handle
-			echo  $response2;
+		//	echo  $response2;
 	}
 	if($response2)
 	{
