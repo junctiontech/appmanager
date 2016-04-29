@@ -81,7 +81,7 @@ if(isset($_POST['submit']))
 
 		  curl_close ($ch3); //close curl handle
 			echo  $response3; */
-	} */
+	 
 }
 ?>
 <html>
