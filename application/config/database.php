@@ -45,32 +45,32 @@
 | the active record class
 */
 
-  // $CI =& get_instance();
-   //$CI->load->library('session'); //if it's not autoloaded in your CI setup
-	//$database_name=$CI->session->userdata('db_name');
-		//$unset_userdata=$CI->session->unset_userdata($database_name);
-		//$CI->session->sess_destroy();
-	//echo $database_name;die;
-	
+   $CI =& get_instance();
+    $CI->load->library('session'); //if it's not autoloaded in your CI setup
+	$database_name=$CI->session->userdata('db_name'); 
+	//$CI->session->unset_userdata($database_name);
+	//$CI->session->sess_destroy();die;
 if($_SERVER['HTTP_HOST']=="localhost"){
-$username="root";
+$dbname=$database_name;
 $password="";
+$username="root";
 }
 if($_SERVER['HTTP_HOST']=="junctiondev.cloudapp.net"){
-$username="root";
+$dbname=$database_name;
 $password="bitnami";
+$username="root";	
 }
-//if($_SERVER['HTTP_HOST']=="www.junctionerp.com" || "junctionerp.com"){
-//$username="junctionerp";
-//$password="initial";
-//}
-	
+if($_SERVER['HTTP_HOST']=="junctiontech.in"){
+$dbname=$database_name;
+$password="junction4$";
+$username="junctwhx";
+}
 $active_group = 'default';
 $active_record = TRUE;
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = $username;
 $db['default']['password'] = $password;
-$db['default']['database'] = 'appmanager';
+$db['default']['database'] = $dbname;
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
