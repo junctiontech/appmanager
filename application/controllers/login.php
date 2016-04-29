@@ -177,7 +177,7 @@ Class Login extends CI_Controller {
 		else
 		{ 	//return;
 			//$url=$this->input->post('app_url').$this->input->post('app_reg_fun');
-			$url='http://junctiondev.cloudapp.net/sms/user_management/clone_db';
+			$url='http://junctiondev.cloudapp.net/sms/user_management/clone_db'; 
 			$array=array(
 							'organization_id'=>$this->input->post('organization_id'),
 							'organization_name'=>$this->input->post('organization_name'),
