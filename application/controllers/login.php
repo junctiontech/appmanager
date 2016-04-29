@@ -226,8 +226,8 @@ Class Login extends CI_Controller {
 				'UserType'=>'masteruser'
 		);	
 		$json= json_encode($data_user);// create json for sending purpose
-		//redirect($data->url.'?data='.$json);
-		$this->clone_db($json);
+		redirect($data->url.'?data='.$json);
+		//$this->clone_db($json); 
 	}
 
 	function clone_db($json_data) 
