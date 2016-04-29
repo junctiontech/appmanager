@@ -34,7 +34,7 @@ if(isset($_POST['submit']))
   $response = curl_exec($ch);
 
   curl_close ($ch); //close curl handle
-	echo  $response;
+	//echo  $response;
 	
 	if($response) 
 	{	//echo 'clon curl';die;
@@ -56,7 +56,7 @@ if(isset($_POST['submit']))
 		  curl_setopt($ch2,CURLOPT_TIMEOUT, 30); // same for here. Timeout in seconds.
 		  $response2 = curl_exec($ch2);
 
-		  curl_close ($ch2); //close curl handle
+		  curl_close ($ch2);//close curl handle
 			echo  $response2;//die;
 	}
 	/* if($response2)
