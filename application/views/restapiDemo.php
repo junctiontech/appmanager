@@ -59,14 +59,14 @@ if(isset($_POST['submit']))
 		  curl_close ($ch2); //close curl handle
 		//	echo  $response2;
 	}
-	if($response2)
+	/* if($response2)
 	{ echo 'ciurl 3 lavel';
 		$ch3=curl_init();
 				$url3 = "http://junctiondev.cloudapp.net/sms/user_management/set_user";
 		  /**
 		   * For https, there are more options that you must define, these you can get from php.net 
 		   */
-		  curl_setopt($ch3,CURLOPT_URL,$url3);
+		 /*  curl_setopt($ch3,CURLOPT_URL,$url3);
 		  curl_setopt($ch3,CURLOPT_POST, true);
 		  curl_setopt($ch3,CURLOPT_POSTFIELDS, http_build_query(array(
 													'json_data'=>$response2,
@@ -80,8 +80,8 @@ if(isset($_POST['submit']))
 		  $response3 = curl_exec($ch3);
 
 		  curl_close ($ch3); //close curl handle
-			echo  $response3;
-	}
+			echo  $response3; */
+	} */
 }
 ?>
 <html>
