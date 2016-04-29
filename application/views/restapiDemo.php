@@ -60,7 +60,7 @@ if(isset($_POST['submit']))
 		//	echo  $response2;
 	}
 	if($response2)
-	{
+	{ echo 'ciurl 3 lavel';
 		$ch3=curl_init();
 				$url3 = "http://junctiondev.cloudapp.net/sms/user_management/set_user";
 		  /**
