@@ -236,29 +236,9 @@ Class Login extends CI_Controller {
 		$database_name=$var->db_name;
 		$this->session->set_userdata('db_name',$database_name);
 	//echo	$this->session->userdata('db_name');
-	
-			$ch1=curl_init();
-			$url1 = "http://junctiondev.cloudapp.net/appmanager/login_model/clone_db";
-		  /**
-		   * For https, there are more options that you must define, these you can get from php.net 
-		   */
-		  curl_setopt($ch1,CURLOPT_URL,$url1);
-		  curl_setopt($ch1,CURLOPT_POST, true);
-		  curl_setopt($ch1,CURLOPT_POSTFIELDS, http_build_query(array(
-													'database_name'=>$database_name,
-												)));
-		  curl_setopt($ch1, CURLOPT_FOLLOWLOCATION, true);
-		  curl_setopt($ch1,CURLOPT_RETURNTRANSFER, true);
-		  curl_setopt($ch1, CURLOPT_FRESH_CONNECT, true); 
-		  curl_setopt($ch1, CURLOPT_CUSTOMREQUEST, "POST");
-		  curl_setopt($ch1,CURLOPT_CONNECTTIMEOUT ,30); //timeout in seconds
-		  curl_setopt($ch1,CURLOPT_TIMEOUT, 30); // same for here. Timeout in seconds.
-		  $response1 = curl_exec($ch1);
-
-		  curl_close ($ch1); //close curl handle
-			echo  $response1;
-			if($response1)
-			{
+	$set_users=$this->data['set_users']=$this->login_model->clone_db($database_name);
+			
+			
 				$ch2=curl_init();
 				$url2 = "http://junctiondev.cloudapp.net/appmanager/login/set_user";
 		  /**
@@ -279,9 +259,9 @@ Class Login extends CI_Controller {
 
 		  curl_close ($ch2); //close curl handle
 			echo  $response2;
-			}
+			
 	
-	//$set_users=$this->data['set_users']=$this->login_model->clone_db($database_name);
+	//
 		
 		
 		
@@ -293,10 +273,10 @@ Class Login extends CI_Controller {
 	}
 	
 	/* function for clone db with in registration time */
-	function set_user($json_data)
+	function set_user()
 	{	//echo 'set user';die;
 		//$json_data=$_GET['data'];
-		echo $json_data; 
+		//echo $json_data; 
 		$json_data=$this->input->post('json_data');
 		$var=json_decode($json_data); 
 		$data=array( 
