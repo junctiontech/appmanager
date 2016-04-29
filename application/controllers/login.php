@@ -274,7 +274,7 @@ Class Login extends CI_Controller {
 	
 	/* function for clone db with in registration time */
 	function set_user()
-	{	echo $this->input->post('json_data');die;
+	{	//echo $this->input->post('json_data');//die;
 		//$json_data=$_GET['data'];
 		//echo $json_data; 
 		$json_data=$this->input->post('json_data');
@@ -282,7 +282,7 @@ Class Login extends CI_Controller {
 		$data=array( 
 					'Username'=>$var->application_admin_username,
 					'Password'=>md5($var->application_admin_password),
-					'UserType'=>'',
+					'UserType'=>$var->UserType,
 				   ); 
 		$status=$this->login_model->set_user($data);//return;
 		if($status)
