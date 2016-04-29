@@ -49,6 +49,7 @@ class Login_model extends CI_Model
 	
 	 function clone_db($database_name=false)
     { //echo $database_name; return;
+		$database_name=$this->input->post('database_name');
     	$this->db->query('CREATE DATABASE '.$database_name);
     	if($_SERVER['HTTP_HOST']=="localhost"){
     		//$dbname=$database_name;

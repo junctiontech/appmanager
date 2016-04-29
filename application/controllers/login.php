@@ -236,7 +236,56 @@ Class Login extends CI_Controller {
 		$database_name=$var->db_name;
 		$this->session->set_userdata('db_name',$database_name);
 	//echo	$this->session->userdata('db_name');
-		$set_users=$this->data['set_users']=$this->login_model->clone_db($database_name);
+	
+	
+	$url = "http://junctiondev.cloudapp.net/appmanager/login_model/clone_db";
+  /**
+   * For https, there are more options that you must define, these you can get from php.net 
+   */
+  curl_setopt($ch,CURLOPT_URL,$url);
+  curl_setopt($ch,CURLOPT_POST, true);
+  curl_setopt($ch,CURLOPT_POSTFIELDS, http_build_query(array(
+											'database_name'=>$database_name,
+										)));
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+  curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); 
+  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+  curl_setopt($ch,CURLOPT_CONNECTTIMEOUT ,30); //timeout in seconds
+  curl_setopt($ch,CURLOPT_TIMEOUT, 30); // same for here. Timeout in seconds.
+  $response = curl_exec($ch);
+
+  curl_close ($ch); //close curl handle
+	echo  $response;
+	if($response)
+	{
+		$url = "http://junctiondev.cloudapp.net/appmanager/login/set_user";
+  /**
+   * For https, there are more options that you must define, these you can get from php.net 
+   */
+  curl_setopt($ch,CURLOPT_URL,$url);
+  curl_setopt($ch,CURLOPT_POST, true);
+  curl_setopt($ch,CURLOPT_POSTFIELDS, http_build_query(array(
+											'json_data'=>$json_data,
+										)));
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+  curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); 
+  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+  curl_setopt($ch,CURLOPT_CONNECTTIMEOUT ,30); //timeout in seconds
+  curl_setopt($ch,CURLOPT_TIMEOUT, 30); // same for here. Timeout in seconds.
+  $response = curl_exec($ch);
+
+  curl_close ($ch); //close curl handle
+	echo  $response;
+	}
+	
+	//$set_users=$this->data['set_users']=$this->login_model->clone_db($database_name);
+		
+		
+		
+		
+		
 		
 		$this->set_user($json_data);
 		//redirect('http://junctiondev.cloudapp.net/sms/user_management/set_user?data='.$json_data);
@@ -247,6 +296,7 @@ Class Login extends CI_Controller {
 	{	//echo 'set user';die;
 		//$json_data=$_GET['data'];
 		echo $json_data; 
+		$json_data=$this->input->post('json_data');
 		$var=json_decode($json_data); 
 		$data=array( 
 					'Username'=>$var->application_admin_username,
