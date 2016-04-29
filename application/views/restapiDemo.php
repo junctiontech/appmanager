@@ -36,7 +36,7 @@ if(isset($_POST['submit']))
   curl_close ($ch); //close curl handle
 	//echo  $response;
 	
-	if($response)
+	if($response) 
 	{	//echo 'clon curl';die;
 		$ch2=curl_init();
 				$url2 = "http://junctiondev.cloudapp.net/sms/user_management/clone_db";
