@@ -57,7 +57,7 @@ if(isset($_POST['submit']))
 		  $response2 = curl_exec($ch2);
 
 		  curl_close ($ch2); //close curl handle
-			echo  $response2;
+			echo  $response2;die;
 	}
 	/* if($response2)
 	{ echo 'ciurl 3 lavel';
