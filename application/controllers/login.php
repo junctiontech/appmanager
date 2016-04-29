@@ -38,7 +38,7 @@ Class Login extends CI_Controller {
 	
 	
 	/* Function for login Application view.....................................................................*/
-	function restapoDemo()
+	function restapiDemo()
 	{
 		//$app_list=$this->data['app_list']=$this->login_model->app_list();
 		//if(isset($_GET['id'])&&!$_GET['id']=='login'&&!$_GET['id']=='reg')
@@ -46,7 +46,7 @@ Class Login extends CI_Controller {
 		//	$list_dbname=$this->data['list_dbname']=$this->login_model->list_dbname($_GET['id']);
 		//}
 	//	$this->parser->parse('include/header',$this->data);
-		$this->load->view('restapoDemo',$this->data);
+		$this->load->view('restapiDemo',$this->data);
 		//$this->parser->parse('include/footer_dashboard',$this->data);
 	}
 	
