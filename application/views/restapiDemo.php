@@ -1,34 +1,8 @@
 <?php
 if(isset($_POST['submit']))
 {
-	/* $post_data=http_build_query(
-									array(
-											'organization_name'=>$_POST['organization_name'],
-											'name'=>$_POST['name'],
-											'email'=>$_POST['email'],
-											'mobile'=>$_POST['mobile'],
-											'address'=>$_POST['address'],
-											'username'=>$_POST['username'],
-											'password'=>$_POST['password'],
-											'db_name'=>$_POST['db_name'],
-											'application_admin_name'=>$_POST['application_admin_name'],
-											'application_email'=>$_POST['application_email'],
-											'application_mobile'=>$_POST['application_mobile'],
-											'application_username'=>$_POST['application_username'],
-											'application_password'=>$_POST['application_password'],
-										)
-					);//print_r($post_data);die;
-		$httpData=array('http'=>array(
-						'method'=>'POST',
-						'header'=>'Content-type: application/x-www-form-urlencoded',
-						'content'=>$post_data,
-		));
-		$wrapper=stream_context_create($httpData);
-		$result = file_get_contents('http://junctiondev.cloudapp.net/appmanager/login/set_registration_application', false, $wrapper);
-		echo $result; */
-		 $ch = curl_init(); // create curl handle
-
-  $url = "http://junctiondev.cloudapp.net/appmanager/login/set_registration_application";
+    $ch = curl_init(); // create curl handle
+	$url = "http://junctiondev.cloudapp.net/appmanager/login/set_registration_application";
   /**
    * For https, there are more options that you must define, these you can get from php.net 
    */
@@ -61,8 +35,30 @@ if(isset($_POST['submit']))
 
   curl_close ($ch); //close curl handle
 	echo  $response;
-//	print $response;
- // print_r($response);
+	
+	if($response)
+	{
+		$ch2=curl_init();
+				$url2 = "http://junctiondev.cloudapp.net/sms/user_management/clone_db";
+		  /**
+		   * For https, there are more options that you must define, these you can get from php.net 
+		   */
+		  curl_setopt($ch2,CURLOPT_URL,$url2);
+		  curl_setopt($ch2,CURLOPT_POST, true);
+		  curl_setopt($ch2,CURLOPT_POSTFIELDS, http_build_query(array(
+													'json_data'=>$json_data,
+												)));
+		  curl_setopt($ch2, CURLOPT_FOLLOWLOCATION, true);
+		  curl_setopt($ch2,CURLOPT_RETURNTRANSFER, true);
+		  curl_setopt($ch2, CURLOPT_FRESH_CONNECT, true); 
+		  curl_setopt($ch2, CURLOPT_CUSTOMREQUEST, "POST");
+		  curl_setopt($ch2,CURLOPT_CONNECTTIMEOUT ,30); //timeout in seconds
+		  curl_setopt($ch2,CURLOPT_TIMEOUT, 30); // same for here. Timeout in seconds.
+		  $response2 = curl_exec($ch2);
+
+		  curl_close ($ch2); //close curl handle
+			echo  $response2;
+	}
 }
 ?>
 <html>
