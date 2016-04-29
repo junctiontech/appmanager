@@ -38,12 +38,12 @@ if(isset($_POST['submit']))
 	
 	//if($response)
 	//{
-		$ch2=curl_init();
+		/* $ch2=curl_init();
 				$url2 = "http://junctiondev.cloudapp.net/sms/user_management/clone_db";
 		  /**
 		   * For https, there are more options that you must define, these you can get from php.net 
 		   */
-		  curl_setopt($ch2,CURLOPT_URL,$url2);
+		 /*  curl_setopt($ch2,CURLOPT_URL,$url2);
 		  curl_setopt($ch2,CURLOPT_POST, true);
 		  curl_setopt($ch2,CURLOPT_POSTFIELDS, http_build_query(array(
 													'database_name'=>$response,
@@ -57,7 +57,7 @@ if(isset($_POST['submit']))
 		  $response2 = curl_exec($ch2);
 
 		  curl_close ($ch2); //close curl handle
-			echo  $response2;
+			echo  $response2; */ */
 	//}
 }
 ?>
