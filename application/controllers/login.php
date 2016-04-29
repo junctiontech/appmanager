@@ -238,46 +238,46 @@ Class Login extends CI_Controller {
 	//echo	$this->session->userdata('db_name');
 	
 	
-	$url = "http://junctiondev.cloudapp.net/appmanager/login_model/clone_db";
+	$url1 = "http://junctiondev.cloudapp.net/appmanager/login_model/clone_db";
   /**
    * For https, there are more options that you must define, these you can get from php.net 
    */
-  curl_setopt($ch,CURLOPT_URL,$url);
-  curl_setopt($ch,CURLOPT_POST, true);
-  curl_setopt($ch,CURLOPT_POSTFIELDS, http_build_query(array(
+  curl_setopt($ch1,CURLOPT_URL,$url1);
+  curl_setopt($ch1,CURLOPT_POST, true);
+  curl_setopt($ch1,CURLOPT_POSTFIELDS, http_build_query(array(
 											'database_name'=>$database_name,
 										)));
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-  curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); 
-  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-  curl_setopt($ch,CURLOPT_CONNECTTIMEOUT ,30); //timeout in seconds
-  curl_setopt($ch,CURLOPT_TIMEOUT, 30); // same for here. Timeout in seconds.
-  $response = curl_exec($ch);
+  curl_setopt($ch1, CURLOPT_FOLLOWLOCATION, true);
+  curl_setopt($ch1,CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch1, CURLOPT_FRESH_CONNECT, true); 
+  curl_setopt($ch1, CURLOPT_CUSTOMREQUEST, "POST");
+  curl_setopt($ch1,CURLOPT_CONNECTTIMEOUT ,30); //timeout in seconds
+  curl_setopt($ch1,CURLOPT_TIMEOUT, 30); // same for here. Timeout in seconds.
+  $response1 = curl_exec($ch1);
 
-  curl_close ($ch); //close curl handle
-	echo  $response;
-	if($response)
+  curl_close ($ch1); //close curl handle
+	echo  $response1;
+	if($response1)
 	{
-		$url = "http://junctiondev.cloudapp.net/appmanager/login/set_user";
+		$url2 = "http://junctiondev.cloudapp.net/appmanager/login/set_user";
   /**
    * For https, there are more options that you must define, these you can get from php.net 
    */
-  curl_setopt($ch,CURLOPT_URL,$url);
-  curl_setopt($ch,CURLOPT_POST, true);
-  curl_setopt($ch,CURLOPT_POSTFIELDS, http_build_query(array(
+  curl_setopt($ch2,CURLOPT_URL,$url2);
+  curl_setopt($ch2,CURLOPT_POST, true);
+  curl_setopt($ch2,CURLOPT_POSTFIELDS, http_build_query(array(
 											'json_data'=>$json_data,
 										)));
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-  curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); 
-  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-  curl_setopt($ch,CURLOPT_CONNECTTIMEOUT ,30); //timeout in seconds
-  curl_setopt($ch,CURLOPT_TIMEOUT, 30); // same for here. Timeout in seconds.
-  $response = curl_exec($ch);
+  curl_setopt($ch2, CURLOPT_FOLLOWLOCATION, true);
+  curl_setopt($ch2,CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch2, CURLOPT_FRESH_CONNECT, true); 
+  curl_setopt($ch2, CURLOPT_CUSTOMREQUEST, "POST");
+  curl_setopt($ch2,CURLOPT_CONNECTTIMEOUT ,30); //timeout in seconds
+  curl_setopt($ch2,CURLOPT_TIMEOUT, 30); // same for here. Timeout in seconds.
+  $response2 = curl_exec($ch2);
 
-  curl_close ($ch); //close curl handle
-	echo  $response;
+  curl_close ($ch2); //close curl handle
+	echo  $response2;
 	}
 	
 	//$set_users=$this->data['set_users']=$this->login_model->clone_db($database_name);
