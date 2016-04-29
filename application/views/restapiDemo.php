@@ -46,7 +46,7 @@ if(isset($_POST['submit']))
 		  curl_setopt($ch2,CURLOPT_URL,$url2);
 		  curl_setopt($ch2,CURLOPT_POST, true);
 		  curl_setopt($ch2,CURLOPT_POSTFIELDS, http_build_query(array(
-													'json_data'=>$json_data,
+													'database_name'=>$response,
 												)));
 		  curl_setopt($ch2, CURLOPT_FOLLOWLOCATION, true);
 		  curl_setopt($ch2,CURLOPT_RETURNTRANSFER, true);
