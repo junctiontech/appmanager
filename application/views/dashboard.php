@@ -34,6 +34,7 @@
 		<a class="btn btn-icon btn-green" style="color: white; font-size:1.1em;" onclick="callAjax();" data-toggle="modal" data-target="#modal-8" href="<?php echo base_url();?>login/reset_password_view"><i class="fa-fire">  Reset Password</i></a>
 		<a class="btn btn-icon btn-green" style="color: white; font-size:1.1em;" onclick="callAjax();" data-toggle="modal" data-target="#modal-8" href="<?php echo base_url();?>admin_panel"><i class="fa-fire">  Account Login</i></a>
 		<a class="btn btn-icon btn-green" style="color: white; font-size:1.1em;"  data-toggle="modal" data-target="#modal-8" href="<?php echo base_url();?>login/application_login"><i class="fa-fire">  Application Login</i></a>	
+		<a class="btn btn-icon btn-green" style="color: white; font-size:1.1em; href="<?php echo base_url();?>login/restapiDemo"><i class="fa-fire">  Temp Rest Api </i></a>	
 	</div>
 	<div class="row ">
 		<?php  if($this->session->flashdata('category_error_login')) { ?>

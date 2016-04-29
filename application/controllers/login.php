@@ -33,6 +33,29 @@ Class Login extends CI_Controller {
 		//$this->parser->parse('include/footer_dashboard',$this->data);
 	}
 	
+	
+	
+	
+	
+	/* Function for login Application view.....................................................................*/
+	function restapoDemo()
+	{
+		//$app_list=$this->data['app_list']=$this->login_model->app_list();
+		//if(isset($_GET['id'])&&!$_GET['id']=='login'&&!$_GET['id']=='reg')
+		//{ 
+		//	$list_dbname=$this->data['list_dbname']=$this->login_model->list_dbname($_GET['id']);
+		//}
+	//	$this->parser->parse('include/header',$this->data);
+		$this->load->view('restapoDemo',$this->data);
+		//$this->parser->parse('include/footer_dashboard',$this->data);
+	}
+	
+	
+	
+	
+	
+	
+	
 	/* Function for login Application List.....................................................................*/
 	function application_list()
 	{ 
