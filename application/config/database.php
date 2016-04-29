@@ -50,7 +50,7 @@
 	$database_name=$CI->session->userdata('db_name'); 
 	if($CI->session->userdata('db_name')=='')
 	{
-		$dbname='appmanager'
+		$dbname='appmanager';
 	}
 	//$CI->session->unset_userdata($database_name);
 	//$CI->session->sess_destroy();die;
