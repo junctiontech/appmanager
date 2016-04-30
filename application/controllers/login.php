@@ -93,7 +93,7 @@ Class Login extends CI_Controller {
 		{
 			$db_name=str_replace(' ','_',$this->input->post('db_name'));
 			$result=$this->data['result']=$this->login_model->velidation('demoschool');
-			if($result)
+			if($result) 
 			{
 				echo 'database name already exist';
 			}
