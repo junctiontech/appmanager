@@ -219,4 +219,11 @@ class Login_model extends CI_Model
 		$qry=$school->query("select SchoolName,SchoolMoto,Logo from generalsetting");
 		return $qry->result();
 	}
+	
+	
+	function velidation($db_name)
+	{
+		$qry=$this->db->query("SHOW DATABASES LIKE $db_name");
+		return $qry->result();
+	}
 }

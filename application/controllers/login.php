@@ -37,22 +37,11 @@ Class Login extends CI_Controller {
 	
 	
 	
-	/* Function for login Application view.....................................................................*/
+	/* Function for rest api demo .....................................................................*/
 	function restapiDemo()
 	{
-		//$app_list=$this->data['app_list']=$this->login_model->app_list();
-		//if(isset($_GET['id'])&&!$_GET['id']=='login'&&!$_GET['id']=='reg')
-		//{ 
-		//	$list_dbname=$this->data['list_dbname']=$this->login_model->list_dbname($_GET['id']);
-		//}
-	//	$this->parser->parse('include/header',$this->data);
 		$this->load->view('restapiDemo',$this->data);
-		//$this->parser->parse('include/footer_dashboard',$this->data);
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -99,19 +88,27 @@ Class Login extends CI_Controller {
 		}
 	}
 	
+	
+		function validation()
+		{
+			$db_name=str_replace(' ','_',$this->input->post('db_name'));
+			$result=$this->data['result']=$this->login_model->velidation('demoschool');
+			if($result)
+			{
+				echo 'database name already exist';
+			}
+			else
+			{
+				echo 'database name already exist';
+			}
+		}
+	
+	
 		/* Function For insert organization and application information diffrent table and server application user table.........................................................*/
 	function set_registration_application($parm=false)
 	{
-		//print_r($parm);
-		//echo 'HIIII';
-		//print_r($_POST);
-		 //echo $this->input->post('organization_name');echo $this->input->post('name'); echo $this->input->post('terms');echo $this->input->post('password');echo $this->input->post('name');
-		//return;
-//die;
 		$org_id='';
-		
 		$org_name=$this->input->post('organization_name');
-	
 		$email=$this->input->post('email');
 		$username=$this->input->post('username');
 		$db_name=str_replace(' ','_',$this->input->post('db_name'));
@@ -169,7 +166,7 @@ Class Login extends CI_Controller {
 	
 	/* function for registration application............................................................................*/
 	function org_admin_registration_application($json) 
-	{ //echo'hit';return; die;
+	{ 
 		if(isset($json) && $json!=='')
 		{
 			$data=json_decode($json);//echo 'junction';print_r($data);return;die;
@@ -226,7 +223,7 @@ Class Login extends CI_Controller {
 				'UserType'=>'masteruser'
 		);	
 		$json= json_encode($data_user);// create json for sending purpose
-		echo $json;die;  
+		echo $json;die;
 		//redirect($data->url.'?data='.$json);
 		//$this->clone_db($json); 
 	}
