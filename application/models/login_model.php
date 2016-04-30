@@ -221,7 +221,7 @@ class Login_model extends CI_Model
 	}
 	
 	
-	function velidation($db_name)
+	function validation($db_name)
 	{
 		$qry=$this->db->query("SHOW DATABASES LIKE $db_name");
 		return $qry->result();
