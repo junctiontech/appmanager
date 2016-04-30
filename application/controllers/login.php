@@ -89,17 +89,18 @@ Class Login extends CI_Controller {
 	}
 	
 	
-		function validation()
+		function validation($db_name)
 		{
-			$db_name=str_replace(' ','_',$this->input->post('db_name'));
-			$result=$this->data['result']=$this->login_model->validation('demoschoolaa');
+			//$db_name=$_GET['db'];
+			//$db_name=str_replace(' ','_',$this->input->post('db_name'));
+			$result=$this->data['result']=$this->login_model->validation($db_name);
 			if($result) 
 			{
 				echo 'database name already exist';
 			}
 			else
 			{
-				echo 'database name already exist';
+				echo 'database name not exist';
 			}
 		}
 	
