@@ -91,6 +91,7 @@ Class Login extends CI_Controller {
 	
 		function validation($db_name)
 		{
+			echo $db_name;
 			//$db_name=$_GET['db'];
 			//$db_name=str_replace(' ','_',$this->input->post('db_name'));
 			$result=$this->data['result']=$this->login_model->validation($db_name);
