@@ -224,6 +224,7 @@ class Login_model extends CI_Model
 	function validation($db_name)
 	{
 		$qry="SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = $db_name ";
+		echo $qry;die;
 		return $qry;
 	}
 }
