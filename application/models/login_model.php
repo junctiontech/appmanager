@@ -223,7 +223,7 @@ class Login_model extends CI_Model
 	
 	function validation($db_name)
 	{
-		$qry=$this->db->query("SHOW DATABASES LIKE $db_name");
-		return $qry->result();
+		$qry="SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = $db_name ";
+		return $qry;
 	}
 }
