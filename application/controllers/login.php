@@ -65,7 +65,7 @@ Class Login extends CI_Controller {
 							'created_on'=>$this->input->post('application_admin_name'),
 							'created_on'=>date("Y-m-d")
 							);
-		   $this->rest->post('post',$OrganizationData,$ApplicationData);
+		  $result= $this->rest->post('post',$OrganizationData,$ApplicationData);echo $result;
 	  }
 	  
 }
