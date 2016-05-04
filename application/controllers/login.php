@@ -27,14 +27,14 @@ Class Login extends CI_Controller {
 	
 	
 	 /*----------------------------- Function for Dashboard view -----------------------------------*/
-	 function checkValidation()
+	/*  function checkValidation()
 	 {
 		 if(isset($validation))
 		 {
 			 
 		 }
 		 $this->rest->get('get',$id);
-	 }
+	 } */
 	
 	  /*----------------------------- Function for Dashboard view -----------------------------------*/
 	  function cloneDB()
@@ -64,6 +64,7 @@ Class Login extends CI_Controller {
 							'status'=>'active',
 							'created_on'=>$this->input->post('application_admin_name'),
 							'created_on'=>date("Y-m-d")
+							);
 		   $this->rest->post('POST',$OrganizationData,$ApplicationData);
 	  }
 	  
