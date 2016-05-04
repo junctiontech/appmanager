@@ -1,6 +1,6 @@
 <?php
 include(APPPATH.'libraries/rEST_Controller.php');
-class RestAPI 
+class RestAPI extends REST_Controller
 {
 	function __costruct()
 	{
@@ -42,7 +42,7 @@ class RestAPI
 	
 	/*---------------------- Start function for insert data ------------------------*/
 	function data_post()
-	{	echo 'df';die;
+	{	$this->response(array('status' => 'failed'));die;
 		$OrganizationData=$this->input->post('OrganizationData'); 
 		$dataorg=json_decode($OrganizationData);print_r($dataorg);die;
 		$result=$this->restAPI_model->insert_data('organizations',$dataorg);
