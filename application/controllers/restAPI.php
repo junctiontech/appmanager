@@ -41,8 +41,10 @@ class RestAPI extends REST_Controller
 	
 	/*---------------------- Start function for insert data ------------------------*/
 	function data_post()
-	{	$this->response(array('status' => 'failed'));die;
-		$OrganizationData=$this->input->post('OrganizationData'); 
+	{	
+			echo 'sdfdss';
+		//$this->response(array('status' => 'failed'));die;
+		/* $OrganizationData=$this->input->post('OrganizationData'); 
 		$dataorg=json_decode($OrganizationData);print_r($dataorg);die;
 		$result=$this->restAPI_model->insert_data('organizations',$dataorg);
 		if($result)
@@ -59,12 +61,12 @@ class RestAPI extends REST_Controller
 			{
 				$this->response('error');
 			}
-		}
+		} */
 	}
 	
 	
 	/*---------------------- Start function for clone database ------------------------*/
-	function cloneDB($ApplicationData)
+	/* function cloneDB($ApplicationData)
 	{
 		$json=json_decode($ApplicationData);
 		$result=$this->restAPI_model->cloneDB($json->DatabaseName);
@@ -72,11 +74,11 @@ class RestAPI extends REST_Controller
 		{
 			$this->insertLicenceKey($ApplicationData);
 		}
-	}
+	} */
 	
 	
 	/*---------------------- Start function for insert licence key and user details ------------------------*/
-	function insertLicenceKey($ApplicationData)
+	/* function insertLicenceKey($ApplicationData)
 	{
 		$json=json_decode($ApplicationData);
 		$data=array(
@@ -89,5 +91,5 @@ class RestAPI extends REST_Controller
 		{
 			$this->response(array('status' => 'success',REST_Controller::HTTP_OK));
 		}
-	} 
+	}  */
 }
