@@ -1,5 +1,5 @@
 <?php
-include(APPPATH.'/libraries/Curl.php');
+include(APPPATH.'/libraries/curl.php');
 Class Rest extends Curl
 {
 	function __construct($config)
