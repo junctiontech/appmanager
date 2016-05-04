@@ -15,7 +15,7 @@ Class Rest extends Curl
 		 $url = "$host/restAPI/data_post";
 		 $param1= json_encode($data1);
 		 $param2= json_encode($data2);
-		 $response=$this->restCurl($username,$password,$method,$url,$param1,$param2);return;
+		 $this->restCurl($username,$password,$method,$url,$param1,$param2);return;
 		/*  $json=json_decode($response);
 		 if($json->DatabaseName)
 		 {
