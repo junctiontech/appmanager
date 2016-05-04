@@ -1,6 +1,6 @@
 <?php
 include(APPPATH.'libraries/rEST_Controller.php');
-class RestAPI extends REST_Controller
+class RestAPI 
 {
 	function __costruct()
 	{
