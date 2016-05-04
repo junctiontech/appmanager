@@ -40,7 +40,7 @@ class RestAPI extends REST_Controller
 	 */
 	
 	/*---------------------- Start function for insert data ------------------------*/
-	function data_post()
+	function data_POST()
 	{	echo 'dsff';
 		$this->response(array('status' => 'failed'));die;
 		//$this->response(array('status' => 'failed'));die;
