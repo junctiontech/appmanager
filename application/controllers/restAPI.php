@@ -1,5 +1,5 @@
 <?php
-include(APPPATH.'libraries/rEST_Controller.php');
+include(APPPATH.'libraries/REST_Controller.php');
 class RestAPI extends REST_Controller
 {
 	function __costruct()
@@ -8,7 +8,7 @@ class RestAPI extends REST_Controller
 	}
 	
 	/*---------------------- Start function for check validation data ------------------------*/
-	function CheckValidation()
+	/* function CheckValidation()
 	{
 		$data=array(
 			'OrganizationEmail'=>$this->input->post('OrganizationEmail'),
@@ -37,7 +37,7 @@ class RestAPI extends REST_Controller
 			return 'error';
 		}
 	}
-	
+	 */
 	
 	/*---------------------- Start function for insert data ------------------------*/
 	function data_post()
