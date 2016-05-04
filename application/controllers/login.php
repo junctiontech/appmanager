@@ -38,7 +38,7 @@ Class Login extends CI_Controller {
 	
 	  /*----------------------------- Function for Dashboard view -----------------------------------*/
 	  function cloneDB()
-	  {		echo'hiii';die;
+	  {		//echo'hiii';die;
 		  $OrganizationData=array(
 							'organization_name'=>$this->input->post('organization_name'),
 							'name'=>$this->input->post('name'),
