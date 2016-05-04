@@ -12,7 +12,7 @@ Class Rest extends Curl
 		 $username= $this->data['']['http_user'];
 		 $password= $this->data['']['http_pass'];
 		 $host= $this->data['']['server'];
-		 $url = $url = "$host/RestAPI/rest";
+		 $url = $url = "$host/restAPI/rest";
 		 $param1= json_encode($data1);
 		 $param2= json_encode($data2);
 		 $response=$this->restCurl($username,$password,$method,$url,$param1,$param2);
@@ -67,7 +67,7 @@ Class Rest extends Curl
 		$password= $this->data['']['http_pass'];
 		$host= $this->data['']['server'];
 	//	$apiKey= $this->data['']['api_key'];
-	 	$url = "$host/RestAPI/rest/$apiKey/$param";
+	 	$url = "$host/restAPI/rest/$apiKey/$param";
 	    $this->restCurl($username,$password,$method,$url);return;
 	  }
 	   /*---------------------- End function for fetch data ------------------------*/
