@@ -42,7 +42,7 @@ class RestAPI extendes REST_Controller
 	
 	/*---------------------- Start function for insert data ------------------------*/
 	function rest_post()
-	{
+	{	echo 'insert';die;
 		$OrganizationData=$this->input->post('OrganizationData'); 
 		$dataorg=json_decode($OrganizationData);
 		$result=$this->Test_model->insert_data('organizations',$dataorg);
