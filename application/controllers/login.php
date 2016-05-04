@@ -13,7 +13,7 @@ Class Login extends CI_Controller {
 		$config=array('server'=>'http://junctiondev.cloudapp.net/appmanager',
 		'http_userID'=>'admin',
 		'http_password'=>'1234',
-		)
+		);
 		$this->load->library('rest',$config);
 	 }
 
