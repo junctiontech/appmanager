@@ -5,7 +5,7 @@ class RestAPI extends REST_Controller
 	function __costruct()
 	{
 		parent::__costruct();
-		$this->model('restAPI_model');
+		$this->load->model('restAPI_model');
 	}
 	
 	/*---------------------- Start function for check validation data ------------------------*/
