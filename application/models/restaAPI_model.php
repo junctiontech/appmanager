@@ -49,7 +49,7 @@
 				$password="";
 				$username="root";
 			}
-			if($_SERVER['HTTP_HOST']=="junctiondev.cloudapp.net"){
+			if($_SERVER['HTTP_HOST']=="junctiondev.cloudapp.net"){ 
 				//$dbname=$database_name;
 				$password="bitnami";
 				$username="root";
