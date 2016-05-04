@@ -2,7 +2,7 @@
 class Curl
 {
 	function restCurl($username,$password,$method,$url=false,$param=false,$param2=false)
-	{	echo $username;echo $password;echo $method;echo $url;echo $param;echo $param2;die;
+	{	//echo $username;echo $password;echo $method;echo $url;echo $param;echo $param2;die;
 	  if($param=='')
    	  {
 		$param='';
