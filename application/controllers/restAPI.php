@@ -5,7 +5,7 @@ class RestAPI extendes REST_Controller
 	function __costruct()
 	{
 		parent::__costruct();
-		$this->model('restaAPI_model');
+		$this->model('restAPI_model');
 	}
 	
 	/*---------------------- Start function for check validation data ------------------------*/
@@ -15,7 +15,7 @@ class RestAPI extendes REST_Controller
 			'OrganizationEmail'=>$this->input->post('OrganizationEmail'),
 			'OrganizationMobile'=>$this->input->post('OrganizationMobile')
 		);
-		$result=$this->RestaAPI_model->get('apiKey',array('organizations'=>$apiKey));
+		$result=$this->restAPI_model->get('apiKey',array('organizations'=>$apiKey));
 		if(count($result)>0)
 		{
 			$data=array(
@@ -23,7 +23,7 @@ class RestAPI extendes REST_Controller
 			'ApplicationAdminEmail'=>$this->input->post('ApplicationAdminEmail'),
 			'ApplicationAdminMobile'=>$this->input->post('ApplicationAdminMobile')
 			);
-			$response=$this->RestaAPI_model->get('apiKey',array('registered_application'=>$apiKey));
+			$response=$this->restAPI_model->get('apiKey',array('registered_application'=>$apiKey));
 			if(count($response)>0)
 			{
 				return 'success';
@@ -42,15 +42,15 @@ class RestAPI extendes REST_Controller
 	
 	/*---------------------- Start function for insert data ------------------------*/
 	function rest_post()
-	{	//echo 'insert';die;
+	{	echo 'insert';die;
 		$OrganizationData=$this->input->post('OrganizationData'); 
 		$dataorg=json_decode($OrganizationData);print_r($dataorg);die;
-		$result=$this->restaAPI_model->insert_data('organizations',$dataorg);
+		$result=$this->restAPI_model->insert_data('organizations',$dataorg);
 		if($result)
 		{
 			$ApplicationData=$this->input->post('ApplicationData'); 
 			$dataApp=json_decode($ApplicationData);
-			$response=$this->restaAPI_model->insert_data('registered_application',$dataApp);
+			$response=$this->restAPI_model->insert_data('registered_application',$dataApp);
 			if($response)
 			{
 				$this->cloneDB($ApplicationData);
@@ -68,7 +68,7 @@ class RestAPI extendes REST_Controller
 	function cloneDB($ApplicationData)
 	{
 		$json=json_decode($ApplicationData);
-		$result=$this->restaAPI_model->cloneDB($json->DatabaseName);
+		$result=$this->restAPI_model->cloneDB($json->DatabaseName);
 		if($result)
 		{
 			$this->insertLicenceKey($ApplicationData);
@@ -85,7 +85,7 @@ class RestAPI extendes REST_Controller
 			'Password'=>$json->ApplicationAdminPassword,
 			'UserType'=>'masteruser',
 			);
-		$response=$this->restaAPI_model->set_user($json->ApplicationAdminEmail,$json->ApplicationAdminPassword,$json->DatabaseName);
+		$response=$this->restAPI_model->set_user($json->ApplicationAdminEmail,$json->ApplicationAdminPassword,$json->DatabaseName);
 		if($response)
 		{
 			$this->response(array('status' => 'success',REST_Controller::HTTP_OK));
