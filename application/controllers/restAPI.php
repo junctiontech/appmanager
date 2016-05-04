@@ -4,7 +4,6 @@ class RestAPI extends REST_Controller
 {
 	function __costruct()
 	{
-		parent::__costruct();
 		$this->load->model('restAPI_model');
 	}
 	
