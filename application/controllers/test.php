@@ -5,7 +5,7 @@ class Test extends REST_Controller
 	public function __construct() 
 	{
 		parent::__construct();
-		$this->load->model('RestAPI_model');
+		$this->load->model('RestAPI_model'); 
 	}
 	
 	function data_post() 
