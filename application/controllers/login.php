@@ -10,7 +10,7 @@ Class Login extends CI_Controller {
 		$this->load->library('session');
 		$this->load->model('login_model');
 		$this->load->library('email');
-		$config=array('server'=>'http://junctiondev.cloudapp.net/appmanager',
+		$config=array('server'=>'http://junctiondev.cloudapp.net/appmanager/index.php',
 		'http_user'=>'admin',
 		'http_pass'=>'1234',
 		);
