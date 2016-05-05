@@ -8,7 +8,7 @@ class Test extends REST_Controller
 		$this->load->model('RestAPI_model');
 	}
 	
-	function data_post() 
+	function data_POST()
 	{
 		echo 'hiii';die;
 	}
