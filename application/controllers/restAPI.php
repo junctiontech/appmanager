@@ -8,6 +8,10 @@ class RestAPI extends REST_Controller
 		$this->load->model('restAPI_model');
 	}
 	
+	function data_post()
+	{
+		echo'hiii';die;
+	}
 	/*---------------------- Start function for check validation data ------------------------*/
 	/* function CheckValidation()
 	{
@@ -41,9 +45,9 @@ class RestAPI extends REST_Controller
 	 */
 	
 	/*---------------------- Start function for insert data ------------------------*/
-	function data_post()
+	/* function data_post()
 	{	echo 'dsff';
-		$this->response(array('status' => 'failed'));die;
+		$this->response(array('status' => 'failed'));die; */
 		//$this->response(array('status' => 'failed'));die;
 		/* $OrganizationData=$this->input->post('OrganizationData'); 
 		$dataorg=json_decode($OrganizationData);print_r($dataorg);die;
@@ -63,7 +67,7 @@ class RestAPI extends REST_Controller
 				$this->response('error');
 			}
 		} */
-	}
+	//}
 	
 	
 	/*---------------------- Start function for clone database ------------------------*/
