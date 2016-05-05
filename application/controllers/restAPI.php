@@ -5,10 +5,10 @@ class RestAPI extends REST_Controller
 	public function __construct() 
 	{
 		parent::__construct();
-		$this->load->model('restAPI_model');
+		$this->load->model('RestAPI_model');
 	}
 	
-	function data_post()
+	function data_post() 
 	{
 		$this->response(array('status' => 'Invalid Api Key',REST_Controller::HTTP_UNAUTHORIZED));die;
 	}
