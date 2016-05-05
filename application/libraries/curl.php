@@ -2,7 +2,7 @@
 class Curl
 {
 	function restCurl($username,$password,$method,$url=false,$param=false,$param2=false)
-	{	echo 'hii';die;//echo $username;echo $password;echo $method;echo $url;echo $param;echo $param2;die;
+	{	//echo 'hii';die;//echo $username;echo $password;echo $method;echo $url;echo $param;echo $param2;die;
 	  if($param=='')
    	  {
 		$param='';
@@ -11,7 +11,7 @@ class Curl
 	  $url = $url;
 	  curl_setopt($ch,CURLOPT_URL,$url);
 	  curl_setopt($ch,CURLOPT_POST, true);
-	  curl_setopt($ch,CURLOPT_POSTFIELDS, http_build_query(array( 'OrganizationData'=>$param,'ApplicationData'=>$param2 )));
+	  curl_setopt($ch,CURLOPT_POSTFIELDS, http_build_query(array( 'OrganizationData'=>$param)));
 	  curl_setopt($ch, CURLOPT_USERPWD, $username . ':' . $password);
 	  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 	  curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
