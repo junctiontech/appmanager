@@ -1,6 +1,6 @@
 <?php
 include(APPPATH.'libraries/REST_Controller.php');
-class RestAPI extends REST_Controller
+class RestAPI 
 {
 	public function __construct() 
 	{
@@ -10,7 +10,7 @@ class RestAPI extends REST_Controller
 	
 	function data_post() 
 	{
-		$this->response(array('status' => 'Invalid Api Key',REST_Controller::HTTP_UNAUTHORIZED));die;
+		echo 'hiii';die;
 	}
 	/*---------------------- Start function for check validation data ------------------------*/
 	/* function CheckValidation()
