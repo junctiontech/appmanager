@@ -10,7 +10,7 @@ Class Login extends CI_Controller {
 		$this->load->library('session');
 		$this->load->model('login_model');
 		$this->load->library('email');
-		$config=array('server'=>'http://junctiondev.cloudapp.net/appmanager/index.php',
+		$config=array('server'=>'http://junctiondev.cloudapp.net/appmanager',
 		'http_user'=>'admin',
 		'http_pass'=>'1234',
 		);
@@ -65,7 +65,7 @@ Class Login extends CI_Controller {
 							'created_on'=>$this->input->post('application_admin_name'),
 							'created_on'=>date("Y-m-d")
 							);
-		  $result= $this->rest->post('POST',$OrganizationData,$ApplicationData);echo $result;
+		  $result= $this->rest->get('get',$OrganizationData,$ApplicationData);echo $result;
 	  }
 	  
 }

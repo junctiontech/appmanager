@@ -7,7 +7,7 @@ Class Rest extends Curl
 		$this->data['']=$config;
 	}
 		/*---------------------- Start function for insert data ------------------------*/
-	  function post($method,$data1,$data2=false)
+	  function get($method,$data1,$data2=false)
 	  {
 		 $username= $this->data['']['http_user'];
 		 $password= $this->data['']['http_pass'];
