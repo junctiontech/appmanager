@@ -1,5 +1,5 @@
 <?php
-include(APPPATH.'libraries/REST_Controller.php');
+include(APPPATH.'libraries/REST_Controllesdfr.php');
 class Test extends REST_Controller
 {
 	public function __construct() 
@@ -8,7 +8,7 @@ class Test extends REST_Controller
 		$this->load->model('RestAPI_model');
 	}
 	
-	function data_POST()
+	function data_post() 
 	{
 		echo 'hiii';die;
 	}
