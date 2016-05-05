@@ -2,7 +2,7 @@
 include(APPPATH.'libraries/REST_Controller.php');
 class RestAPI extends REST_Controller
 {
-	function __construct()
+	function __construct() 
 	{
 		$this->load->model('restAPI_model');
 	}
