@@ -378,9 +378,9 @@ Class Login extends CI_Controller {
 				{
 					$status_org_info=$this->login_model->login('organizations',array('organization_id'=>$app_info[0]->organization_id));   // hear check organization status is active or not
 					$app_url_info=$this->login_model->login('applications',array('application_id'=>$app_info[0]->application_id));		  // get application url and redirect into server
-					if($status_org_info[0]->status=='active') 
+					if($status_org_info[0]->organizationStatus=='active') 
 					{
-						if($app_info[0]->status=='active')  // check status application active or not
+						if($app_info[0]->applicationStatus=='active')  // check status application active or not
 						{
 							$explode=explode("@",$value->username);  
 							if(count($explode)>= 2)  
