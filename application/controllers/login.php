@@ -349,15 +349,13 @@ Class Login extends CI_Controller {
 		if(isset($_POST) && isset($_POST['json'])==''){
 			$json=$_POST;	
 			$data=json_encode($json);
-			$value=json_decode($data);print_r($value);die;
+			$value=json_decode($data);//print_r($value);die;
 		}
 		else
 		{	
 			$json=$_POST['json'];
 			$value=json_decode($json); 
 			$url_name=$value->device;
-			
-			
 		}	
 		if(isset($_SERVER['HTTP_REFERER']) && isset($value->device)!=='')
 		{
@@ -405,8 +403,8 @@ Class Login extends CI_Controller {
 										'organization_name'=>str_replace(' ','_',$status_org_info[0]->organization_name),
 								);
 							} 
-							$value=json_encode($data);
-							$url=$app_url_info[0]->application_url.$app_url_info[0]->login_function;
+							$value=json_encode($data);print_r($value);
+							$url=$app_url_info[0]->application_url.$app_url_info[0]->login_function;echo '</br>';echo $url;die;
 							redirect($url.'?json='.$value);
 						}
 						else 
