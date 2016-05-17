@@ -355,7 +355,7 @@ Class Login extends CI_Controller {
 		{	
 			$json=$_POST['json'];
 			$value=json_decode($json); 
-			$url_name=$value->device;print_r($value);die;
+			$url_name=$value->device;//print_r($value);die;
 		}	
 		if(isset($_SERVER['HTTP_REFERER']) && isset($value->device)!=='')
 		{
@@ -368,7 +368,7 @@ Class Login extends CI_Controller {
 					$this->session->set_userdata(array('username'=>'admin'));
 					$this->session->userdata('username');
 				}
-			}
+			} 
 			elseif($value->db_name)
 			{
 				$app_info=$this->login_model->login('registered_application',array('db_name'=>$value->db_name));
