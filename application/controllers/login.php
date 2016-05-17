@@ -361,15 +361,15 @@ Class Login extends CI_Controller {
 		{
 			$url_name=$_SERVER['HTTP_REFERER'];// take and save in which url user login for application
 		}   //echo $value->db_name;die;
-			if($value->db_name=='')                    //Super Admin Case if login into Application
+			/* if($value->db_name=='')                    //Super Admin Case if login into Application
 			{
 				if('admin'==$this->input->POST('username') && 'admin'==$this->input->post('password'))
 				{
 					$this->session->set_userdata(array('username'=>'admin'));
 					$this->session->userdata('username');
 				}
-			} 
-			elseif($value->db_name)
+			}  */
+			if($value->db_name)
 			{
 				$app_info=$this->login_model->login('registered_application',array('db_name'=>$value->db_name));
 				if($app_info)
