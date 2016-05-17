@@ -403,8 +403,8 @@ Class Login extends CI_Controller {
 										'organization_name'=>str_replace(' ','_',$status_org_info[0]->organization_name),
 								);
 							} 
-							$value=json_encode($data);print_r($value);
-							$url=$app_url_info[0]->application_url.$app_url_info[0]->login_function;echo '</br>';echo $url;die;
+							$value=json_encode($data);//print_r($value);
+							$url=$app_url_info[0]->application_url.$app_url_info[0]->login_function;//echo '</br>';echo $url;die;
 							redirect($url.'?json='.$value);
 						}
 						else 
