@@ -360,7 +360,7 @@ Class Login extends CI_Controller {
 		if(isset($_SERVER['HTTP_REFERER']) && isset($value->device)!=='')
 		{
 			$url_name=$_SERVER['HTTP_REFERER'];// take and save in which url user login for application
-		}   echo $value->db_name;die;
+		}   //echo $value->db_name;die;
 			if($value->db_name=='')                    //Super Admin Case if login into Application
 			{
 				if('admin'==$this->input->POST('username') && 'admin'==$this->input->post('password'))
@@ -403,7 +403,7 @@ Class Login extends CI_Controller {
 										'organization_name'=>str_replace(' ','_',$status_org_info[0]->organization_name),
 								);
 							} 
-							$value=json_encode($data);//print_r($value);
+							$value=json_encode($data);print_r($value);die;
 							$url=$app_url_info[0]->application_url.$app_url_info[0]->login_function;//echo '</br>';echo $url;die;
 							redirect($url.'?json='.$value);
 						}
