@@ -360,7 +360,7 @@ Class Login extends CI_Controller {
 		if(isset($_SERVER['HTTP_REFERER']) && isset($value->device)!=='')
 		{
 			$url_name=$_SERVER['HTTP_REFERER'];// take and save in which url user login for application
-		}   
+		}   echo $value->db_name;die;
 			if($value->db_name=='')                    //Super Admin Case if login into Application
 			{
 				if('admin'==$this->input->POST('username') && 'admin'==$this->input->post('password'))
