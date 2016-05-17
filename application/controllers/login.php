@@ -355,7 +355,7 @@ Class Login extends CI_Controller {
 		{	
 			$json=$_POST['json'];
 			$value=json_decode($json); 
-			$url_name=$value->device;
+			$url_name=$value->device;print_r($value);die;
 		}	
 		if(isset($_SERVER['HTTP_REFERER']) && isset($value->device)!=='')
 		{
